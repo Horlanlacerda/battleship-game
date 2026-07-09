@@ -36,11 +36,10 @@ O sistema visa cumprir os seguintes requisitos obrigatórios:
 | Tecnologia | Versão | Propósito |
 | :--- | :--- | :--- |
 
-## 👥 Autores
+##  Autores
 
-* Gabriela Almeida
-* Georis Samuel
-* Horlan Silva
-* Suelle Ferreira
-
+* **Gabriela Andrade [(@gabiandradeal)](https://github.com/gabiandradeal)**
+* **Georis Samuel [(@georiSamuel)](https://github.com/georiSamuel)**
+* **Horlan Lacerda [(@Horlanlacerda)](https://github.com/Horlanlacerda)**
+* **Suelle Maciel [(@SuelleMaciel)](https://github.com/SuelleMaciel)**
 
