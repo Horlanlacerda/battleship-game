@@ -24,7 +24,6 @@ O sistema visa cumprir os seguintes requisitos obrigatórios:
 | Tecnologia | Versão | Propósito |
 | :--- | :--- | :--- |
 | **C++** | ISO/IEC 14882 | Linguagem de programação principal |
-| **JavaScript** | ECMAScript | Linguagem secundária de uso obrigatório |
 
 ### 🗄️ **Banco de Dados**
 
