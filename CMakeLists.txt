@@ -11,9 +11,12 @@ add_executable(ToDoDaSemana
     src/model/ScoreCalculator.cpp
     include/model/ScoreCalculator.h
 )
-
-target_link_libraries(ToDoDaSemana
-    SFML::Graphics
-    SFML::Window
-    SFML::System
+target_include_directories(ToDoDaSemana PRIVATE include)
+target_link_libraries(ToDoDaSemana PRIVATE SFML::Graphics SFML::Window SFML::System)
+add_executable(test_menu
+        tests/manual_menu_test.cpp
+        src/view/MenuScreen.cpp
 )
+target_include_directories(test_menu PRIVATE include)
+
+target_link_libraries(test_menu PRIVATE SFML::Graphics SFML::Window SFML::System)
