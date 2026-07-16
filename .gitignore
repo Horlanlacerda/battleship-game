@@ -1,17 +1,31 @@
-# Build artifacts
+# --- IDE configs pessoais ---
+.idea/
+.vscode/
+
+# --- CMake metadata/build ---
+.cmake/
+cmake-build-*/
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+
+# --- Ninja build system ---
+.ninja_deps
+.ninja_log
+build.ninja
+
+# --- CTest ---
+Testing/
+
+# --- Binários e artefatos compilados ---
 *.exe
 *.dll
 *.o
 *.obj
-build.ninja
-.ninja_deps
-.ninja_log
-CMakeCache.txt
-cmake_install.cmake
-compile_commands.json
-CMakeFiles/
+*.pdb
 
-# Pastas de build inteiras (se você usar essa convenção)
-cmake-build-debug/
-cmake-build-release/
-build/
+# --- Sistema operacional ---
+Thumbs.db
+.DS_Store
