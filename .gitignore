@@ -1,0 +1,17 @@
+# Build artifacts
+*.exe
+*.dll
+*.o
+*.obj
+build.ninja
+.ninja_deps
+.ninja_log
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+CMakeFiles/
+
+# Pastas de build inteiras (se você usar essa convenção)
+cmake-build-debug/
+cmake-build-release/
+build/
