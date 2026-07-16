@@ -1,3 +1,9 @@
 build/
 .vscode/
 *.exe
+/.idea/editor.xml
+/.idea/repository.iml
+/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2026_17_05_[Changes]/shelved.patch
+/.idea/shelf/Uncommitted_changes_before_Update_at_11_07_2026_17_05__Changes_.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
