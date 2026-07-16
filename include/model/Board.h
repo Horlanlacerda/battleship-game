@@ -60,7 +60,7 @@ public:
      * @param row Linha inicial onde a proa do navio será posicionada.
      * @param col Coluna inicial onde a proa do navio será posicionada.
      * @param size Tamanho do navio em número de células.
-     * @param horizontal true para orientação horizontal, false para vertical.
+     * @param horizontal true para orientação horizontal do navio, false para vertical.
      *
      * @return true se o navio pode ser posicionado na posição solicitada ou
      *         false se houver colisão com outro navio, sair dos limites do
@@ -112,6 +112,30 @@ public:
      * @date 10/07/2026
      */
     void removeShip(int row, int col, int size, bool horizontal);
+
+
+
+    // --- Terrenos ------------------------>
+
+    /**
+     * @brief Define diretamente o estado de uma célula do tabuleiro.
+     * @details Usado exclusivamente pelo MapLayout para aplicar terrenos
+     * especiais (BLOCKED, SHALLOW) antes do início da fase de posicionamento.
+     * Não deve ser chamado durante a partida para não corromper o estado do jogo.
+     *
+     * @param row   Linha da célula a ser modificada.
+     * @param col   Coluna da célula a ser modificada.
+     * @param state Novo estado a ser atribuído à célula.
+     *
+     * @warning Não use este método durante a fase de tiro. Ele ignora todas
+     * as regras de negócio — é uma escrita direta na matriz.
+     *
+     * @see MapLayout::apply() para o uso correto deste método.
+     *
+     * @author Georis
+     * @date 17/07/2026
+     */
+    void setCell(int row, int col, CellState state);
 
 
     // --- Tiro 🔫 ------------------------>
