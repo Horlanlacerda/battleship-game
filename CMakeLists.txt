@@ -12,6 +12,7 @@ add_executable(BatalhaNaval
         src/model/Board.cpp
         src/model/Ship.cpp
         src/model/GameState.cpp
+        src/model/MapLayout.cpp
         # conforme os .cpp forem criados, adicionar aqui:
 )
 
