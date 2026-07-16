@@ -6,12 +6,13 @@ int main() {
     MenuScreen menu(window);
 
     MenuOption choice = menu.showMainMenu();
-
-    switch (choice) {
-        case MenuOption::START:        std::cout << "Iniciar Jogo\n"; break;
-        case MenuOption::RANKING:      std::cout << "Ranking\n"; break;
-        case MenuOption::INSTRUCTIONS: std::cout << "Instrucoes\n"; break;
-        case MenuOption::EXIT:         std::cout << "Sair\n"; break;
+    if (choice == MenuOption::START) {
+        MapType map = menu.showMapSelection();
+        switch (map) {
+            case MapType::POCA:    std::cout << "Poca\n"; break;
+            case MapType::LAGO:    std::cout << "Lago\n"; break;
+            case MapType::OCEANO:  std::cout << "Oceano\n"; break;
+        }
     }
 
     return 0;

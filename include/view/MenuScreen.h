@@ -2,6 +2,7 @@
 #define MENUSCREEN_H
 
 #include <SFML/Graphics.hpp>
+#include "model/GameState.h"   // ou "model/MapType.h", se você criar separado
 
 enum class MenuOption { START, RANKING, INSTRUCTIONS, EXIT };
 
@@ -9,6 +10,7 @@ class MenuScreen {
 public:
     explicit MenuScreen(sf::RenderWindow& window);
     MenuOption showMainMenu();
+    MapType showMapSelection();
 
 private:
     sf::RenderWindow& window;
