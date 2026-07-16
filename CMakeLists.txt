@@ -3,24 +3,19 @@ cmake_minimum_required(VERSION 3.20)
 project(BattleShipGame)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)  # garante que o compilador rejeite código abaixo do C++17
 
 find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System)
 
-add_executable(ToDoDaSemana
-    src/main.cpp
-    src/model/Ship.cpp
+add_executable(BatalhaNaval
+        src/main.cpp
+        src/model/Board.cpp
+        src/model/Ship.cpp
+        # conforme os .cpp forem criados, adicionar aqui:
 )
 
-target_include_directories(ToDoDaSemana PRIVATE include include/model)
-
-target_link_libraries(ToDoDaSemana
-    SFML::Graphics
-    SFML::Window
-    SFML::System
+target_link_libraries(BatalhaNaval
+        SFML::Graphics
+        SFML::Window
+        SFML::System
 )
-
-add_executable(test_ship_manual
-    tests/test_ship_manual.cpp
-    src/model/Ship.cpp
-)
-target_include_directories(test_ship_manual PRIVATE include include/model)
