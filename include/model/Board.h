@@ -4,9 +4,6 @@
 
 /**
  * @brief Representa os possíveis estados de uma célula no tabuleiro.
- * @details Cada célula do tabuleiro pode estar em um destes estados,
- * determinando se há navio, se foi atingida, ou se o terreno impõe
- * restrições de posicionamento (Funcionalidades do Sprint 4).
  * @author Georis
  * @date 10/07/2026
  */
@@ -20,7 +17,7 @@ enum class CellState {
 };
 
 /**
- * @brief Gerencia o tabuleiro do jogo de Batalha Naval.
+ * @brief Gerencia o tabuleiro do jogo de Batalha Naval
  * @details A classe Board é responsável por manter o estado de todas as células
  * do tabuleiro, validar posicionamento de navios, processar tiros e verificar
  * condições de fim de jogo.
@@ -56,7 +53,7 @@ public:
     // --- Posicionamento ------------------------>
 
     /**
-     * @brief Verifica se um navio pode ser posicionado na posição escolhida.
+     * @brief Verifica se um navio pode ser posicionado na posição escolhida
      * @details Valida as regras de colisão, limites do tabuleiro e restrições
      * de terreno (BLOCKED e SHALLOW) antes de permitir o posicionamento.
      *
@@ -75,7 +72,7 @@ public:
     bool canPlace(int row, int col, int size, bool horizontal) const;
 
     /**
-     * @brief Posiciona um navio no tabuleiro.
+     * @brief Posiciona um navio no tabuleiro
      * @details Marca as células correspondentes com CellState::SHIP.
      * A operação só é realizada se a validação de canPlace() retornar true.
      *
@@ -97,7 +94,7 @@ public:
     bool placeShip(int row, int col, int size, bool horizontal);
 
     /**
-     * @brief Remove um navio previamente posicionado no tabuleiro.
+     * @brief Remove um navio previamente posicionado no tabuleiro
      * @details Restaura as células ocupadas pelo navio para o estado CellState::EMPTY.
      * Utilizado principalmente para desfazer operações de posicionamento
      * durante a fase de setup ou para algoritmos de backtracking.
@@ -120,7 +117,7 @@ public:
     // --- Tiro 🔫 ------------------------>
 
     /**
-     * @brief Verifica se uma coordenada de tiro é válida.
+     * @brief Verifica se uma coordenada de tiro é válida
      * @details Um tiro é considerado válido se a coordenada está dentro dos
      * limites do tabuleiro e a célula ainda não foi atacada (não está HIT nem MISS).
      *
@@ -162,7 +159,7 @@ public:
     // --- Getters ------------------------>
 
     /**
-     * @brief Retorna o estado atual de uma célula específica.
+     * @brief Retorna o estado atual de uma célula específica
      *
      * @param row Linha da célula a ser consultada.
      * @param col Coluna da célula a ser consultada.
@@ -177,7 +174,7 @@ public:
     CellState getCell(int row, int col) const;
 
     /**
-     * @brief Retorna o número de linhas do tabuleiro.
+     * @brief Retorna o número de linhas do tabuleiro
      * @return Quantidade de linhas (dimensão vertical).
      *
      * @author Georis
@@ -198,7 +195,7 @@ public:
     // --- Utilitários ------------------------>
 
     /**
-     * @brief Verifica se ainda existe algum navio intacto no tabuleiro.
+     * @brief Verifica se ainda existe algum navio intacto no tabuleiro
      * @details Percorre toda a matriz em busca de células com estado
      * CellState::SHIP. É utilizado pelo GameController para determinar
      * se o jogo terminou (todos os navios do jogador foram destruídos).
@@ -212,7 +209,7 @@ public:
     bool hasAnyShipRemaining() const;
 
     /**
-     * @brief Reinicia completamente o tabuleiro.
+     * @brief Reinicia completamente o tabuleiro
      * @details Restaura todas as células para o estado CellState::EMPTY,
      * removendo todos os navios e marcas de tiros. É equivalente a criar
      * um novo tabuleiro preservando as dimensões originais.
@@ -231,7 +228,7 @@ private:
     std::vector<std::vector<CellState>> grid; ///< Matriz bidimensional que armazena o estado de cada célula
 
     /**
-     * @brief Verifica se uma coordenada está dentro dos limites do tabuleiro.
+     * @brief Verifica se uma coordenada está dentro dos limites do tabuleiro
      * @param row Linha a ser verificada.
      * @param col Coluna a ser verificada.
      * @return true se a coordenada (row, col) é válida e false caso contrário.
