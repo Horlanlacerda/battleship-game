@@ -19,7 +19,7 @@ enum class ShipType {
  * Nota de arquitetura: o Ship conhece sua própria posição inicial (para
  * calcular as células que ocupa), mas não valida limites do tabuleiro
  * nem colisão com outros navios — essa responsabilidade é do Board.
- * @author Dev 2 (Nome do Integrante)
+ * @author Gabi
  */
 class Ship {
 public:
