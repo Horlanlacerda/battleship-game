@@ -9,7 +9,7 @@ find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System)
 
 add_executable(BatalhaNaval
     src/main.cpp
-        src/Board.cpp
+        src/model/Board.cpp
         # conforme os .cpp forem criados, adicionar aqui:
 )
 
