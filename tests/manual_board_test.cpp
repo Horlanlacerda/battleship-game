@@ -1,4 +1,4 @@
-#include "../include/model/Board.h"
+#include "Board.h"
 #include <iostream>
 
 void printBoard(const Board& b) {
