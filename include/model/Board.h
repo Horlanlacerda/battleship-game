@@ -13,7 +13,7 @@ enum class CellState {
     HIT,      ///< Célula onde um tiro acertou um navio (dano confirmado)
     MISS,     ///< Célula onde um tiro caiu na água (erro)
     BLOCKED,  ///< Terreno bloqueado, navio não pode ser posicionado nesta célula
-    SHALLOW   ///< Terreno raso, apenas navios de tamanho pequeno podem ocupar esta célula
+    SHALLOW   ///< Terreno raso, apenas navios SMALL podem ocupar esta célula
 };
 
 /**
@@ -81,7 +81,6 @@ public:
      * @param size Tamanho do navio em número de células.
      * @param horizontal true para orientação horizontal, false para vertical
      *
-     * @warning Terrenos BLOCKED e SHALLOW ainda não são validados nesta versão.
      *
      * @return true se o navio foi posicionado com sucesso;
      *         false se a posição for inválida (falha na validação).
