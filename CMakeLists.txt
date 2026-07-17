@@ -11,16 +11,6 @@ add_executable(BatalhaNaval
     src/main.cpp
         # conforme os .cpp forem criados, adicionar aqui:
 )
-<<<<<<< Updated upstream
-
-target_link_libraries(BatalhaNaval
-    SFML::Graphics
-    SFML::Window
-    SFML::System
-=======
-add_executable(test_board
-        tests/manual_board_test.cpp
-)
 
 add_executable(TestRenderer
         tests/main_test_renderer.cpp
@@ -28,14 +18,20 @@ add_executable(TestRenderer
         src/view/BoardRenderer.cpp
 )
 
-target_include_directories(BatalhaNaval PRIVATE src)
-target_include_directories(test_board PRIVATE include)
+add_executable(TestController
+        tests/main_test_controller.cpp
+        src/model/Board.cpp
+        src/view/BoardRenderer.cpp
+        src/controller/GameController.cpp
+)
+
 target_include_directories(TestRenderer PRIVATE include include/model include/view)
+target_include_directories(TestController PRIVATE include include/model include/view include/controller)
 
 target_link_libraries(BatalhaNaval
-        SFML::Graphics
-        SFML::Window
-        SFML::System
+    SFML::Graphics
+    SFML::Window
+    SFML::System
 )
 
 target_link_libraries(TestRenderer
@@ -43,5 +39,11 @@ target_link_libraries(TestRenderer
         SFML::Graphics
         SFML::Window
         SFML::System
->>>>>>> Stashed changes
+)
+
+target_link_libraries(TestController
+        SFML::Main
+        SFML::Graphics
+        SFML::Window
+        SFML::System
 )
