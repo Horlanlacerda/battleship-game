@@ -1,3 +1,0 @@
-C:/Users/ninoe/Documents/UEPB/5º Período/Paradigmas/battleship-game/build/CMakeFiles/BatalhaNaval.dir
-C:/Users/ninoe/Documents/UEPB/5º Período/Paradigmas/battleship-game/build/CMakeFiles/edit_cache.dir
-C:/Users/ninoe/Documents/UEPB/5º Período/Paradigmas/battleship-game/build/CMakeFiles/rebuild_cache.dir
