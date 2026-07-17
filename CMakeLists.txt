@@ -13,11 +13,16 @@ add_executable(BatalhaNaval
         src/model/Ship.cpp
         src/model/GameState.cpp
         src/model/MapLayout.cpp
+        tests/manual_board_test.cpp
         # conforme os .cpp forem criados, adicionar aqui:
+)
+add_executable(test_board
+        tests/manual_board_test.cpp
 )
 
 # Diz ao CMake para considerar a pasta "src" como base para procurar os Headers (.h)
 target_include_directories(BatalhaNaval PRIVATE src)
+target_include_directories(test_board PRIVATE include)
 
 target_link_libraries(BatalhaNaval
         SFML::Graphics

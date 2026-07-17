@@ -21,6 +21,13 @@ out/
 cmake-build-*/
 
 # <---------------------------------------->
+# Ninja Build
+# <---------------------------------------->
+.ninja_deps
+.ninja_log
+build.ninja
+
+# <---------------------------------------->
 # Lixo gerado pelo CMake
 # <---------------------------------------->
 CMakeCache.txt
@@ -31,6 +38,8 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
+Testing/
+.cmake/
 
 # <---------------------------------------->
 # CLion (JetBrains IDEs)
