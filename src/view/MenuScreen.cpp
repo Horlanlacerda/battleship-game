@@ -5,8 +5,8 @@
 #include <optional>
 
 MenuScreen::MenuScreen(sf::RenderWindow& window) : window(window) {
-    if (!font.openFromFile("../assets/fonts/arial.ttf"))
-        throw std::runtime_error("Fonte nao encontrada: assets/fonts/arial.ttf");
+    if (!font.openFromFile("../assets/fonts/Roboto-Regular.ttf"))
+        throw std::runtime_error("Fonte nao encontrada: assets/fonts/Roboto-Regular.ttf");
 }
 MapType MenuScreen::showMapSelection() {
     sf::RectangleShape btnPoca({200.f, 60.f});

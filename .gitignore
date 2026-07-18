@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 # --- IDE configs pessoais ---
 .idea/
 .vscode/
 
 # --- CMake metadata/build ---
 .cmake/
+=======
+>>>>>>> 35e6011d242ec0fd9c486a50b121984ad6f201be
 # <---------------------------------------->
 # C++ e Arquivos Compilados
 # <---------------------------------------->
@@ -16,6 +19,7 @@
 *.dylib
 *.a
 *.lib
+<<<<<<< HEAD
 
 # <---------------------------------------->
 # Diretórios de Build (CMake)
@@ -50,6 +54,36 @@ Testing/
 
 
 # <---------------------------------------->
+=======
+
+# <---------------------------------------->
+# Diretórios de Build (CMake)
+# <---------------------------------------->
+build/
+bin/
+obj/
+out/
+cmake-build-*/
+
+# <---------------------------------------->
+# Lixo gerado pelo CMake
+# <---------------------------------------->
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+
+# <---------------------------------------->
+# CLion (JetBrains IDEs)
+# <---------------------------------------->
+.idea/
+
+# <---------------------------------------->
+>>>>>>> 35e6011d242ec0fd9c486a50b121984ad6f201be
 # VS Code
 # <---------------------------------------->
 .vscode/*
@@ -74,4 +108,8 @@ Thumbs.db
 # <---------------------------------------->
 *.db
 *.sqlite
+<<<<<<< HEAD
 *.sqlite3
+=======
+*.sqlite3
+>>>>>>> 35e6011d242ec0fd9c486a50b121984ad6f201be
