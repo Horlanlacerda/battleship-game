@@ -23,13 +23,13 @@ Board& GameState::getComputerBoard()  { return computerBoard; }
 // se o computerBoard não tem mais navios >> jogador ganhou
 // se o playerBoard não tem mais navios >> computador ganhou
 GameResult GameState::checkResult() const {
-    if (!computerBoard.hasAnyShipRemaining()) return GameResult::PLAYER_WIN;
-    if (!playerBoard.hasAnyShipRemaining())   return GameResult::COMPUTER_WIN;
-    return GameResult::ONGOING;
+    if (!computerBoard.hasAnyShipRemaining()) return GameResult::PLAYER_GANHOU;
+    if (!playerBoard.hasAnyShipRemaining())   return GameResult::COMPUTER_GANHOU;
+    return GameResult::OCORRENDO;
 }
 
 bool GameState::isGameOver() const {
-    return checkResult() != GameResult::ONGOING;
+    return checkResult() != GameResult::OCORRENDO;
 }
 
 void GameState::startTimer() {

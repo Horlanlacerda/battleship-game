@@ -36,9 +36,9 @@ bool Board::canPlace(int row, int col, int size, bool horizontal) const {
         if (grid[shipRow][shipCol] == CellState::BLOCKED)
             return false;
 
-        // SHALLOW: só navios pequenos (size == 1) podem entrar
-        // Se o navio tem 2 ou mais células, rejeita qualquer célula rasa
-        if (grid[shipRow][shipCol] == CellState::SHALLOW && size > 1)
+        // SHALLOW: só navios pequenos (size == 2) podem entrar
+        // Se o navio tem 3 ou mais células, rejeita qualquer célula rasa
+        if (grid[shipRow][shipCol] == CellState::SHALLOW && size > 2)
             return false;
 
         // 3. Colisão com navios existentes

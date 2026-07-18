@@ -1,5 +1,5 @@
+#include "Ship.h"
 #include <iostream>
-#include "../include/model/Ship.h"
 
 void printOccupiedCells(const Ship& ship) {
     std::cout << "Celulas ocupadas: ";

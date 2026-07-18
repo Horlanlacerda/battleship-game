@@ -12,7 +12,7 @@
 void MapLayout::apply(Board& board, MapType map) {
 
     if (map == MapType::ACUDE) {
-        // ---- Poça 5×5 --------------------------------------->
+        // ---- Açude 5×5 --------------------------------------->
         // Tabuleiro pequeno, ou seja, terreno mínimo para não sufocar a frota de 3 navios.
         //
         // Layout visual (B = BLOCKED, S = SHALLOW, . = EMPTY):
