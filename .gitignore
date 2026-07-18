@@ -1,3 +1,11 @@
+# --- IDE configs pessoais ---
+.idea/
+.vscode/
+
+# --- CMake metadata/build ---
+.cmake/
+>>>>>>> 35e6011d242ec0fd9c486a50b121984ad6f201be
+>>>>>>> feature/menu-screen
 # <---------------------------------------->
 # C++ e Arquivos Compilados
 # <---------------------------------------->
@@ -21,6 +29,13 @@ out/
 cmake-build-*/
 
 # <---------------------------------------->
+# Ninja Build
+# <---------------------------------------->
+.ninja_deps
+.ninja_log
+build.ninja
+
+# <---------------------------------------->
 # Lixo gerado pelo CMake
 # <---------------------------------------->
 CMakeCache.txt
@@ -30,14 +45,11 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json
+
+# --- CTest ---
 CTestTestfile.cmake
+Testing/
 
-# <---------------------------------------->
-# CLion (JetBrains IDEs)
-# <---------------------------------------->
-.idea/
-
-# <---------------------------------------->
 # VS Code
 # <---------------------------------------->
 .vscode/*
@@ -62,4 +74,3 @@ Thumbs.db
 # <---------------------------------------->
 *.db
 *.sqlite
-*.sqlite3

@@ -9,6 +9,7 @@ find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System Main)
 
 add_executable(BatalhaNaval
     src/main.cpp
+<<<<<<< HEAD
         # conforme os .cpp forem criados, adicionar aqui:
 )
 
@@ -47,3 +48,13 @@ target_link_libraries(TestController
         SFML::Window
         SFML::System
 )
+
+target_include_directories(BatalhaNaval PRIVATE include)
+target_link_libraries(BatalhaNaval PRIVATE SFML::Graphics SFML::Window SFML::System)
+add_executable(test_menu
+        tests/manual_menu_test.cpp
+        src/view/MenuScreen.cpp
+)
+target_include_directories(test_menu PRIVATE include)
+
+target_link_libraries(test_menu PRIVATE SFML::Graphics SFML::Window SFML::System)
