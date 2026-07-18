@@ -14,6 +14,8 @@ add_executable(BatalhaNaval
         src/model/GameState.cpp
         src/model/MapLayout.cpp
         tests/manual_board_test.cpp
+        src/model/ScoreCalculator.cpp
+        include/model/ScoreCalculator.h
         # conforme os .cpp forem criados, adicionar aqui:
 )
 add_executable(test_board
