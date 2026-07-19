@@ -24,14 +24,9 @@ add_executable(BatalhaNaval # Nome do arquivo compilado final
         src/model/Ship.cpp
         src/model/GameState.cpp
         src/model/MapLayout.cpp
-        tests/manual_board_test.cpp
         src/model/ScoreCalculator.cpp
         include/model/ScoreCalculator.h
         # conforme os .cpp forem criados, adicionar aqui:
-)
-add_executable(test_board
-        tests/manual_board_test.cpp
-        # conforme os .cpp usados pelo jogo forem criados, adicionar aqui:
 )
 
 # Avisa o compilador onde procurar os arquivos .h do jogo principal

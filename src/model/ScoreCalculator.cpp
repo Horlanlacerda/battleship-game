@@ -1,4 +1,4 @@
-#include "../../include/model/ScoreCalculator.h"
+#include "ScoreCalculator.h"
 #include <algorithm> //para o max
 
 int ScoreCalculator::calculate(const GameData& data) {
