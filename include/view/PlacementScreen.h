@@ -40,7 +40,7 @@ class PlacementScreen{
          * @param board Tabuleiro utilizado durante o posicionamento.
          * @param ships Vetor contendo todos os navios que deverão ser posicionados.
          */
-        PlacementScreen(sf::RenderWindow& window, // o "&" é semelhante a passar um objeto por referência em jaa
+        PlacementScreen(sf::RenderWindow& window, // o "&" é semelhante a passar um objeto por referência em java.
                         Board& board,
                         std::vector<Ship>& ships);
         
@@ -56,7 +56,7 @@ class PlacementScreen{
     private:
         
         /// Referência para a janela principal da aplicação.
-        sf::RenderStates& window;
+        sf::RenderWindow& window;
 
         /// Referência para o tabuleiro que receberá os navios.
         Board& board;
@@ -69,6 +69,15 @@ class PlacementScreen{
 
         /// Responsável por converter coordenadas da tela para o tabuleiro.
         GameController gameController;
+
+        /// Linha onde o mouse está apontando atualmente.
+        int previewRow;
+
+        /// Coluna onde o mouse está apontando atualmente.
+        int previewCol;
+
+        /// Indica se o preview está em uma posição válida.
+        bool previewValid;
 
         /// Indica a orientação atual do navio (true = horizontal).
         bool horizontal;
