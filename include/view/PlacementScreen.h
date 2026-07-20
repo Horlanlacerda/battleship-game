@@ -6,6 +6,8 @@
 
 #include "Board.h"
 #include "Ship.h"
+#include "BoardRenderer.h"
+#include "GameController.h"
 
 /**
  * @brief Tela responsável pelo posicionamento manual dos navios.
@@ -62,6 +64,12 @@ class PlacementScreen{
         /// Vetor contendo todos os navios da partida.
         std::vector<Ship>& ships;
 
+        /// Responsável por desenhar o tabuleiro.
+        BoardRenderer boardRenderer;
+
+        /// Responsável por converter coordenadas da tela para o tabuleiro.
+        GameController gameController;
+
         /// Indica a orientação atual do navio (true = horizontal).
         bool horizontal;
 
@@ -70,6 +78,12 @@ class PlacementScreen{
 
         /// Tamanho, em pixels, de cada célula do tabuleiro.
         const float cellSize = 40.f;
+
+        /// Deslocamento horizontal, em pixels, onde o tabuleiro começa a ser desenhado.
+        const float offsetX = 50.f;
+        
+        /// Deslocamento vertical, em pixels, onde o tabuleiro começa a ser desenhado.
+        const float offsetY = 50.f;
 
         /**
          * @brief Processa todos os eventos da janela.
@@ -104,16 +118,6 @@ class PlacementScreen{
          * - Vermelho: posição inválida.
          */
         void drawPreview();
-
-        /**
-         * @brief Converte uma posição em pixels para uma célula do tabuleiro.
-         *
-         * @param mousePosition Coordenadas do mouse em pixels.
-         *
-         * @return Vetor contendo a linha e a coluna correspondentes
-         * no tabuleiro.
-         */
-        sf::Vector2i pixelToCell(sf::Vector2i mousePosition);
 };
 
 #endif
