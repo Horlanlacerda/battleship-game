@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # --- IDE configs pessoais ---
 .idea/
 .vscode/
@@ -6,6 +7,8 @@
 .cmake/
 >>>>>>> 35e6011d242ec0fd9c486a50b121984ad6f201be
 >>>>>>> feature/menu-screen
+=======
+>>>>>>> dev
 # <---------------------------------------->
 # C++ e Arquivos Compilados
 # <---------------------------------------->
@@ -45,11 +48,16 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json
-
-# --- CTest ---
 CTestTestfile.cmake
 Testing/
+.cmake/
 
+# <---------------------------------------->
+# CLion (JetBrains IDEs)
+# <---------------------------------------->
+.idea/
+
+# <---------------------------------------->
 # VS Code
 # <---------------------------------------->
 .vscode/*
@@ -74,3 +82,4 @@ Thumbs.db
 # <---------------------------------------->
 *.db
 *.sqlite
+*.sqlite3
