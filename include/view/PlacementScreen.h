@@ -64,6 +64,16 @@ class PlacementScreen{
         /// Vetor contendo todos os navios da partida.
         std::vector<Ship>& ships;
 
+        /// Tamanho, em pixels, de cada célula do tabuleiro.
+        const float cellSize = 40.f;
+
+        /// Deslocamento horizontal, em pixels, onde o tabuleiro começa a ser desenhado.
+        const float offsetX = 50.f;
+        
+        /// Deslocamento vertical, em pixels, onde o tabuleiro começa a ser desenhado.
+        const float offsetY = 50.f;
+
+
         /// Responsável por desenhar o tabuleiro.
         BoardRenderer boardRenderer;
 
@@ -84,15 +94,6 @@ class PlacementScreen{
 
         /// Índice do navio que está sendo posicionado (atual).
         int currentShip;
-
-        /// Tamanho, em pixels, de cada célula do tabuleiro.
-        const float cellSize = 40.f;
-
-        /// Deslocamento horizontal, em pixels, onde o tabuleiro começa a ser desenhado.
-        const float offsetX = 50.f;
-        
-        /// Deslocamento vertical, em pixels, onde o tabuleiro começa a ser desenhado.
-        const float offsetY = 50.f;
 
         /**
          * @brief Processa todos os eventos da janela.
