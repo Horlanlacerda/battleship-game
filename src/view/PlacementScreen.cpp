@@ -128,6 +128,22 @@ void PlacementScreen::processEvents(){
                 }
             }
         }
+
+        // Desfazer / reposicionar navio -> Tecla R
+        if(const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()){
+            if((keyPressed->code == sf::Keyboard::Key::Backspace || keyPressed->code == sf::Keyboard::Key::R) && currentShip > 0){
+                
+                currentShip--; // volta ao navio anterior;
+
+                // Remove do tabuleiro a representação do navio anterior
+                board.removeShip(
+                    ships[currentShip].getStartRow(),
+                    ships[currentShip].getStartCol(),
+                    ships[currentShip].getSize(),
+                    ships[currentShip].isHorizontal()
+                );
+            }
+        }
     }
 }
 
