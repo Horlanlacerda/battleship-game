@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+# --- IDE configs pessoais ---
+.idea/
+.vscode/
+
+# --- CMake metadata/build ---
+.cmake/
+>>>>>>> 35e6011d242ec0fd9c486a50b121984ad6f201be
+>>>>>>> feature/menu-screen
+=======
+>>>>>>> dev
 # <---------------------------------------->
 # C++ e Arquivos Compilados
 # <---------------------------------------->

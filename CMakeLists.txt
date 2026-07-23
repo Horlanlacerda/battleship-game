@@ -13,8 +13,7 @@ set(PASTAS_INCLUDE # simplifica os includes do target
         include/utils
 )
 
-find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System)
-
+find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System Main)
 # <----------------------------------------------->
 # 1. Executáveis Principais
 # <----------------------------------------------->
@@ -25,7 +24,12 @@ add_executable(BatalhaNaval # Nome do arquivo compilado final
         src/model/GameState.cpp
         src/model/MapLayout.cpp
         src/model/ScoreCalculator.cpp
+        src/controller/GameController.cpp
+        src/view/BoardRenderer.cpp
+        src/view/PlacementScreen.cpp
+        src/controller/AutoPlacer.cpp
         include/model/ScoreCalculator.h
+
         # conforme os .cpp forem criados, adicionar aqui:
 )
 
