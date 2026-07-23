@@ -41,9 +41,6 @@
   * 
   * @return true se todos os navios forem posicionados com sucesso.
   * @return false se algum navio não puder ser posicionado após o número mácimo de tentativas.
-  * 
-  * @note A atualização da posição e orientação do objeto Ship será realizada
- *  posteriormente, quando o método Ship::setPosition() estiver disponível.
   */
 
 bool AutoPlacer::place(Board& board, std::vector<Ship>& ships){
@@ -82,17 +79,10 @@ bool AutoPlacer::place(Board& board, std::vector<Ship>& ships){
 
             // Verifica se o navio pode ser colocado nessa posição.
             if(board.canPlace(row, col, ship.getSize(), horizontal)){
+
                 board.placeShip(row, col, ship.getSize(), horizontal);
 
-                /*
-                 * TODO:
-                 * Quando Ship::setPosition() estiver implementado,
-                 * registrar aqui a posição e orientação do navio.
-                 *
-                 * Exemplo:
-                 *
-                 * ship.setPosition(row, col, horizontal);
-                 */
+                ship.setPosition(row, col, horizontal);
 
                 placed = true;
             }

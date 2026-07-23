@@ -27,6 +27,7 @@ add_executable(BatalhaNaval # Nome do arquivo compilado final
         src/controller/GameController.cpp
         src/view/BoardRenderer.cpp
         src/view/PlacementScreen.cpp
+        src/controller/AutoPlacer.cpp
         include/model/ScoreCalculator.h
 
         # conforme os .cpp forem criados, adicionar aqui:

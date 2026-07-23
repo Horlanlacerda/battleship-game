@@ -85,11 +85,6 @@ void PlacementScreen::run(){
  * 
  * O posicionamento somente é realizado quando a posição escolhida é válida
  * segundo as regras definidas pelo Board.
- * 
- * @note Atualmente, o posicionamento é registrado diretamente no Board,
- * mas a posição e a orientação do objeto Ship correspondente ainda não
- * são atualizadas. Essa integração será realizada posteriormente quando
- * os métodos necessários estiverem disponíveis na classe Ship.
  */
 void PlacementScreen::processEvents(){
     while(const std::optional event = window.pollEvent()){
@@ -124,7 +119,8 @@ void PlacementScreen::processEvents(){
 
                     // Solicita ao Board a validação e o posicionamento.
                     if (board.placeShip(row, col, ships[currentShip].getSize(), horizontal)) {
-                        // TODO: Atualizar a posição do navio quando Ship::setPosition() estiver implementado.
+                        
+                        ships[currentShip].setPosition(row, col, horizontal);
 
                         // Avança para o próximo navio da frota.
                         currentShip++;
