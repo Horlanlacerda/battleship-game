@@ -35,6 +35,17 @@ public:
     Ship(ShipType type, int startRow, int startCol, bool horizontal);
 
     /**
+     * @brief Atualiza a posição e orientação do navio após seu posicionamento no tabuleiro.
+     * @details Usado pela tela de posicionamento (PlacementScreen) para sincronizar
+     * o estado interno do Ship com a posição efetivamente registrada no Board.
+     * O tamanho e o tipo do navio permanecem inalterados — só posição e orientação mudam.
+     * @param row Nova linha inicial (proa) do navio.
+     * @param col Nova coluna inicial (proa) do navio.
+     * @param isHorizontal Nova orientação: true para horizontal, false para vertical.
+     */
+    void setPosition(int row, int col, bool isHorizontal);
+
+    /**
      * @brief Retorna o tipo do navio.
      * @return O ShipType associado a este navio.
      */

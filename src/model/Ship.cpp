@@ -38,6 +38,12 @@ bool Ship::occupiesCell(int row, int col) const {
     return false;
 }
 
+void Ship::setPosition(int row, int col, bool isHorizontal) {
+    startRow = row;
+    startCol = col;
+    horizontal = isHorizontal;
+}
+
 void Ship::hit() {
     // Trava de segurança: nunca ultrapassa o tamanho do navio.
     if (hitsReceived < size) {

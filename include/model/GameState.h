@@ -74,7 +74,7 @@ public:
      * @author Georis
      * @date 16/07/2026
      */
-    Turn getCurrentTurn() const;
+    Turno getCurrentTurn() const;
 
 
     /**
@@ -205,7 +205,7 @@ public:
 private:
     Board playerBoard;
     Board computerBoard;
-    Turn  currentTurn;    ///< Indica de quem é a vez atual (PLAYER ou COMPUTER).
+    Turno  currentTurn;    ///< Indica de quem é a vez atual (PLAYER ou COMPUTER).
 
     /**
      * @brief Momento em que o timer da partida foi iniciado
