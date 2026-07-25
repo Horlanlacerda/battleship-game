@@ -1,10 +1,10 @@
 # ⚓ battleship-game
 
-Jogo de Batalha Naval desenvolvido para a disciplina de Paradigmas de Linguagens de Programação. Implementado em **C++** e **JavaScript** para análise comparativa de conceitos de computação.
+Jogo de Batalha Naval desenvolvido em **C++** para a disciplina de Paradigmas de Linguagens de Programação. O projeto consiste em uma versão gráfica do clássico jogo de estratégia, desenvolvida como parte das atividades práticas da disciplina.
 
 ## Sobre o Projeto
 
-O objetivo central é aplicar e contrastar de forma prática os conceitos de paradigmas de linguagens de programação abordados em ambiente acadêmico , analisando aspectos como tipagem, gerenciamento de memória, estruturas de dados e organização de código entre as duas tecnologias.
+O objetivo central é aplicar de forma prática os conceitos de paradigmas de linguagens de programação abordados em ambiente acadêmico, explorando aspectos relacionados à tipagem, gerenciamento de memória, estruturas de dados e organização de código.
 
 ## Objetivos do Sistema
 
@@ -29,11 +29,13 @@ O sistema visa cumprir os seguintes requisitos obrigatórios:
 
 | Tecnologia | Versão | Propósito |
 | :--- | :--- | :--- |
+| **SQLite** | 3 | Banco de dados |
 
 ### **Frontend & Interface**
 
 | Tecnologia | Versão | Propósito |
 | :--- | :--- | :--- |
+| **SFML** | 3.0.2 | Interface gráfica |
 
 ##  Autores
 
