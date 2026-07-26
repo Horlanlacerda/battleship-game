@@ -1,5 +1,8 @@
 #pragma once
 #include "Board.h"
+#include "Ship.h"
+#include "MapLayout.h"  // MapType vem daqui, aoinvés de setar tudo manualmente
+#include <vector>
 #include <chrono>
 
 /**
@@ -29,7 +32,7 @@ enum class GameResult {
 
 /**
  * @brief Gerencia o estado global da partida de Batalha Naval
- * @details A classe GameState é o CONTROLLER do jogo, responsável por:
+ * @details A classe GameState é o quase como um Controller do jogo, responsável por:
  * - Manter os tabuleiros do jogador e do computador
  * - Controlar a alternância de turnos (Player ↔ Computer)
  * - Verificar condições de vitória/derrota
@@ -42,34 +45,41 @@ enum class GameResult {
 class GameState {
 public:
     /**
-     * @brief Constrói o estado inicial de uma nova partida
-     * @details Cria dois tabuleiros (jogador e computador) com as mesmas
-     * dimensões e inicia o primeiro turno como Turn::PLAYER (ou seja, humano começa sempre).
-     * O timer da partida NÃO é iniciado automaticamente, usamos startTimer()
-     * quando quiser começar a contagem.
-     * 
-     * @param rows Número de linhas dos tabuleiros (vertical).
-     * @param cols Número de colunas dos tabuleiros (horizontal).
-     * 
-     * @warning Valores inválidos para rows/cols (≤ 0) serão propagados
-     * para o construtor de Board o que lançará excessão.
-     * 
-     * @see Board::Board(int, int)
-     * @see startTimer() para iniciar a contagem de tempo.
-     * 
+     * @brief Constrói o estado inicial de uma partida para o mapa escolhido
+     *
+     * @details O construtor executa automaticamente, nesta ordem:
+     * 1. Determina as dimensões do tabuleiro para o MapType recebido
+     * 2. Cria playerBoard e computerBoard com essas dimensões
+     * 3. Aplica o terreno (BLOCKED/SHALLOW) nos dois tabuleiros via MapLayout
+     * 4. Monta as frotas (playerShips e computerShips) conforme as regras do mapa:
+     *  | MapType | Dimensão | Frota                        |
+     *  |---------|----------|------------------------------|
+     *  | Açude   | 5 × 5    | 1P + 1M + 1G  (3 navios)     |
+     *  | LAGO    | 8 × 8    | 2P + 2M + 1G  (5 navios)     |
+     *  | OCEANO  | 10 × 10  | 3P + 2M + 2G  (7 navios)     |
+     * 5. Define o turno inicial como Turno::PLAYER.
+     *
+     * O timer NÃO é iniciado aqui, chame startTimer() quando a partida
+     * efetivamente começar (após o posicionamento dos navios)
+     *
+     * @param map Tipo do mapa selecionado pelo jogador.
+     *
+     * @see MapType
+     * @see MapLayout::apply()
+     * @see startTimer()
+     *
      * @author Georis
-     * @date 16/07/2026
+     * @date 24/07/2026
      */
-    GameState(int rows, int cols);  // cria os dois boards com o mesmo tamanho
-
+    GameState(MapType map);
 
 
     // --- Turno ----------------------------------->
 
     /**
      * @brief Retorna de quem é a vez atual no jogo
-     * @return Turn::PLAYER se for a vez do jogador humano;
-     *         Turn::COMPUTER se for a vez do computador.
+     * @return Turno::PLAYER se for a vez do jogador humano;
+     *         Turno::COMPUTER se for a vez do computador.
      * 
      * @author Georis
      * @date 16/07/2026
@@ -123,6 +133,42 @@ public:
      * @date 16/07/2026
      */
     Board& getComputerBoard();
+
+
+
+
+    // -- Navios ----------------------------------->
+
+    /**
+     * @brief Retorna referência à frota do jogador
+     * @details Usado pelo GameController para registrar acertos em navios
+     * (ship.hit()) e verificar afundamentos (ship.isSunk()).
+     * Usado pelo AutoPlacer para posicionar os navios no board.
+     * @return std::vector<Ship>& Lista modificável de navios do jogador.
+     * @author Georis
+     * @date 24/07/2026
+     */
+    std::vector<Ship>& getPlayerShips();
+
+
+    /**
+     * @brief Retorna referência à frota do computador
+     * @details Usado pela IA para posicionar seus navios e pelo
+     * GameController para detectar afundamentos após tiro do jogador.
+     * @return std::vector<Ship>& Lista modificável de navios do computador.
+     * @author Georis
+     * @date 24/07/2026
+     */
+    std::vector<Ship>& getComputerShips();
+
+
+    /**
+     * @brief Retorna o tipo de mapa desta partida.
+     * @return O MapType passado no construtor.
+     * @author Georis
+     * @date 24/07/2026
+     */
+    MapType getMapType() const;
 
 
 
@@ -203,9 +249,12 @@ public:
 
 
 private:
-    Board playerBoard;
-    Board computerBoard;
-    Turno  currentTurn;    ///< Indica de quem é a vez atual (PLAYER ou COMPUTER).
+    MapType mapType;            ///< Mapa desta partida — determinou tamanho e frota.
+    Board playerBoard;          ///< Tabuleiro do jogador humano.
+    Board computerBoard;        ///< Tabuleiro do computador.
+    std::vector<Ship> playerShips;   ///< Frota do jogador.
+    std::vector<Ship> computerShips; ///< Frota do computador.
+    Turno currentTurn;          ///< De quem é a vez atual (player ou computer)
 
     /**
      * @brief Momento em que o timer da partida foi iniciado
@@ -213,4 +262,25 @@ private:
      * Inicializado por startTimer().
      */
     std::chrono::steady_clock::time_point startTime;
-};
+
+    /**
+     * @brief Retorna as dimensões do tabuleiro para um dado MapType.
+     * @param map Tipo do mapa.
+     * @return Par {rows, cols}.
+     * @author Georis
+     * @date 24/07/2026
+     */
+    static std::pair<int,int> boardSize(MapType map);
+
+    /**
+     * @brief Monta a frota correta para um dado MapType.
+     * @details Todos os navios são criados em posição (0,0) horizontal —
+     * o posicionamento real ocorre depois via PlacementScreen ou AutoPlacer.
+     * @param map Tipo do mapa.
+     * @return Vetor de Ship pronto para ser posicionado no board.
+     * @author Georis
+     * @date 24/07/2026
+     */
+    static std::vector<Ship> buildFleet(MapType map);
+
+    };
