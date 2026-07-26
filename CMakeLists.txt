@@ -13,6 +13,10 @@ set(PASTAS_INCLUDE # simplifica os includes do target
         include/utils
 )
 
+# Tem um B.O. com esse Main
+# O componente sfml-main é uma biblioteca muito específica usada quase que exclusivamente no Windows
+# No Linux e no Mac, o C++ já usa o int main() nativamente de forma limpa, então o SFML geralmente não compila a biblioteca Main por padrão nesses sistemas
+# Então, eu (georis) vou remover, mas vou evitar ao máximo não comitar, qualquer coisa basta coloca a palavra 'Main' depois da pavra System
 find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System Main)
 # <----------------------------------------------->
 # 1. Executáveis Principais
@@ -28,7 +32,6 @@ add_executable(BatalhaNaval # Nome do arquivo compilado final
         src/view/BoardRenderer.cpp
         src/view/PlacementScreen.cpp
         src/controller/AutoPlacer.cpp
-        include/model/ScoreCalculator.h
 
         # conforme os .cpp forem criados, adicionar aqui:
 )
@@ -60,3 +63,12 @@ add_executable(test_ship
 )
 # Avisa o compilador onde procurar os arquivos .h para o teste do ship
 target_include_directories(test_ship PRIVATE ${PASTAS_INCLUDE})
+
+add_executable(test_gamestate
+        tests/manual_gamestate_test.cpp
+        src/model/Board.cpp
+        src/model/Ship.cpp
+        src/model/GameState.cpp
+        src/model/MapLayout.cpp
+)
+target_include_directories(test_gamestate PRIVATE ${PASTAS_INCLUDE})
