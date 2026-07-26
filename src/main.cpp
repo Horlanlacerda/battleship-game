@@ -5,6 +5,8 @@
 
 #include "model/Board.h"
 #include "model/Ship.h"
+#include "model/GameState.h"
+#include "view/BoardRenderer.h"
 #include "view/PlacementScreen.h"
 
 int main() {
