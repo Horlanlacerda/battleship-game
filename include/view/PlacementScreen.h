@@ -1,5 +1,4 @@
-#ifndef PLACEMENT_SCREEN_H // Proteção contra inclusão múltipla -> em C++ o mesmo header pode ser incluído diversas vezes.
-#define PLACEMENT_SCREEN_H // Marca que esse arquivo já foi incluído
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -129,5 +128,3 @@ class PlacementScreen{
          */
         void drawPreview();
 };
-
-#endif
