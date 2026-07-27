@@ -14,9 +14,10 @@
  * a inteligência artificial procura por navios inimigos realizando disparos
  * em células ainda não atacadas do tabuleiro.
  * 
- * O modo Targeting (Alvo) é reservado para uma implementação posterior,
- * sendo utilizado para permitir que a IA explore regiões próximas após
- * encontrar um navio adversário.
+ * O modo Targeting (Alvo) é ativado quando a IA acerta um navio adversário.
+ * Nesse modo, a IA passa a explorar as células adjacentes ao ponto do acerto
+ * até que o navio seja afundado. Após o afundamento, a IA retorna ao modo
+ * Hunting para procurar novos navios.
  * 
  * @author Horlan Lacerda
  * @version 1.0
@@ -72,6 +73,13 @@ class AIPlayer{
         void onShotResult(int row, int col, CellState result);
 
 
+        /**
+         * @brief Informa à IA que o navio atualmente atacado foi afundado.
+         * 
+         * @details  Limpa a lista de células candidatas utilizadas pelo modo
+         * Targeting e retorna a inteligência artificial para o modo Hunting,
+         * permitindo que ela volte a procurar por novos navios adversários.
+         */
         void onShipSunk();
     
 
