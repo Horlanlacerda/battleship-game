@@ -70,6 +70,9 @@ class AIPlayer{
          * @param result Estado resultante da célula após o disparo.
          */
         void onShotResult(int row, int col, CellState result);
+
+
+        void onShipSunk();
     
 
     private:
