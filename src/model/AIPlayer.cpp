@@ -14,7 +14,26 @@ std::pair<int, int> AIPlayer::makeShot(Board& playerBoard){
         return huntingShot(playerBoard);
     
     case AIMode::TARGETING:
-        // TODO: Implememtar estratégia de Targeting ainda.
+        
+        // Enquanro houver posições candidatas, tenta utilizá-las
+        while(!targets.empty()){
+
+            auto target = targets.back();
+            targets.pop_back();
+
+            int row = target.first;
+            int col = target.second;
+
+            // Verifica se a posição ainda está disponível para disparo.
+            if(notAttacked(playerBoard, row, col)){
+                return {row, col};
+            }
+
+        }
+
+        // Caso não existam mais alvos válidos,
+        // retorna ao modo Hunting.
+        mode = AIMode::HUNTING;
         return huntingShot(playerBoard);
     }
 
@@ -25,15 +44,26 @@ std::pair<int, int> AIPlayer::makeShot(Board& playerBoard){
 void AIPlayer::onShotResult(int row, int col, CellState result){
 
     if(result == CellState::HIT){
+
         mode = AIMode::TARGETING;
 
-        // TODO: Adicionar células adjacentes ao vetor targets para que a IA possa explorá-las no modo Targeting.
+        // Adiciona as quatro células adjacentes ao ponto atingido.
+        targets.push_back({row - 1, col}); // Cima
+        targets.push_back({row + 1, col}); // Baixo
+        targets.push_back({row, col - 1}); // Esquerda
+        targets.push_back({row, col + 1}); // Direita
     }
-    else{
+}
 
-        // Enquanto o Targeting não estiver implementado, a IA permanece no modo Hunting.
 
-    }
+void AIPlayer::onShipSunk(){
+
+    // O navio foi afundado, portanto os alvos relacionados
+    // ao navio atual não são mais necessários.
+    targets.clear();
+
+    // Retorna ao modo Hunting para procurar outro navio.
+    mode = AIMode::HUNTING;
 }
 
 
@@ -63,6 +93,11 @@ std::pair<int, int> AIPlayer::huntingShot(const Board& board){
 }
 
 bool AIPlayer::notAttacked(const Board& board, int row, int col) const{
+
+    // Verifica se a posição está dentro dos limites do tabuleiro.
+    if(row < 0 || row >= board.getRows() || col < 0 || col >= board.getCols()){
+        return false;
+    }
 
     CellState state = board.getCell(row, col);
 
