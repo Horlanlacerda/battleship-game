@@ -1,8 +1,6 @@
-#ifndef MENUSCREEN_H
-#define MENUSCREEN_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
-#include "model/GameState.h"   // ou "model/MapType.h", se você criar separado
 
 enum class MenuOption { START, RANKING, INSTRUCTIONS, EXIT };
 
@@ -16,5 +14,3 @@ private:
     sf::RenderWindow& window;
     sf::Font font;
 };
-
-#endif // MENUSCREEN_H
