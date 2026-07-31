@@ -1,5 +1,4 @@
-#ifndef SHIP_H
-#define SHIP_H
+#pragma once
 
 #include <vector>
 #include <utility>
@@ -132,5 +131,3 @@ private:
     bool horizontal;
     int hitsReceived;
 };
-
-#endif
