@@ -32,6 +32,7 @@ add_executable(BatalhaNaval # Nome do arquivo compilado final
         src/view/BoardRenderer.cpp
         src/view/PlacementScreen.cpp
         src/controller/AutoPlacer.cpp
+        src/db/Database.cpp
 
         # conforme os .cpp forem criados, adicionar aqui:
 )
@@ -72,3 +73,19 @@ add_executable(test_gamestate
         src/model/MapLayout.cpp
 )
 target_include_directories(test_gamestate PRIVATE ${PASTAS_INCLUDE})
+
+# <----------------------------------------------->
+# 3. Banco de Dados (SQLite)
+# <----------------------------------------------->
+find_package(SQLite3 REQUIRED)
+
+add_executable(TestDatabase
+        tests/main_test_database.cpp
+        src/db/Database.cpp
+)
+
+target_include_directories(TestDatabase PRIVATE ${PASTAS_INCLUDE} include/db)
+
+target_link_libraries(TestDatabase
+        SQLite3::SQLite3
+)
