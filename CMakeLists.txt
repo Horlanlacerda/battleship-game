@@ -39,7 +39,7 @@ add_executable(BatalhaNaval # Nome do arquivo compilado final
 
 # Avisa o compilador onde procurar os arquivos .h do jogo principal
 # o compilador é extremamente literal e não faz buscas recursivas (ou seja, ele não entra nas subpastas por conta própria)
-target_include_directories(BatalhaNaval PRIVATE ${PASTAS_INCLUDE})
+target_include_directories(BatalhaNaval PRIVATE ${PASTAS_INCLUDE} include/db)
 
 # Conecta SFML apenas ao jogo principal
 target_link_libraries(BatalhaNaval
