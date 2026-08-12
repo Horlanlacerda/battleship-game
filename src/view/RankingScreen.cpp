@@ -1,23 +1,17 @@
 #include "RankingScreen.h"
+#include "utils/UiTheme.h"
+#include <algorithm>
 #include <string>
 #include <optional>
 
 RankingScreen::RankingScreen(sf::RenderWindow& window, Database& db)
-    : window(window), db(db) 
+    : window(window), db(db)
 {
     font.openFromFile("assets/fonts/Roboto-Regular.ttf");
 }
 
 void RankingScreen::showRanking(const std::string& mapType) {
     auto entries = db.getTopScores(mapType, 10);
-
-    sf::Text title(font, "RANKING - " + mapType, 32);
-    title.setFillColor(sf::Color::White);
-    title.setPosition({200.f, 40.f});
-
-    sf::Text back(font, "ESC para voltar", 18);
-    back.setFillColor(sf::Color(150, 150, 150));
-    back.setPosition({20.f, 560.f});
 
     while (window.isOpen()) {
         while (const std::optional event = window.pollEvent()) {
@@ -32,28 +26,56 @@ void RankingScreen::showRanking(const std::string& mapType) {
             }
         }
 
-        window.clear(sf::Color(15, 30, 60));
-        window.draw(title);
-        window.draw(back);
+        const float centerX = static_cast<float>(window.getSize().x) / 2.f;
 
-        sf::Text header(font, "# Nome               Pontos    Tempo", 18);
-        header.setFillColor(sf::Color(180, 180, 180));
-        header.setPosition({60.f, 100.f});
+        window.clear(ui::kSkyTop);
+        ui::drawSeascape(window);
+        ui::drawChartGrid(window);
+
+        ui::drawCenteredText(window, font, "RANKING - " + mapType, centerX, 46.f, 34, ui::kGold, 1.6f);
+
+        // Painel com a lista de pontuacoes, mesmo estilo dos cartoes do menu.
+        const float panelWidth = 480.f;
+        const float panelLeft = centerX - panelWidth / 2.f;
+        const float panelTop = 118.f;
+        const float rowHeight = 34.f;
+        const std::size_t rowCount = std::max<std::size_t>(entries.size(), 1);
+        const float panelHeight = 56.f + rowHeight * rowCount;
+
+        sf::RectangleShape panel({panelWidth, panelHeight});
+        panel.setPosition({panelLeft, panelTop});
+        panel.setFillColor(ui::withAlpha(ui::kPanel, 226.f));
+        panel.setOutlineThickness(2.f);
+        panel.setOutlineColor(ui::withAlpha(ui::kInkSoft, 110.f));
+        window.draw(panel);
+
+        sf::Text header(font, "#   Nome               Pontos    Tempo", 16);
+        header.setFillColor(ui::kInkSoft);
+        header.setPosition({panelLeft + 20.f, panelTop + 16.f});
         window.draw(header);
 
-        for (int i = 0; i < (int)entries.size(); i++) {
+        if (entries.empty()) {
+            sf::Text empty(font, "Nenhum resultado registrado ainda", 15);
+            empty.setFillColor(ui::kInkSoft);
+            empty.setPosition({panelLeft + 20.f, panelTop + 52.f});
+            window.draw(empty);
+        }
+
+        for (std::size_t i = 0; i < entries.size(); ++i) {
             auto& e = entries[i];
-            
+
             std::string padding(std::max(0, 18 - (int)e.playerName.size()), ' ');
-            std::string line = std::to_string(i + 1) + ". " + e.playerName + padding + 
+            std::string line = std::to_string(i + 1) + ". " + e.playerName + padding +
                                std::to_string(e.score) + "       " + std::to_string(e.elapsedSeconds) + "s";
-            
-            sf::Text row(font, line, 20);
-            row.setFillColor(i == 0 ? sf::Color(255, 215, 0) : sf::Color::White); // Ouro para o 1º
-            row.setPosition({60.f, 130.f + i * 36.f});
+
+            sf::Text row(font, line, 18);
+            row.setFillColor(i == 0 ? ui::kGold : ui::kInk); // Ouro para o 1º
+            row.setPosition({panelLeft + 20.f, panelTop + 50.f + i * rowHeight});
             window.draw(row);
         }
 
+        ui::drawCenteredText(window, font, "ESC para voltar", centerX, 556.f, 13, ui::withAlpha(ui::kInkSoft, 190.f), 1.6f);
+        ui::drawHudFrame(window);
         window.display();
     }
 }
@@ -62,17 +84,8 @@ std::string RankingScreen::showGameOver(int score, int elapsedSec, bool playerWo
     std::string playerName = "";
     bool typing = true;
 
-    sf::Text result(font, playerWon ? "VOCE VENCEU!" : "VOCE PERDEU!", 40);
-    result.setFillColor(playerWon ? sf::Color(0, 220, 100) : sf::Color(220, 60, 60));
-    result.setPosition({200.f, 80.f});
-
-    sf::Text scoreText(font, "Pontuacao: " + std::to_string(score) + " | Tempo: " + std::to_string(elapsedSec) + "s", 24);
-    scoreText.setFillColor(sf::Color::White);
-    scoreText.setPosition({150.f, 160.f});
-
-    sf::Text prompt(font, "Digite seu nome e pressione ENTER:", 20);
-    prompt.setFillColor(sf::Color(200, 200, 200));
-    prompt.setPosition({150.f, 240.f});
+    const std::string resultText = playerWon ? "VOCE VENCEU!" : "VOCE PERDEU!";
+    const sf::Color resultColor = playerWon ? sf::Color(90, 230, 150) : sf::Color(230, 90, 90);
 
     while (window.isOpen() && typing) {
         while (const std::optional event = window.pollEvent()) {
@@ -80,7 +93,7 @@ std::string RankingScreen::showGameOver(int score, int elapsedSec, bool playerWo
                 window.close();
                 return playerName.empty() ? "Anonimo" : playerName;
             }
-            
+
             if (const auto* textEntered = event->getIf<sf::Event::TextEntered>()) {
                 char c = static_cast<char>(textEntered->unicode);
                 if (c == '\r' || c == '\n') {
@@ -93,15 +106,32 @@ std::string RankingScreen::showGameOver(int score, int elapsedSec, bool playerWo
             }
         }
 
-        sf::Text nameField(font, playerName + "|", 26); //'|' piscando para saber onde digitar
-        nameField.setFillColor(sf::Color(100, 200, 255));
-        nameField.setPosition({150.f, 280.f});
+        const float centerX = static_cast<float>(window.getSize().x) / 2.f;
 
-        window.clear(sf::Color(15, 30, 60));
-        window.draw(result);
-        window.draw(scoreText);
-        window.draw(prompt);
-        window.draw(nameField);
+        window.clear(ui::kSkyTop);
+        ui::drawSeascape(window);
+        ui::drawChartGrid(window);
+
+        ui::drawCenteredText(window, font, resultText, centerX, 130.f, 44, resultColor, 1.8f, 3.f, sf::Color(8, 20, 40));
+        ui::drawCenteredText(window, font, "Mapa: " + mapType, centerX, 200.f, 16, ui::kInkSoft, 1.4f);
+        ui::drawCenteredText(window, font,
+                             "Pontuacao: " + std::to_string(score) + "   |   Tempo: " + std::to_string(elapsedSec) + "s",
+                             centerX, 232.f, 22, ui::kInk, 1.2f);
+
+        ui::drawCenteredText(window, font, "Digite seu nome e pressione ENTER:", centerX, 300.f, 18, ui::kInkSoft, 1.4f);
+
+        // Campo de nome, com o mesmo tom de painel usado nas outras telas.
+        const float fieldWidth = 320.f;
+        sf::RectangleShape field({fieldWidth, 44.f});
+        field.setPosition({centerX - fieldWidth / 2.f, 338.f});
+        field.setFillColor(ui::withAlpha(ui::kPanel, 226.f));
+        field.setOutlineThickness(2.f);
+        field.setOutlineColor(ui::kGold);
+        window.draw(field);
+
+        ui::drawCenteredText(window, font, playerName + "|", centerX, 348.f, 22, sf::Color(140, 210, 255), 1.f); //'|' piscando para saber onde digitar
+
+        ui::drawHudFrame(window);
         window.display();
     }
 
