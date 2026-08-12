@@ -1,18 +1,54 @@
-#include "view/MenuScreen.h"
+#include "MenuScreen.h"
+#include "RankingScreen.h"
+#include "Database.h"
 #include <iostream>
 
-int main() {
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "Teste MenuScreen");
-    MenuScreen menu(window);
+std::string mapTypeToString(MapType map) {
+    switch (map) {
+        case MapType::ACUDE:  return "ACUDE";
+        case MapType::LAGO:   return "LAGO";
+        case MapType::OCEANO: return "OCEANO";
+    }
+    return "OCEANO";
+}
 
-    MenuOption choice = menu.showMainMenu();
-    if (choice == MenuOption::START) {
-        MapType map = menu.showMapSelection();
-        switch (map) {
-            case MapType::POCA:    std::cout << "Poca\n"; break;
-            case MapType::LAGO:    std::cout << "Lago\n"; break;
-            case MapType::OCEANO:  std::cout << "Oceano\n"; break;
+int main() {
+    try {
+        Database db("ranking.db");
+
+        sf::RenderWindow window(sf::VideoMode({800, 600}), "Teste Batalha Naval");
+        
+        MenuScreen menu(window);
+        RankingScreen ranking(window, db);
+
+        while (window.isOpen()) {
+            MenuOption choice = menu.showMainMenu();
+
+            if (choice == MenuOption::START) {
+                MapType map = menu.showMapSelection();
+                std::string mapName = mapTypeToString(map);
+                
+                int fakeScore = 1500;
+                int fakeTime = 90;
+                bool playerWon = true;
+
+                std::string playerName = ranking.showGameOver(fakeScore, fakeTime, playerWon, mapName);
+                
+                db.saveResult({playerName, fakeScore, fakeTime, mapName});
+                
+                ranking.showRanking(mapName);
+            } 
+            else if (choice == MenuOption::RANKING) {
+                MapType map = menu.showMapSelection();
+                ranking.showRanking(mapTypeToString(map));
+            }
+            else if (choice == MenuOption::EXIT) {
+                window.close();
+            }
         }
+    } catch (const std::exception& e) {
+        std::cerr << "[ERRO]: " << e.what() << std::endl;
+        return 1;
     }
 
     return 0;
