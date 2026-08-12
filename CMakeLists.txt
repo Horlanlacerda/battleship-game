@@ -74,6 +74,21 @@ add_executable(test_gamestate
 )
 target_include_directories(test_gamestate PRIVATE ${PASTAS_INCLUDE})
 
+# teste do GameController, que é o cérebro do jogo, e precisa de quase tudo
+add_executable(test_controller
+        tests/main_test_controller.cpp
+        src/controller/GameController.cpp
+        src/model/Board.cpp
+        src/view/BoardRenderer.cpp
+        src/model/Ship.cpp
+)
+target_include_directories(test_controller PRIVATE ${PASTAS_INCLUDE})
+target_link_libraries(test_controller
+        SFML::Graphics
+        SFML::Window
+        SFML::System
+)
+
 # <----------------------------------------------->
 # 3. Banco de Dados (SQLite)
 # <----------------------------------------------->
