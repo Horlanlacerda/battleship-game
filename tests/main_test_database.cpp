@@ -4,7 +4,7 @@
 int main() {
     std::cout << "=== Teste manual da classe Database ===" << std::endl;
 
-    Database db("test_ranking.db");
+    Database db("../data/test_ranking.db");
 
     // Insere algumas pontuacoes de teste
     db.saveResult({"Gabi", 950, 120, "ACUDE"});
