@@ -1,4 +1,5 @@
 #include "view/MenuScreen.h"
+#include "utils/UiTheme.h"
 #include <MapLayout.h>
 #include <algorithm>
 #include <cmath>
@@ -9,82 +10,18 @@
 #include <string>
 #include <vector>
 
-namespace {
-
-const sf::Color kSkyTop   (  6,  12,  30);
-const sf::Color kPanel    ( 16,  44,  74);
-const sf::Color kPanelHot ( 32,  86, 132);
-const sf::Color kGold     (238, 190,  90);
-const sf::Color kInk      (214, 232, 244);
-const sf::Color kInkSoft  (132, 164, 190);
-const sf::Color kShadow   (  0,   6,  16);
-
-sf::Color withAlpha(sf::Color color, float alpha) {
-    color.a = static_cast<std::uint8_t>(std::clamp(alpha, 0.f, 255.f));
-    return color;
-}
-
-void drawLine(sf::RenderWindow& window, sf::Vector2f a, sf::Vector2f b, sf::Color color) {
-    sf::VertexArray line(sf::PrimitiveType::Lines, 2);
-    line[0] = sf::Vertex{a, color};
-    line[1] = sf::Vertex{b, color};
-    window.draw(line);
-}
-
-} // namespace
+using ui::kGold;
+using ui::kInk;
+using ui::kInkSoft;
+using ui::kPanel;
+using ui::kPanelHot;
+using ui::kShadow;
+using ui::kSkyTop;
+using ui::withAlpha;
 
 MenuScreen::MenuScreen(sf::RenderWindow& window) : window(window) {
     if (!font.openFromFile("assets/fonts/Roboto-Regular.ttf"))
         throw std::runtime_error("Fonte nao encontrada: assets/fonts/Roboto-Regular.ttf");
-}
-
-void MenuScreen::drawSeascape() {
-    sf::CircleShape moonDisc(18.f);
-    moonDisc.setOrigin({18.f, 18.f});
-    moonDisc.setFillColor(sf::Color(226, 238, 250));
-    window.draw(moonDisc);
-}
-
-void MenuScreen::drawChartGrid() {
-    const float w = static_cast<float>(window.getSize().x);
-    const float h = static_cast<float>(window.getSize().y);
-    const sf::Color grid = withAlpha(sf::Color(140, 200, 230), 16.f);
-
-    for (float x = 0.f; x <= w; x += 40.f)
-        drawLine(window, {x, 0.f}, {x, h}, grid);
-    for (float y = 0.f; y <= h; y += 40.f)
-        drawLine(window, {0.f, y}, {w, y}, grid);
-}
-
-void MenuScreen::drawHudFrame() {
-    const float w = static_cast<float>(window.getSize().x);
-    const float h = static_cast<float>(window.getSize().y);
-
-    sf::RectangleShape border({w - 24.f, h - 24.f});
-    border.setPosition({12.f, 12.f});
-    border.setFillColor(sf::Color::Transparent);
-    border.setOutlineThickness(1.f);
-    border.setOutlineColor(withAlpha(kGold, 55.f));
-    window.draw(border);
-
-    const float arm = 26.f;
-    const float thick = 3.f;
-    const sf::Vector2f corners[4] = {{12.f, 12.f}, {w - 12.f, 12.f}, {12.f, h - 12.f}, {w - 12.f, h - 12.f}};
-    const sf::Vector2f dirs[4] = {{1.f, 1.f}, {-1.f, 1.f}, {1.f, -1.f}, {-1.f, -1.f}};
-
-    for (int i = 0; i < 4; ++i) {
-        sf::RectangleShape horizontal({arm, thick});
-        horizontal.setPosition({corners[i].x - (dirs[i].x < 0 ? arm : 0.f),
-                                corners[i].y - (dirs[i].y < 0 ? thick : 0.f)});
-        horizontal.setFillColor(withAlpha(kGold, 170.f));
-        window.draw(horizontal);
-
-        sf::RectangleShape vertical({thick, arm});
-        vertical.setPosition({corners[i].x - (dirs[i].x < 0 ? thick : 0.f),
-                              corners[i].y - (dirs[i].y < 0 ? arm : 0.f)});
-        vertical.setFillColor(withAlpha(kGold, 170.f));
-        window.draw(vertical);
-    }
 }
 
 void MenuScreen::drawCenteredText(const std::string& text,
@@ -95,16 +32,7 @@ void MenuScreen::drawCenteredText(const std::string& text,
                                   float letterSpacing,
                                   float outlineThickness,
                                   sf::Color outlineColor) {
-    sf::Text label(font, text, size);
-    label.setLetterSpacing(letterSpacing);
-    label.setFillColor(color);
-    label.setOutlineThickness(outlineThickness);
-    label.setOutlineColor(outlineColor);
-
-    const sf::FloatRect bounds = label.getLocalBounds();
-    label.setOrigin({bounds.position.x + bounds.size.x / 2.f, bounds.position.y});
-    label.setPosition({centerX, y});
-    window.draw(label);
+    ui::drawCenteredText(window, font, text, centerX, y, size, color, letterSpacing, outlineThickness, outlineColor);
 }
 
 int MenuScreen::pollClick(const std::vector<sf::FloatRect>& areas) {
@@ -188,9 +116,9 @@ void MenuScreen::drawMapCard(const MapCard& card, bool hovered, float time) {
 
     for (int i = 1; i < card.grid; ++i) {
         const float offset = i * cell;
-        drawLine(window, {origin.x + offset, origin.y}, {origin.x + offset, origin.y + preview},
+        ui::drawLine(window, {origin.x + offset, origin.y}, {origin.x + offset, origin.y + preview},
                  withAlpha(kInkSoft, 55.f));
-        drawLine(window, {origin.x, origin.y + offset}, {origin.x + preview, origin.y + offset},
+        ui::drawLine(window, {origin.x, origin.y + offset}, {origin.x + preview, origin.y + offset},
                  withAlpha(kInkSoft, 55.f));
     }
 
@@ -237,15 +165,15 @@ MenuOption MenuScreen::showMainMenu() {
         const sf::Vector2f cursor{(float)mouse.x, (float)mouse.y};
 
         window.clear(kSkyTop);
-        drawSeascape();
-        drawChartGrid();
+        ui::drawSeascape(window);
+        ui::drawChartGrid(window);
         drawTitle();
 
         for (const Button& button : buttons)
             drawButton(button, button.box.getGlobalBounds().contains(cursor), time);
 
         drawCenteredText("Clique em uma opcao para comecar", w / 2.f, 556.f, 13, withAlpha(kInkSoft, 190.f), 1.6f);
-        drawHudFrame();
+        ui::drawHudFrame(window);
         window.display();
     }
     return MenuOption::EXIT;
@@ -285,8 +213,7 @@ MapType MenuScreen::showMapSelection() {
         const sf::Vector2f cursor{(float)mouse.x, (float)mouse.y};
 
         window.clear(kSkyTop);
-        drawSeascape();
-        drawChartGrid();
+        ui::drawChartGrid(window);
 
         drawCenteredText("ESCOLHA O CAMPO DE BATALHA", w / 2.f, 62.f, 32, kGold, 1.6f);
         drawCenteredText("Quanto maior o mar, maior a frota e o desafio", w / 2.f, 110.f, 14, kInkSoft, 1.8f);
@@ -295,7 +222,7 @@ MapType MenuScreen::showMapSelection() {
             drawMapCard(card, card.box.getGlobalBounds().contains(cursor), time);
 
         drawCenteredText("Clique em um mapa para zarpar", w / 2.f, 526.f, 13, withAlpha(kInkSoft, 190.f), 1.6f);
-        drawHudFrame();
+        ui::drawHudFrame(window);
         window.display();
     }
     return MapType::OCEANO; // fallback se a janela fechar sem selecao

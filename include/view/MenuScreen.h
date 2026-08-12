@@ -5,7 +5,6 @@
 #include <SFML/Graphics.hpp>
 
 #include <string>
-#include <vector>
 
 enum class MenuOption { START, RANKING, INSTRUCTIONS, EXIT };
 

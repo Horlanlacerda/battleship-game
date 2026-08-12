@@ -1,5 +1,8 @@
 #include "view/PlacementScreen.h"
+#include "utils/UiTheme.h"
 #include <iostream>
+#include <stdexcept>
+#include <string>
 
 /**
  * @brief Implementação da tela de posicionamento manual dos navios.
@@ -37,6 +40,12 @@ PlacementScreen::PlacementScreen(sf::RenderWindow& window, Board& board, std::ve
     : window(window),
       board(board),
       ships(ships),
+      cellSize(40.f),
+      // Centraliza o tabuleiro horizontalmente conforme o numero de colunas do
+      // mapa escolhido (janela de 800px de largura, mesmo padrao do MenuScreen).
+      offsetX((800.f - board.getCols() * cellSize) / 2.f),
+      // Deixa espaco acima do tabuleiro para o titulo e o status da frota.
+      offsetY(130.f),
       boardRenderer(window, cellSize, offsetX, offsetY),
       gameController(cellSize, offsetX, offsetY, board.getRows(), board.getCols()),
       previewRow(-1),
@@ -44,7 +53,10 @@ PlacementScreen::PlacementScreen(sf::RenderWindow& window, Board& board, std::ve
       previewValid(false),
       horizontal(true),
       currentShip(0)
-    {}
+    {
+        if (!font.openFromFile("assets/fonts/Roboto-Regular.ttf"))
+            throw std::runtime_error("Fonte nao encontrada: assets/fonts/Roboto-Regular.ttf");
+    }
 
 /**
  * @brief Executa o loop principal da tela de posicionamento.
@@ -187,16 +199,29 @@ void PlacementScreen::update(){
  * uma representação visual da posição em que o navio será colocado.
  */
 void PlacementScreen::render(){
-    window.clear(sf::Color(15, 30, 60));
+    window.clear(ui::kSkyTop);
+    ui::drawSeascape(window);
+    ui::drawChartGrid(window);
+
+    const float centerX = static_cast<float>(window.getSize().x) / 2.f;
+    ui::drawCenteredText(window, font, "POSICIONE SUA FROTA", centerX, 46.f, 30, ui::kGold, 1.6f);
+
+    const std::string status = (currentShip < static_cast<int>(ships.size()))
+        ? "Navio " + std::to_string(currentShip + 1) + "/" + std::to_string(ships.size()) +
+          " - " + ships[currentShip].getTypeName() + " (" + (horizontal ? "Horizontal" : "Vertical") + ")" +
+          "   |   Clique: posicionar   Botao direito: girar   Backspace: desfazer"
+        : "Frota posicionada!";
+    ui::drawCenteredText(window, font, status, centerX, 86.f, 13, ui::withAlpha(ui::kInkSoft, 200.f), 1.2f);
 
     // Desenha o tabuleiro com os navios já posicionados
     boardRenderer.draw(board, false);
 
     // Desenha o preview visual do navio sob o cursor antes de colocar
     if (currentShip < static_cast<int>(ships.size())) {
-        drawPreview(); 
+        drawPreview();
     }
 
+    ui::drawHudFrame(window);
     window.display();
 }
 

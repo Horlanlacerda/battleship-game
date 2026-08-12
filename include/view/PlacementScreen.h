@@ -63,6 +63,9 @@ class PlacementScreen{
         /// Vetor contendo todos os navios da partida.
         std::vector<Ship>& ships;
 
+        /// Fonte usada nos textos desenhados sobre a tela (titulo, status da frota).
+        sf::Font font;
+
         /// Tamanho, em pixels, de cada célula do tabuleiro.
         const float cellSize = 40.f;
 
