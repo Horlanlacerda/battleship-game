@@ -8,6 +8,8 @@ Database::Database(const std::string& filepath) {
     createTableIfNeeded();
 }
 
+// DESTRUTOR, QUE MASSA
+// Serve para evitar vazamento de dados
 Database::~Database() {
     sqlite3_close((sqlite3*)db);
 }
