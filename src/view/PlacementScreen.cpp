@@ -213,8 +213,15 @@ void PlacementScreen::render(){
         : "Frota posicionada!";
     ui::drawCenteredText(window, font, status, centerX, 86.f, 13, ui::withAlpha(ui::kInkSoft, 200.f), 1.2f);
 
-    // Desenha o tabuleiro com os navios já posicionados
-    boardRenderer.draw(board, false);
+    // Desenha o tabuleiro escondendo os blocos genéricos de navio: os cascos
+    // desenhados abaixo substituem essa representação por algo mais bonito.
+    boardRenderer.draw(board, true);
+
+    // Desenha os navios já confirmados no tabuleiro.
+    for (int i = 0; i < currentShip; i++) {
+        drawShipHull(ships[i].getStartRow(), ships[i].getStartCol(), ships[i].getSize(),
+                    ships[i].isHorizontal(), sf::Color(70, 150, 210), sf::Color(160, 210, 235), 255);
+    }
 
     // Desenha o preview visual do navio sob o cursor antes de colocar
     if (currentShip < static_cast<int>(ships.size())) {
@@ -245,28 +252,32 @@ void PlacementScreen::render(){
 void PlacementScreen::drawPreview(){
     if(previewRow < 0 || previewCol < 0) return;
 
-    int shipSize = ships[currentShip].getSize();
+    const int shipSize = ships[currentShip].getSize();
 
-    for(int i = 0; i < shipSize; i++){
+    const sf::Color hullColor = previewValid ? sf::Color(80, 220, 150) : sf::Color(220, 90, 90);
+    const sf::Color deckColor = previewValid ? sf::Color(180, 245, 210) : sf::Color(245, 175, 175);
 
-        int row = horizontal ? previewRow : previewRow + i;
-        int col = horizontal ? previewCol + i : previewCol;
+    // Opacidade reduzida (140/255) para deixar claro que a posição ainda não
+    // foi confirmada, na mesma cor de casco/convés usada nos navios já colocados.
+    drawShipHull(previewRow, previewCol, shipSize, horizontal, hullColor, deckColor, 140);
+}
 
-        // Se estiver dentro das dimensões válidas do tabuleiro
-        if(row >= 0 && row < board.getRows() && col >= 0 && col < board.getCols()){
-            sf::RectangleShape previewCell({cellSize - 2.f, cellSize - 2.f});
-            previewCell.setPosition({offsetX + col * cellSize, offsetY + row * cellSize});
+/**
+ * @brief Desenha o casco de um navio no formato de cápsula, delegando o
+ * desenho em si para ui::drawShipHull (compartilhado com o MenuScreen).
+ * Aqui só convertemos a posição em célula (linha/coluna) para o centro em
+ * pixels de cada extremidade do navio.
+ */
+void PlacementScreen::drawShipHull(int startRow, int startCol, int size, bool shipHorizontal,
+                                    sf::Color hullColor, sf::Color deckColor, std::uint8_t alpha) const {
+    const float margin = 5.f;
+    const float radius = cellSize / 2.f - margin;
 
-            if(previewValid){
-                previewCell.setFillColor(sf::Color(0, 255, 0, 120));
-            } else{
-                previewCell.setFillColor(sf::Color(255, 0, 0, 120));
-            }
+    const sf::Vector2f startCenter{offsetX + startCol * cellSize + cellSize / 2.f,
+                                    offsetY + startRow * cellSize + cellSize / 2.f};
+    const sf::Vector2f endCenter = shipHorizontal
+        ? sf::Vector2f{offsetX + (startCol + size - 1) * cellSize + cellSize / 2.f, startCenter.y}
+        : sf::Vector2f{startCenter.x, offsetY + (startRow + size - 1) * cellSize + cellSize / 2.f};
 
-            previewCell.setOutlineColor(sf::Color::White);
-            previewCell.setOutlineThickness(1.f);
-
-            window.draw(previewCell);
-        }
-    }
+    ui::drawShipHull(window, startCenter, endCenter, shipHorizontal, radius, hullColor, deckColor, size, alpha);
 }

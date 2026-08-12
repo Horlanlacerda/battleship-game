@@ -122,6 +122,22 @@ void MenuScreen::drawMapCard(const MapCard& card, bool hovered, float time) {
                  withAlpha(kInkSoft, 55.f));
     }
 
+    const sf::Color shipHull(38, 60, 88);
+    const sf::Color shipDeck(60, 88, 120);
+    const float shipRadius = cell * 0.3f;
+    const int shipLen = std::clamp((card.grid + 2) / 3, 2, 4);
+
+    auto cellCenter = [&](int row, int col) {
+        return sf::Vector2f{origin.x + col * cell + cell / 2.f, origin.y + row * cell + cell / 2.f};
+    };
+
+    ui::drawShipHull(window, cellCenter(1, 1), cellCenter(1, shipLen), true,
+                     shipRadius, shipHull, shipDeck, shipLen);
+
+    const int lowRow = card.grid - shipLen - 1;
+    ui::drawShipHull(window, cellCenter(lowRow, card.grid - 2), cellCenter(lowRow + shipLen - 1, card.grid - 2),
+                     false, shipRadius, shipHull, shipDeck, shipLen);
+
     sf::CircleShape splash(cell * 0.22f, 12);
     splash.setOrigin({splash.getRadius(), splash.getRadius()});
     splash.setPosition({origin.x + preview - cell * 1.5f, origin.y + preview - cell * 1.5f});

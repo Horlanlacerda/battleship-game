@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <cstdint>
 #include <string>
 
 /**
@@ -43,5 +44,17 @@ void drawCenteredText(sf::RenderWindow& window,
                       float letterSpacing = 1.f,
                       float outlineThickness = 0.f,
                       sf::Color outlineColor = sf::Color::Transparent);
+
+//navio: casco em formato de capsula entre dois pontos (usado no posicionamento
+//e nas miniaturas de mapa), com faixa de conves e juntas entre segmentos.
+void drawShipHull(sf::RenderWindow& window,
+                  sf::Vector2f startCenter,
+                  sf::Vector2f endCenter,
+                  bool shipHorizontal,
+                  float radius,
+                  sf::Color hullColor,
+                  sf::Color deckColor,
+                  int segments,
+                  std::uint8_t alpha = 255);
 
 } // namespace ui

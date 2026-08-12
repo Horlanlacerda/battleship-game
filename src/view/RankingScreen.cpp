@@ -1,5 +1,5 @@
 #include "RankingScreen.h"
-#include "utils/UiTheme.h"
+#include "UiTheme.h"
 #include <algorithm>
 #include <string>
 #include <optional>

@@ -96,4 +96,76 @@ void drawCenteredText(sf::RenderWindow& window,
     window.draw(label);
 }
 
+namespace {
+
+// Duas circulos ligados por um retangulo, formando um contorno arredondado
+// entre dois pontos. Base geometrica usada por drawShipHull().
+void drawCapsule(sf::RenderWindow& window, sf::Vector2f startCenter, sf::Vector2f endCenter,
+                 bool shipHorizontal, float radius, sf::Color color) {
+    sf::CircleShape capStart(radius, 24);
+    capStart.setOrigin({radius, radius});
+    capStart.setPosition(startCenter);
+    capStart.setFillColor(color);
+    window.draw(capStart);
+
+    sf::CircleShape capEnd(radius, 24);
+    capEnd.setOrigin({radius, radius});
+    capEnd.setPosition(endCenter);
+    capEnd.setFillColor(color);
+    window.draw(capEnd);
+
+    sf::RectangleShape barrel;
+    if (shipHorizontal) {
+        barrel.setSize({endCenter.x - startCenter.x, radius * 2.f});
+        barrel.setOrigin({0.f, radius});
+    } else {
+        barrel.setSize({radius * 2.f, endCenter.y - startCenter.y});
+        barrel.setOrigin({radius, 0.f});
+    }
+    barrel.setPosition(startCenter);
+    barrel.setFillColor(color);
+    window.draw(barrel);
+}
+
+} // namespace
+
+void drawShipHull(sf::RenderWindow& window, sf::Vector2f startCenter, sf::Vector2f endCenter,
+                  bool shipHorizontal, float radius, sf::Color hullColor, sf::Color deckColor,
+                  int segments, std::uint8_t alpha) {
+    hullColor.a = alpha;
+    deckColor.a = alpha;
+
+    // Contorno: mesma capsula, um pouco maior e mais escura, atras do casco.
+    const sf::Color outline(8, 20, 40, alpha);
+    drawCapsule(window, startCenter, endCenter, shipHorizontal, radius + 2.5f, outline);
+    drawCapsule(window, startCenter, endCenter, shipHorizontal, radius, hullColor);
+
+    // Faixa do conves, ao longo do eixo maior do navio.
+    const float deckThickness = radius * 0.9f;
+    sf::RectangleShape deck;
+    if (shipHorizontal) {
+        deck.setSize({endCenter.x - startCenter.x, deckThickness});
+        deck.setOrigin({0.f, deckThickness / 2.f});
+    } else {
+        deck.setSize({deckThickness, endCenter.y - startCenter.y});
+        deck.setOrigin({deckThickness / 2.f, 0.f});
+    }
+    deck.setPosition(startCenter);
+    deck.setFillColor(deckColor);
+    window.draw(deck);
+
+    // Uma marca de junta entre cada par de celulas do navio.
+    const sf::Color seam(8, 20, 40, static_cast<std::uint8_t>(alpha / 2));
+    for (int i = 1; i < segments; i++) {
+        const float t = static_cast<float>(i) / static_cast<float>(segments);
+        const sf::Vector2f p{startCenter.x + (endCenter.x - startCenter.x) * t,
+                             startCenter.y + (endCenter.y - startCenter.y) * t};
+
+        if (shipHorizontal)
+            drawLine(window, {p.x, p.y - radius * 0.7f}, {p.x, p.y + radius * 0.7f}, seam);
+        else
+            drawLine(window, {p.x - radius * 0.7f, p.y}, {p.x + radius * 0.7f, p.y}, seam);
+    }
+}
+
 } // namespace ui

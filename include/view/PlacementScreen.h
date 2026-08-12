@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <cstdint>
 #include <vector>
 
 #include "Board.h"
@@ -130,4 +131,22 @@ class PlacementScreen{
          * - Vermelho: posição inválida.
          */
         void drawPreview();
+
+        /**
+         * @brief Desenha o casco de um navio no formato de cápsula (retângulo
+         * com as pontas arredondadas), em vez de um bloco de células coloridas.
+         *
+         * @details Usado tanto para os navios já confirmados no tabuleiro quanto
+         * para o preview do navio atual (com cor e transparência diferentes).
+         *
+         * @param startRow Linha inicial (proa) do navio.
+         * @param startCol Coluna inicial (proa) do navio.
+         * @param size Tamanho do navio, em células.
+         * @param shipHorizontal Orientação do navio (true = horizontal).
+         * @param hullColor Cor principal do casco.
+         * @param deckColor Cor da faixa central do convés (mais clara que o casco).
+         * @param alpha Opacidade geral do navio (0-255), usada para o preview.
+         */
+        void drawShipHull(int startRow, int startCol, int size, bool shipHorizontal,
+                          sf::Color hullColor, sf::Color deckColor, std::uint8_t alpha) const;
 };
