@@ -23,6 +23,8 @@ struct RankingEntry {
  * do banco é armazenado como void*, evitando expor <sqlite3.h> no header).
  * Cria automaticamente a tabela de ranking, caso não exista, ao ser construída.
  * @author Gabi
+ * @version 1.0
+ * @date 30/07/2026 
  */
 class Database {
 public:
