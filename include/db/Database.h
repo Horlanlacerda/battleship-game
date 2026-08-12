@@ -13,7 +13,7 @@ struct RankingEntry {
     std::string playerName;     ///< Nome do jogador que registrou a pontuação.
     int         score;          ///< Pontuação final da partida.
     int         elapsedSeconds; ///< Tempo total da partida, em segundos (critério de desempate).
-    std::string mapType;        ///< Tipo de mapa jogado ("POCA", "LAGO" ou "OCEANO").
+    std::string mapType;        ///< Tipo de mapa jogado ("ACUDE", "LAGO" ou "OCEANO").
 };
 
 /**
@@ -48,7 +48,7 @@ public:
      * @brief Retorna as melhores pontuações de um mapa específico.
      * @details Os resultados são ordenados por pontuação decrescente,
      * usando o menor tempo como critério de desempate.
-     * @param mapType Tipo de mapa a filtrar ("POCA", "LAGO" ou "OCEANO").
+     * @param mapType Tipo de mapa a filtrar ("ACUDE", "LAGO" ou "OCEANO").
      * @param limit Número máximo de entradas retornadas (padrão: 10).
      * @return Vetor de RankingEntry, do melhor para o pior colocado.
      */
