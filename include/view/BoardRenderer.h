@@ -10,6 +10,8 @@
  * Nota de arquitetura: mantém a separação MVC, já que a lógica do jogo
  * (Board, Ship) não conhece nada sobre SFML ou renderização.
  * @author Gabi
+ * @version 1.0
+ * @date 17/07/2026
  */
 class BoardRenderer {
 public:
