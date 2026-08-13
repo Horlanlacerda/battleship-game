@@ -1,8 +1,10 @@
 #include "MenuScreen.h"
 #include "PlacementScreen.h"
+#include "GameScreen.h"
 #include "RankingScreen.h"
 #include "Database.h"
 #include "GameState.h"
+#include "ScoreCalculator.h"
 #include <iostream>
 
 std::string mapTypeToString(MapType map) {
@@ -19,7 +21,7 @@ int main() {
         Database db("ranking.db");
 
         sf::RenderWindow window(sf::VideoMode({800, 600}), "Teste Batalha Naval");
-        
+
         MenuScreen menu(window);
         RankingScreen ranking(window, db);
 
@@ -38,13 +40,21 @@ int main() {
 
                 if (!window.isOpen()) continue; // jogador fechou a janela durante o posicionamento
 
-                int fakeScore = 1500;
-                int fakeTime = 90;
-                bool playerWon = true;
+                // Batalha: jogador vs computador (a IA posiciona sua propria
+                // frota automaticamente ao construir a GameScreen).
+                GameScreen gameScreen(window, gameState);
+                GameScreen::Outcome outcome = gameScreen.run();
 
-                std::string playerName = ranking.showGameOver(fakeScore, fakeTime, playerWon, mapName);
+                if (!window.isOpen()) continue; // jogador fechou a janela durante a partida
 
-                db.saveResult({playerName, fakeScore, fakeTime, mapName});
+                const bool playerWon = (outcome.result == GameResult::PLAYER_GANHOU);
+                const GameData gameData{outcome.hits, outcome.misses, outcome.shipsDestroyed,
+                                        outcome.alliedShipsSurvived, outcome.elapsedSeconds};
+                const int score = ScoreCalculator::calculate(gameData);
+
+                std::string playerName = ranking.showGameOver(score, outcome.elapsedSeconds, playerWon, mapName);
+
+                db.saveResult({playerName, score, outcome.elapsedSeconds, mapName});
 
                 ranking.showRanking(mapName);
             }
