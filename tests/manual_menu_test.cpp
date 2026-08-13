@@ -2,9 +2,11 @@
 #include "PlacementScreen.h"
 #include "GameScreen.h"
 #include "RankingScreen.h"
+#include "InstructionsScreen.h"
 #include "Database.h"
 #include "GameState.h"
 #include "ScoreCalculator.h"
+#include "UiTheme.h"
 #include <iostream>
 
 std::string mapTypeToString(MapType map) {
@@ -20,10 +22,12 @@ int main() {
     try {
         Database db("ranking.db");
 
-        sf::RenderWindow window(sf::VideoMode({800, 600}), "Teste Batalha Naval");
+        sf::RenderWindow window(sf::VideoMode({ui::kWindowWidth, ui::kWindowHeight}), "Teste Batalha Naval",
+                                sf::Style::Titlebar | sf::Style::Close);
 
         MenuScreen menu(window);
         RankingScreen ranking(window, db);
+        InstructionsScreen instructions(window);
 
         while (window.isOpen()) {
             MenuOption choice = menu.showMainMenu();
@@ -61,6 +65,9 @@ int main() {
             else if (choice == MenuOption::RANKING) {
                 MapType map = menu.showMapSelection();
                 ranking.showRanking(mapTypeToString(map));
+            }
+            else if (choice == MenuOption::INSTRUCTIONS) {
+                instructions.show();
             }
             else if (choice == MenuOption::EXIT) {
                 window.close();
