@@ -20,7 +20,7 @@ std::string mapTypeToString(MapType map) {
 
 int main() {
     try {
-        Database db("ranking.db");
+        Database db("/data/ranking.db");
 
         sf::RenderWindow window(sf::VideoMode({ui::kWindowWidth, ui::kWindowHeight}), "Batalha Naval ⚓",
                                 sf::Style::Titlebar | sf::Style::Close);
