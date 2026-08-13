@@ -29,7 +29,6 @@ void RankingScreen::showRanking(const std::string& mapType) {
         const float centerX = static_cast<float>(window.getSize().x) / 2.f;
 
         window.clear(ui::kSkyTop);
-        ui::drawSeascape(window);
         ui::drawChartGrid(window);
 
         ui::drawCenteredText(window, font, "RANKING - " + mapType, centerX, 46.f, 34, ui::kGold, 1.6f);
@@ -111,7 +110,6 @@ std::string RankingScreen::showGameOver(int score, int elapsedSec, bool playerWo
         const float centerX = static_cast<float>(window.getSize().x) / 2.f;
 
         window.clear(ui::kSkyTop);
-        ui::drawSeascape(window);
         ui::drawChartGrid(window);
 
         ui::drawCenteredText(window, font, resultText, centerX, 130.f, 44, resultColor, 1.8f, 3.f, sf::Color(8, 20, 40));

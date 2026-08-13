@@ -52,14 +52,6 @@ sf::Color withAlpha(sf::Color color, float alpha);
 void drawLine(sf::RenderWindow& window, sf::Vector2f a, sf::Vector2f b, sf::Color color);
 
 /**
- * @brief Desenha o elemento decorativo de fundo do "ceu noturno" (a lua).
- * @details Deve ser chamado logo apos window.clear(kSkyTop) e antes dos
- * demais elementos da tela, para ficar atras de tudo.
- * @param window Janela onde a lua sera desenhada.
- */
-void drawSeascape(sf::RenderWindow& window);
-
-/**
  * @brief Desenha uma grade de linhas finas e semi-transparentes sobre toda a janela.
  * @details Reforca o visual de "carta nautica" das telas, com uma linha
  * vertical e uma horizontal a cada 40 pixels.

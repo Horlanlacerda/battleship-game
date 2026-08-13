@@ -235,7 +235,6 @@ void PlacementScreen::update(){
  */
 void PlacementScreen::render(){
     window.clear(ui::kSkyTop);
-    ui::drawSeascape(window);
     ui::drawChartGrid(window);
 
     const float centerX = static_cast<float>(window.getSize().x) / 2.f;

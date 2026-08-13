@@ -20,7 +20,7 @@ const std::vector<InstructionLine> kLines = {
     {"POSICIONAMENTO", true},
     {"Clique no tabuleiro para posicionar o navio atual.", false},
     {"Botao direito do mouse gira o navio (horizontal / vertical).", false},
-    {"Backspace ou R desfaz o ultimo navio posicionado.", false},
+    {"Tecla R desfaz o ultimo navio posicionado.", false},
     {"", false},
     {"BATALHA", true},
     {"Clique numa celula do tabuleiro inimigo para atirar.", false},
@@ -60,7 +60,6 @@ void InstructionsScreen::show() {
         const float centerX = static_cast<float>(window.getSize().x) / 2.f;
 
         window.clear(ui::kSkyTop);
-        ui::drawSeascape(window);
         ui::drawChartGrid(window);
 
         ui::drawCenteredText(window, font, "COMO JOGAR", centerX, 46.f, 34, ui::kGold, 1.6f);

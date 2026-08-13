@@ -168,20 +168,32 @@ void MenuScreen::drawMapCard(const MapCard& card, bool hovered, float time) {
 
 MenuOption MenuScreen::showMainMenu() {
     const float w = static_cast<float>(window.getSize().x);
+    const float h = static_cast<float>(window.getSize().y);
     const float buttonWidth = 320.f;
     const float buttonHeight = 58.f;
+    const float buttonSpacing = 74.f;
     const float left = (w - buttonWidth) / 2.f;
 
     const std::vector<std::string> labels = {"Iniciar Jogo", "Ranking", "Como Jogar", "Sair"};
     const MenuOption results[4] = {MenuOption::START, MenuOption::RANKING,
                                    MenuOption::INSTRUCTIONS, MenuOption::EXIT};
 
+    // Centraliza o bloco de botoes (mais a dica logo abaixo dele) no espaco
+    // livre entre o subtitulo do titulo e a margem inferior da janela, em
+    // vez de fixar tudo colado no topo.
+    const float contentTop = 170.f;
+    const float contentBottom = h - 40.f;
+    const float blockHeight = labels.size() * buttonSpacing - (buttonSpacing - buttonHeight);
+    const float footerGap = 46.f;
+    const float buttonsTop = contentTop + ((contentBottom - contentTop) - (blockHeight + footerGap)) / 2.f;
+    const float footerY = buttonsTop + blockHeight + footerGap;
+
     std::vector<Button> buttons;
     std::vector<sf::FloatRect> areas;
     for (std::size_t i = 0; i < labels.size(); ++i) {
         Button button;
         button.box.setSize({buttonWidth, buttonHeight});
-        button.box.setPosition({left, 200.f + i * 74.f});
+        button.box.setPosition({left, buttonsTop + i * buttonSpacing});
         button.label = labels[i];
         areas.push_back(button.box.getGlobalBounds());
         buttons.push_back(button);
@@ -196,14 +208,13 @@ MenuOption MenuScreen::showMainMenu() {
         const sf::Vector2f cursor{(float)mouse.x, (float)mouse.y};
 
         window.clear(kSkyTop);
-        ui::drawSeascape(window);
         ui::drawChartGrid(window);
         drawTitle();
 
         for (const Button& button : buttons)
             drawButton(button, button.box.getGlobalBounds().contains(cursor), time);
 
-        drawCenteredText("Clique em uma opcao para comecar", w / 2.f, 556.f, 13, withAlpha(kInkSoft, 190.f), 1.6f);
+        drawCenteredText("Clique em uma opcao para comecar", w / 2.f, footerY, 13, withAlpha(kInkSoft, 190.f), 1.6f);
         ui::drawHudFrame(window);
         window.display();
     }

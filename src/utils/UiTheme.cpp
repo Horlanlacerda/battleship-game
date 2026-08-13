@@ -25,13 +25,6 @@ void drawLine(sf::RenderWindow& window, sf::Vector2f a, sf::Vector2f b, sf::Colo
     window.draw(line);
 }
 
-void drawSeascape(sf::RenderWindow& window) {
-    sf::CircleShape moonDisc(18.f);
-    moonDisc.setOrigin({18.f, 18.f});
-    moonDisc.setFillColor(sf::Color(226, 238, 250));
-    window.draw(moonDisc);
-}
-
 void drawChartGrid(sf::RenderWindow& window) {
     const float w = static_cast<float>(window.getSize().x);
     const float h = static_cast<float>(window.getSize().y);
