@@ -1,6 +1,22 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "model/Board.h"
+
+
+/**
+ * @brief Tipos de armas disponíveis para o jogador (RF02).
+ * @details Agrupa as armas do jogo: o disparo básico padrão, o míssil que atinge
+ * uma área de 2x2 células e o torpedo que limpa uma linha inteira.
+ * @author Gabi
+ * @version 1.0
+ * @date 12/08/2026
+ */
+enum class WeaponType {
+    BASIC,   ///< Tiro único em uma única célula.
+    MISSILE, ///< Míssil de área (2x2 células).
+    TORPEDO  ///< Torpedo de linha (atinge todas as colunas da linha).
+};
 
 /**
  * @brief Converte cliques do mouse em coordenadas de tabuleiro (linha, coluna).
@@ -9,6 +25,8 @@
  * os mesmos parâmetros de tamanho/deslocamento que o BoardRenderer usa
  * para desenhar, garantindo que clique e desenho fiquem sincronizados.
  * @author Gabi
+ * @version 1.1
+ * @date 17/07/2026
  */
 class GameController {
 public:
@@ -31,7 +49,72 @@ public:
      */
     bool screenToBoardCoord(sf::Vector2i mousePos, int& outRow, int& outCol) const;
 
+// --- Gerenciamento de Armas ----------------------------------->
+
+    /**
+     * @brief Define a arma selecionada para o próximo disparo.
+     * @details Só altera a seleção para armas especiais se houver munição disponível no estoque.
+     * @param weapon Tipo de arma a ser selecionada (BASIC, MISSILE ou TORPEDO).
+     */
+    void selectWeapon(WeaponType weapon);
+
+    /**
+     * @brief Retorna a arma atualmente selecionada pelo jogador.
+     * @return WeaponType selecionado no momento.
+     */
+    WeaponType getSelectedWeapon() const;
+
+    /**
+     * @brief Retorna a quantidade de mísseis restantes no estoque.
+     * @return Número de mísseis disponíveis.
+     */
+    int getMissilesLeft() const;
+
+    /**
+     * @brief Retorna a quantidade de torpedos restantes no estoque.
+     * @return Número de torpedos disponíveis.
+     */
+    int getTorpedoesLeft() const;
+
+    // --- Processamento de Disparos -------------------------------->
+
+    /**
+     * @brief Executa um disparo básico em uma única célula do tabuleiro inimigo.
+     * @param enemy Referência ao tabuleiro do adversário.
+     * @param row Linha do alvo.
+     * @param col Coluna do alvo.
+     * @return CellState com o resultado do disparo (HIT, WATER, etc.).
+     */
+    CellState fireBasic(Board& enemy, int row, int col);
+
+    /**
+     * @brief Dispara um míssil atingindo um quadrante 2x2 a partir da célula clicada.
+     * @details Consome 1 míssil do estoque e reseta a arma selecionada para BASIC.
+     * @param enemy Referência ao tabuleiro do adversário.
+     * @param row Linha inicial (canto superior esquerdo da área 2x2).
+     * @param col Coluna inicial (canto superior esquerdo da área 2x2).
+     * @return Quantidade de acertos em navios (HIT) gerados pelo ataque.
+     */
+    int fireMissile(Board& enemy, int row, int col);
+
+    /**
+     * @brief Dispara um torpedo atingindo todas as colunas da linha especificada.
+     * @details Consome 1 torpedo do estoque e reseta a arma selecionada para BASIC.
+     * @param enemy Referência ao tabuleiro do adversário.
+     * @param row Linha a ser atacada por completo.
+     * @param col Coluna clicada (mantida para alinhamento de interface).
+     * @return Quantidade de acertos em navios (HIT) gerados ao longo da linha.
+     */
+    int fireTorpedo(Board& enemy, int row, int col);
+
 private:
-    float cellSize, offsetX, offsetY;
-    int rows, cols;
+    float cellSize; ///< Tamanho em pixels de cada célula.
+    float offsetX;  ///< Deslocamento horizontal do tabuleiro na janela.
+    float offsetY;  ///< Deslocamento vertical do tabuleiro na janela.
+    int rows;       ///< Total de linhas do tabuleiro.
+    int cols;       ///< Total de colunas do tabuleiro.
+
+    WeaponType selectedWeapon = WeaponType::BASIC; ///< Arma selecionada atualmente.
+    int missilesLeft = 1;                          ///< Mísseis restantes (inicia com 1).
+    int torpedoesLeft = 1;                         ///< Torpedos restantes (inicia com 1).
 };

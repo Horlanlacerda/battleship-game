@@ -19,6 +19,8 @@ enum class ShipType {
  * calcular as células que ocupa), mas não valida limites do tabuleiro
  * nem colisão com outros navios — essa responsabilidade é do Board.
  * @author Gabi
+ * @version 1.1
+ * @date 15/07/2026
  */
 class Ship {
 public:

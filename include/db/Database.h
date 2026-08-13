@@ -23,6 +23,8 @@ struct RankingEntry {
  * do banco é armazenado como void*, evitando expor <sqlite3.h> no header).
  * Cria automaticamente a tabela de ranking, caso não exista, ao ser construída.
  * @author Gabi
+ * @version 1.0
+ * @date 30/07/2026 
  */
 class Database {
 public:
@@ -31,7 +33,7 @@ public:
      * @param filepath Caminho do arquivo .db. Padrão: "ranking.db".
      * @throws std::runtime_error se o banco não puder ser aberto.
      */
-    Database(const std::string& filepath = "ranking.db");
+    Database(const std::string& filepath = "../data/ranking.db");
 
     /**
      * @brief Fecha a conexão com o banco de dados.
@@ -55,7 +57,7 @@ public:
     std::vector<RankingEntry> getTopScores(const std::string& mapType, int limit = 10);
 
 private:
-    void* db; ///< Ponteiro opaco para sqlite3* — evita expor sqlite3.h no header.
+    void* db; ///< Ponteiro opaco para sqlite3*, evita expor sqlite3.h no header.
 
     /**
      * @brief Cria a tabela de ranking, caso ainda não exista.
