@@ -245,6 +245,20 @@ public:
      */
     void reset();
 
+    /**
+     * @brief Remove todos os navios do tabuleiro, sem afetar o terreno.
+     * @details Volta toda célula CellState::SHIP para CellState::EMPTY.
+     * Terrenos (BLOCKED/SHALLOW) e tiros já registrados (HIT/MISS) são
+     * preservados,ao contrário de reset(), que apaga tudo.
+     *
+     * @see AutoPlacer::place(), que usa isso para tentar de novo uma
+     * frota sem perder o mapa (ilhas/recifes) do tabuleiro.
+     *
+     * @author Georis
+     * @date 12/08/2026
+     */
+    void clearShips();
+
 private:
     int rows;                               ///< Número de linhas do tabuleiro
     int cols;                               ///< Número de colunas do tabuleiro

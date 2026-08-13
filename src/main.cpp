@@ -2,9 +2,11 @@
 #include "PlacementScreen.h"
 #include "GameScreen.h"
 #include "RankingScreen.h"
+#include "InstructionsScreen.h"
 #include "Database.h"
 #include "GameState.h"
 #include "ScoreCalculator.h"
+#include "UiTheme.h"
 #include <iostream>
 
 std::string mapTypeToString(MapType map) {
@@ -18,16 +20,17 @@ std::string mapTypeToString(MapType map) {
 
 int main() {
     try {
-        // Apontando para a pasta data
-        Database db("data/ranking.db");
+        Database db("ranking.db");
 
-        sf::RenderWindow window(sf::VideoMode({800, 600}), "Batalha Naval ⚓");
+        sf::RenderWindow window(sf::VideoMode({ui::kWindowWidth, ui::kWindowHeight}), "Batalha Naval ⚓",
+                                sf::Style::Titlebar | sf::Style::Close);
 
         // Sem limitar a taza de frames pode acabar com a CPU
         window.setFramerateLimit(60);
 
         MenuScreen menu(window);
         RankingScreen ranking(window, db);
+        InstructionsScreen instructions(window);
 
         while (window.isOpen()) {
             MenuOption choice = menu.showMainMenu();
@@ -67,7 +70,7 @@ int main() {
                 ranking.showRanking(mapTypeToString(map));
             }
             else if (choice == MenuOption::INSTRUCTIONS) {
-                // TODO: Chamar a tela de instruções aqui
+                instructions.show();
             }
             else if (choice == MenuOption::EXIT) {
                 window.close();

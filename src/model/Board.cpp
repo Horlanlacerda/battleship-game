@@ -174,3 +174,12 @@ void Board::reset() {
     // Terrenos definidos pelo MapLayout também são apagados
     // Se reiniciar a partida mantendo o mapa, reaplique MapLayout::apply()
 }
+
+// --- clearShips ------------------------------------------------------------>
+// Volta só as células SHIP para EMPTY — terreno (BLOCKED/SHALLOW) fica intacto.
+void Board::clearShips() {
+    for (auto& row : grid)
+        for (auto& cell : row)
+            if (cell == CellState::SHIP)
+                cell = CellState::EMPTY;
+}

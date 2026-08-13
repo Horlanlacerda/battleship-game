@@ -69,7 +69,7 @@ bool AutoPlacer::place(Board& board, std::vector<Ship>& ships){
     const int maxFleetAttempts = 200;
 
     for (int fleetAttempt = 0; fleetAttempt < maxFleetAttempts; fleetAttempt++) {
-        board.reset();
+        board.clearShips();
         bool allPlaced = true;
 
         for (std::size_t idx : order) {

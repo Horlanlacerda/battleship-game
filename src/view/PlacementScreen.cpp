@@ -1,5 +1,6 @@
 #include "view/PlacementScreen.h"
 #include "utils/UiTheme.h"
+#include "AutoPlacer.h"
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -16,6 +17,19 @@ constexpr float kHeaderZone = 130.f;
 float computeOffsetY(int rows, float cellSize) {
     const float availableHeight = static_cast<float>(ui::kWindowHeight) - kHeaderZone;
     return kHeaderZone + (availableHeight - rows * cellSize) / 2.f;
+}
+
+// Botao "Embaralhar", fixo no canto superior direito — fora do alcance do
+// tabuleiro e dos textos de titulo/status em qualquer mapa (o tabuleiro fica
+// sempre centralizado e o mais largo, o Oceano 10x10, nao passa de x=750).
+constexpr float kShuffleButtonWidth = 200.f;
+constexpr float kShuffleButtonHeight = 44.f;
+constexpr float kShuffleButtonRightMargin = 40.f;
+constexpr float kShuffleButtonTop = 110.f;
+
+sf::FloatRect shuffleButtonBounds() {
+    const float x = static_cast<float>(ui::kWindowWidth) - kShuffleButtonRightMargin - kShuffleButtonWidth;
+    return sf::FloatRect({x, kShuffleButtonTop}, {kShuffleButtonWidth, kShuffleButtonHeight});
 }
 
 }
@@ -137,21 +151,27 @@ void PlacementScreen::processEvents(){
                 horizontal = !horizontal;
             }
 
-            // Botão esquerdo: tenta posicionar o navio.
+            // Botão esquerdo: clique no botão "Embaralhar" ou tenta posicionar o navio.
             if(mousePressed->button == sf::Mouse::Button::Left){
-                int row, col;
-                sf::Vector2i mousePos(mousePressed->position.x, mousePressed->position.y);
+                sf::Vector2f clickPos{(float)mousePressed->position.x, (float)mousePressed->position.y};
 
-                // Verifica se o clique corresponde a uma célula válida.
-                if (gameController.screenToBoardCoord(mousePos, row, col)) {
+                if (shuffleButtonBounds().contains(clickPos)) {
+                    shuffleFleet();
+                } else {
+                    int row, col;
+                    sf::Vector2i mousePos(mousePressed->position.x, mousePressed->position.y);
 
-                    // Solicita ao Board a validação e o posicionamento.
-                    if (board.placeShip(row, col, ships[currentShip].getSize(), horizontal)) {
-                        
-                        ships[currentShip].setPosition(row, col, horizontal);
+                    // Verifica se o clique corresponde a uma célula válida.
+                    if (gameController.screenToBoardCoord(mousePos, row, col)) {
 
-                        // Avança para o próximo navio da frota.
-                        currentShip++;
+                        // Solicita ao Board a validação e o posicionamento.
+                        if (board.placeShip(row, col, ships[currentShip].getSize(), horizontal)) {
+
+                            ships[currentShip].setPosition(row, col, horizontal);
+
+                            // Avança para o próximo navio da frota.
+                            currentShip++;
+                        }
                     }
                 }
             }
@@ -244,8 +264,40 @@ void PlacementScreen::render(){
         drawPreview();
     }
 
+    const sf::Vector2i mouse = sf::Mouse::getPosition(window);
+    const sf::Vector2f cursor{(float)mouse.x, (float)mouse.y};
+    drawShuffleButton(shuffleButtonBounds().contains(cursor));
+
     ui::drawHudFrame(window);
     window.display();
+}
+
+/**
+ * @brief Sorteia posições aleatórias para toda a frota via AutoPlacer,
+ * descartando qualquer progresso manual ja feito.
+ */
+void PlacementScreen::shuffleFleet() {
+    if (AutoPlacer::place(board, ships)) {
+        currentShip = static_cast<int>(ships.size());
+    }
+}
+
+/**
+ * @brief Desenha o botão "Embaralhar", no mesmo estilo de painel usado
+ * pelos botões do MenuScreen (kPanel/kPanelHot + borda dourada no hover).
+ */
+void PlacementScreen::drawShuffleButton(bool hovered) {
+    const sf::FloatRect area = shuffleButtonBounds();
+
+    sf::RectangleShape plate(area.size);
+    plate.setPosition(area.position);
+    plate.setFillColor(ui::withAlpha(hovered ? ui::kPanelHot : ui::kPanel, 226.f));
+    plate.setOutlineThickness(2.f);
+    plate.setOutlineColor(hovered ? ui::kGold : ui::withAlpha(ui::kInkSoft, 110.f));
+    window.draw(plate);
+
+    ui::drawCenteredText(window, font, "EMBARALHAR", area.position.x + area.size.x / 2.f,
+                         area.position.y + 13.f, 15, hovered ? sf::Color::White : ui::kInk, 1.3f);
 }
 
 /**

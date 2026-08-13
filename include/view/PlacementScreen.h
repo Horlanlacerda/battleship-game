@@ -149,4 +149,20 @@ class PlacementScreen{
          */
         void drawShipHull(int startRow, int startCol, int size, bool shipHorizontal,
                           sf::Color hullColor, sf::Color deckColor, std::uint8_t alpha) const;
+
+        /**
+         * @brief Sorteia novas posições aleatórias para toda a frota, via AutoPlacer.
+         *
+         * @details Reinicia o progresso manual: a frota inteira (inclusive
+         * navios já posicionados a mao) e re-sorteada do zero. Se o sorteio
+         * tiver sucesso, currentShip avanca para o fim, encerrando a fase
+         * de posicionamento (mesmo efeito de posicionar o ultimo navio a mao).
+         */
+        void shuffleFleet();
+
+        /**
+         * @brief Desenha o botão "Embaralhar" no topo da tela.
+         * @param hovered true se o cursor do mouse esta sobre o botao.
+         */
+        void drawShuffleButton(bool hovered);
 };
