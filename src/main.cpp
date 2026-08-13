@@ -1,60 +1,80 @@
-#include <SFML/Graphics.hpp>
-#include <vector>
+#include "MenuScreen.h"
+#include "PlacementScreen.h"
+#include "GameScreen.h"
+#include "RankingScreen.h"
+#include "Database.h"
+#include "GameState.h"
+#include "ScoreCalculator.h"
 #include <iostream>
-#include <optional>
 
-#include "model/Board.h"
-#include "model/Ship.h"
-#include "model/GameState.h"
-#include "view/BoardRenderer.h"
-#include "view/PlacementScreen.h"
+std::string mapTypeToString(MapType map) {
+    switch (map) {
+        case MapType::ACUDE:  return "ACUDE";
+        case MapType::LAGO:   return "LAGO";
+        case MapType::OCEANO: return "OCEANO";
+    }
+    return "OCEANO";
+}
 
 int main() {
     try {
-        std::cout << "Criando janela SFML..." << std::endl;
-        sf::RenderWindow window(
-            sf::VideoMode({800, 600}),
-            "Batalha Naval - Posicionamento Manual"
-        );
+        // Apontando para a pasta data
+        Database db("data/ranking.db");
+
+        sf::RenderWindow window(sf::VideoMode({800, 600}), "Batalha Naval ⚓");
+
+        // Sem limitar a taza de frames pode acabar com a CPU
         window.setFramerateLimit(60);
 
-        std::cout << "Criando Tabuleiro 10x10..." << std::endl;
-        Board board(10, 10);
+        MenuScreen menu(window);
+        RankingScreen ranking(window, db);
 
-        std::cout << "Criando Frota de Navios..." << std::endl;
-        std::vector<Ship> ships;
-        ships.push_back(Ship(ShipType::SMALL, 0, 0, true));
-        ships.push_back(Ship(ShipType::MEDIUM, 0, 0, true));
-        ships.push_back(Ship(ShipType::LARGE, 0, 0, true));
-
-        // ==========================================
-        // TELA DE POSICIONAMENTO MANUAL
-        // ==========================================
-        std::cout << "Iniciando PlacementScreen..." << std::endl;
-        std::cout << "-> Clique Esquerdo: Colocar Navio" << std::endl;
-        std::cout << "-> Clique Direito: Girar Navio" << std::endl;
-        std::cout << "-> Tecla Backspace ou R: Desfazer / Reposicionar Navio Anterior" << std::endl;
-
-        PlacementScreen placementScreen(window, board, ships);
-        placementScreen.run();
-
-        std::cout << "Posicionamento concluido com sucesso!" << std::endl;
-
-        // Loop final para visualizar o resultado
-        BoardRenderer finalRenderer(window, 40.f, 50.f, 50.f);
         while (window.isOpen()) {
-            while (const std::optional event = window.pollEvent()) {
-                if (event->is<sf::Event::Closed>()) {
-                    window.close();
-                }
-            }
-            window.clear(sf::Color(15, 30, 60));
-            finalRenderer.draw(board, false);
-            window.display();
-        }
+            MenuOption choice = menu.showMainMenu();
 
+            if (choice == MenuOption::START) {
+                MapType map = menu.showMapSelection();
+                std::string mapName = mapTypeToString(map);
+
+                // Monta o tabuleiro e a frota corretos para o mapa escolhido
+                // e deixa o jogador posicionar os navios antes da partida.
+                GameState gameState(map);
+                PlacementScreen placement(window, gameState.getPlayerBoard(), gameState.getPlayerShips());
+                placement.run();
+
+                if (!window.isOpen()) continue; // jogador fechou a janela durante o posicionamento
+
+                // Batalha: jogador vs computador (a IA posiciona sua propria
+                // frota automaticamente ao construir a GameScreen)
+                GameScreen gameScreen(window, gameState);
+                GameScreen::Outcome outcome = gameScreen.run();
+
+                if (!window.isOpen()) continue; // jogador fechou a janela durante a partida
+
+                const bool playerWon = (outcome.result == GameResult::PLAYER_GANHOU);
+                const GameData gameData{outcome.hits, outcome.misses, outcome.shipsDestroyed,
+                                        outcome.alliedShipsSurvived, outcome.elapsedSeconds};
+                const int score = ScoreCalculator::calculate(gameData);
+
+                std::string playerName = ranking.showGameOver(score, outcome.elapsedSeconds, playerWon, mapName);
+
+                db.saveResult({playerName, score, outcome.elapsedSeconds, mapName});
+
+                ranking.showRanking(mapName);
+            }
+            else if (choice == MenuOption::RANKING) {
+                MapType map = menu.showMapSelection();
+                ranking.showRanking(mapTypeToString(map));
+            }
+            else if (choice == MenuOption::INSTRUCTIONS) {
+                // TODO: Chamar a tela de instruções aqui
+            }
+            else if (choice == MenuOption::EXIT) {
+                window.close();
+            }
+        }
     } catch (const std::exception& e) {
-        std::cerr << "ERRO: " << e.what() << std::endl;
+        std::cerr << "[ERRO]: " << e.what() << std::endl;
         return 1;
     }
 
