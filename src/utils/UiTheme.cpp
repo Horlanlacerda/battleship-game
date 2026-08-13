@@ -5,7 +5,7 @@
 
 namespace ui {
 
-const sf::Color kSkyTop   (  6,  12,  30);
+const sf::Color kSkyTop   ( 18,  34,  62);
 const sf::Color kPanel    ( 16,  44,  74);
 const sf::Color kPanelHot ( 32,  86, 132);
 const sf::Color kGold     (238, 190,  90);
