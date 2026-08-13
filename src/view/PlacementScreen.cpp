@@ -19,16 +19,15 @@ float computeOffsetY(int rows, float cellSize) {
     return kHeaderZone + (availableHeight - rows * cellSize) / 2.f;
 }
 
-// Botao "Embaralhar", fixo no canto superior direito — fora do alcance do
-// tabuleiro e dos textos de titulo/status em qualquer mapa (o tabuleiro fica
-// sempre centralizado e o mais largo, o Oceano 10x10, nao passa de x=750).
+// Botao "Embaralhar", centralizado horizontalmente abaixo do titulo/status —
+// fora do alcance do tabuleiro em qualquer mapa (o tabuleiro so comeca a
+// partir de offsetY >= 240, bem abaixo do botao).
 constexpr float kShuffleButtonWidth = 200.f;
 constexpr float kShuffleButtonHeight = 44.f;
-constexpr float kShuffleButtonRightMargin = 40.f;
-constexpr float kShuffleButtonTop = 110.f;
+constexpr float kShuffleButtonTop = 116.f;
 
 sf::FloatRect shuffleButtonBounds() {
-    const float x = static_cast<float>(ui::kWindowWidth) - kShuffleButtonRightMargin - kShuffleButtonWidth;
+    const float x = (static_cast<float>(ui::kWindowWidth) - kShuffleButtonWidth) / 2.f;
     return sf::FloatRect({x, kShuffleButtonTop}, {kShuffleButtonWidth, kShuffleButtonHeight});
 }
 

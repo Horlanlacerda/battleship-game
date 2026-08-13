@@ -33,6 +33,8 @@ void RankingScreen::showRanking(const std::string& mapType) {
         ui::drawChartGrid(window);
 
         ui::drawCenteredText(window, font, "RANKING - " + mapType, centerX, 46.f, 34, ui::kGold, 1.6f);
+        ui::drawCenteredText(window, font, "Os melhores comandantes deste mapa", centerX, 92.f, 14,
+                             ui::withAlpha(ui::kInkSoft, 210.f), 1.4f);
 
         // Painel com a lista de pontuacoes, mesmo estilo dos cartoes do menu.
         const float panelWidth = 480.f;

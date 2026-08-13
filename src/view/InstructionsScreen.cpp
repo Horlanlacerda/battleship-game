@@ -64,6 +64,8 @@ void InstructionsScreen::show() {
         ui::drawChartGrid(window);
 
         ui::drawCenteredText(window, font, "COMO JOGAR", centerX, 46.f, 34, ui::kGold, 1.6f);
+        ui::drawCenteredText(window, font, "Regras e comandos antes de zarpar", centerX, 92.f, 14,
+                             ui::withAlpha(ui::kInkSoft, 210.f), 1.4f);
 
         const float panelWidth = 640.f;
         const float panelHeight = 460.f;

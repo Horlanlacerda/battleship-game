@@ -13,7 +13,31 @@ namespace {
 // tamanho da celula (o posicionamento real continua centralizado na janela).
 constexpr float kBoardGap = 70.f;
 constexpr float kMinSideMargin = 50.f;
-constexpr float kBoardTop = 150.f;
+// 190 (nao 150): sobra espaco para a barra de armas (ver kWeaponBarTop),
+// entre o status e os rotulos "SUA FROTA"/"FROTA INIMIGA".
+constexpr float kBoardTop = 190.f;
+
+// Barra com os 3 botoes de arma (Basico/Missil/Torpedo), centralizada
+// horizontalmente entre o status e os rotulos das frotas.
+constexpr float kWeaponBarTop = 94.f;
+constexpr float kWeaponButtonHeight = 28.f;
+constexpr float kWeaponButtonWidth = 150.f;
+constexpr float kWeaponButtonGap = 14.f;
+constexpr WeaponType kWeaponButtonTypes[3] = {WeaponType::BASIC, WeaponType::MISSILE, WeaponType::TORPEDO};
+
+sf::FloatRect weaponButtonBounds(int index) {
+    const float totalWidth = 3.f * kWeaponButtonWidth + 2.f * kWeaponButtonGap;
+    const float left = (static_cast<float>(ui::kWindowWidth) - totalWidth) / 2.f;
+    const float x = left + index * (kWeaponButtonWidth + kWeaponButtonGap);
+    return sf::FloatRect({x, kWeaponBarTop}, {kWeaponButtonWidth, kWeaponButtonHeight});
+}
+
+// Indice do botao clicado, ou -1 se o clique nao caiu em nenhum deles.
+int weaponButtonAt(sf::Vector2f click) {
+    for (int i = 0; i < 3; i++)
+        if (weaponButtonBounds(i).contains(click)) return i;
+    return -1;
+}
 
 // Altura reservada abaixo do tabuleiro para o painel de status das frotas
 // (ver GameScreen::drawFleetPanel), para caber mesmo no mapa Oceano (10x10).
@@ -91,6 +115,20 @@ void GameScreen::processEvents() {
         const auto* mousePressed = event->getIf<sf::Event::MouseButtonPressed>();
         if (!mousePressed || mousePressed->button != sf::Mouse::Button::Left) continue;
 
+        sf::Vector2f clickPos{(float)mousePressed->position.x, (float)mousePressed->position.y};
+
+        // Clique num botao de arma: so troca a selecao, nao gasta o turno.
+        const int buttonIndex = weaponButtonAt(clickPos);
+        if (buttonIndex >= 0) {
+            const WeaponType weapon = kWeaponButtonTypes[buttonIndex];
+            if (weapon == WeaponType::BASIC ||
+                (weapon == WeaponType::MISSILE && enemyController.getMissilesLeft() > 0) ||
+                (weapon == WeaponType::TORPEDO && enemyController.getTorpedoesLeft() > 0)) {
+                enemyController.selectWeapon(weapon);
+            }
+            continue;
+        }
+
         int row, col;
         sf::Vector2i mousePos(mousePressed->position.x, mousePressed->position.y);
         if (!enemyController.screenToBoardCoord(mousePos, row, col)) continue;
@@ -98,18 +136,33 @@ void GameScreen::processEvents() {
         Board& enemyBoard = gameState.getComputerBoard();
         if (!enemyBoard.isValidShot(row, col)) continue;
 
-        const ShotOutcome outcome = resolveShot(enemyBoard, gameState.getComputerShips(), row, col);
+        const GameController::FireResult result =
+            enemyController.fire(enemyBoard, gameState.getComputerShips(), row, col);
+        hits += result.hits;
+        misses += result.misses;
 
-        if (outcome.state == CellState::HIT) {
-            hits++;
-            if (outcome.shipSunk) {
-                shipsDestroyed++;
-                statusMessage = "Voce afundou um navio inimigo em " + cellLabel(row, col) + "!";
-            } else {
-                statusMessage = "Voce acertou um navio em " + cellLabel(row, col) + "!";
+        if (result.shipsSunk > 0) {
+            shipsDestroyed += result.shipsSunk;
+
+            // Um sorteio de arma por navio afundado neste disparo (o torpedo,
+            // por atingir uma linha inteira, pode afundar mais de um de uma vez).
+            std::string awardMsg;
+            for (int i = 0; i < result.shipsSunk; i++) {
+                const WeaponType awarded = enemyController.awardRandomWeapon();
+                if (!awardMsg.empty()) awardMsg += " e ";
+                awardMsg += "1 " + weaponName(awarded);
             }
+
+            const std::string shipsText = (result.shipsSunk == 1)
+                ? "um navio inimigo"
+                : std::to_string(result.shipsSunk) + " navios inimigos";
+            statusMessage = "Voce afundou " + shipsText + " em " + cellLabel(row, col) +
+                             "! Voce ganhou " + awardMsg + "!";
+        } else if (result.hits > 0) {
+            statusMessage = (result.hits == 1)
+                ? "Voce acertou um navio em " + cellLabel(row, col) + "!"
+                : "Voce acertou " + std::to_string(result.hits) + " navios em " + cellLabel(row, col) + "!";
         } else {
-            misses++;
             statusMessage = "Voce atirou na agua em " + cellLabel(row, col) + ".";
         }
 
@@ -161,6 +214,8 @@ void GameScreen::render() {
         ? ui::kInk
         : ui::withAlpha(ui::kInkSoft, 220.f);
     ui::drawCenteredText(window, font, statusMessage, centerX, 66.f, 14, statusColor, 1.1f);
+
+    drawWeaponBar();
 
     const float boardWidth = grid * cellSize;
     // -48 (nao -26): precisa sobrar espaco acima dos rotulos de coluna do
@@ -272,5 +327,55 @@ void GameScreen::drawFleetPanel(float x, float panelWidth, float top, const std:
         }
 
         drawX += squareSize + shipGap;
+    }
+}
+
+void GameScreen::drawWeaponBar() {
+    const sf::Vector2i mouse = sf::Mouse::getPosition(window);
+    const sf::Vector2f cursor{(float)mouse.x, (float)mouse.y};
+
+    const WeaponType selected = enemyController.getSelectedWeapon();
+
+    struct WeaponButton {
+        WeaponType type;
+        std::string label;
+        int ammo;
+        bool unlimited;
+    };
+    const WeaponButton buttons[3] = {
+        {WeaponType::BASIC, "BASICO", 0, true},
+        {WeaponType::MISSILE, "MISSIL", enemyController.getMissilesLeft(), false},
+        {WeaponType::TORPEDO, "TORPEDO", enemyController.getTorpedoesLeft(), false},
+    };
+
+    for (int i = 0; i < 3; i++) {
+        const WeaponButton& button = buttons[i];
+        const sf::FloatRect area = weaponButtonBounds(i);
+        const bool enabled = button.unlimited || button.ammo > 0;
+        const bool selectedNow = selected == button.type;
+        const bool hovered = enabled && area.contains(cursor);
+
+        sf::RectangleShape plate(area.size);
+        plate.setPosition(area.position);
+        plate.setFillColor(ui::withAlpha(hovered ? ui::kPanelHot : ui::kPanel, enabled ? 226.f : 110.f));
+        plate.setOutlineThickness(2.f);
+        plate.setOutlineColor(selectedNow ? ui::kGold : ui::withAlpha(ui::kInkSoft, enabled ? 110.f : 60.f));
+        window.draw(plate);
+
+        std::string label = button.label;
+        if (!button.unlimited) label += " (" + std::to_string(button.ammo) + ")";
+
+        const sf::Color textColor = !enabled ? ui::withAlpha(ui::kInkSoft, 120.f)
+                                    : (hovered ? sf::Color::White : ui::kInk);
+        ui::drawCenteredText(window, font, label, area.position.x + area.size.x / 2.f,
+                             area.position.y + 6.f, 13, textColor, 1.f);
+    }
+}
+
+std::string GameScreen::weaponName(WeaponType weapon) {
+    switch (weapon) {
+        case WeaponType::MISSILE: return "missil";
+        case WeaponType::TORPEDO: return "torpedo";
+        default: return "";
     }
 }

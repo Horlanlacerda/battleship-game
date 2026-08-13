@@ -108,4 +108,14 @@ private:
     /// restam). Navios afundados ficam com o contorno vazio (sem preenchimento).
     void drawFleetPanel(float x, float panelWidth, float top, const std::string& title,
                         sf::Color headerColor, sf::Color aliveColor, const std::vector<Ship>& ships);
+
+    /// Desenha os três botões de seleção de arma (Básico/Míssil/Torpedo).
+    /// Míssil e Torpedo aparecem desativados (e não clicáveis) enquanto o
+    /// jogador não tiver estoque, que só é ganho ao afundar um navio
+    /// inimigo (ver GameController::awardRandomWeapon()).
+    void drawWeaponBar();
+
+    /// Nome em português (sem acento) de uma arma especial, usado nas
+    /// mensagens de status ("Voce ganhou 1 missil!").
+    static std::string weaponName(WeaponType weapon);
 };

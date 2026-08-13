@@ -1,4 +1,5 @@
 #include "GameController.h"
+#include <random>
 
 GameController::GameController(float cellSize, float offsetX, float offsetY, int rows, int cols)
     : cellSize(cellSize), offsetX(offsetX), offsetY(offsetY), rows(rows), cols(cols) {}
@@ -35,6 +36,18 @@ void GameController::selectWeapon(WeaponType weapon) {
 WeaponType GameController::getSelectedWeapon() const { return selectedWeapon; }
 int GameController::getMissilesLeft() const { return missilesLeft; }
 int GameController::getTorpedoesLeft() const { return torpedoesLeft; }
+
+WeaponType GameController::awardRandomWeapon() {
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::uniform_int_distribution<int> coin(0, 1);
+
+    const WeaponType awarded = coin(generator) == 0 ? WeaponType::MISSILE : WeaponType::TORPEDO;
+    if (awarded == WeaponType::MISSILE) missilesLeft++;
+    else torpedoesLeft++;
+
+    return awarded;
+}
 
 // --- Processamento de Disparos (RF02) ---
 
@@ -78,4 +91,51 @@ int GameController::fireTorpedo(Board& enemy, int row, int col) {
     torpedoesLeft--;
     selectedWeapon = WeaponType::BASIC; // Volta para o disparo básico
     return hits;
+}
+
+GameController::FireResult GameController::fire(Board& enemy, std::vector<Ship>& enemyShips, int row, int col) {
+    FireResult result;
+
+    // Monta a lista de células-alvo de acordo com a arma selecionada:
+    // BASIC atinge só a célula clicada, MISSILE o quadrante 2x2 a partir
+    // dela e TORPEDO a linha inteira.
+    std::vector<std::pair<int, int>> targets;
+    switch (selectedWeapon) {
+        case WeaponType::MISSILE:
+            for (int dr = 0; dr <= 1; dr++)
+                for (int dc = 0; dc <= 1; dc++)
+                    targets.push_back({row + dr, col + dc});
+            break;
+        case WeaponType::TORPEDO:
+            for (int c = 0; c < enemy.getCols(); c++)
+                targets.push_back({row, c});
+            break;
+        case WeaponType::BASIC:
+        default:
+            targets.push_back({row, col});
+            break;
+    }
+
+    for (const auto& [r, c] : targets) {
+        if (!enemy.isValidShot(r, c)) continue;
+
+        if (enemy.shoot(r, c) == CellState::HIT) {
+            result.hits++;
+            for (Ship& ship : enemyShips) {
+                if (ship.occupiesCell(r, c)) {
+                    ship.hit();
+                    if (ship.isSunk()) result.shipsSunk++;
+                    break;
+                }
+            }
+        } else {
+            result.misses++;
+        }
+    }
+
+    if (selectedWeapon == WeaponType::MISSILE) missilesLeft--;
+    if (selectedWeapon == WeaponType::TORPEDO) torpedoesLeft--;
+    selectedWeapon = WeaponType::BASIC; // Volta para o disparo básico após qualquer disparo.
+
+    return result;
 }

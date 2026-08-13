@@ -1,7 +1,10 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <utility>
+#include <vector>
 #include "model/Board.h"
+#include "model/Ship.h"
 
 
 /**
@@ -76,6 +79,17 @@ public:
      */
     int getTorpedoesLeft() const;
 
+    /**
+     * @brief Concede ao jogador uma arma especial escolhida aleatoriamente
+     * entre míssil e torpedo, incrementando o estoque correspondente.
+     * @details Chamado pela tela de jogo sempre que o jogador afunda um
+     * navio inimigo — é assim que o jogador "ganha" acesso às armas
+     * especiais, que começam zeradas.
+     * @return O WeaponType sorteado (MISSILE ou TORPEDO), para a tela de
+     * jogo poder montar a mensagem "Voce ganhou 1 missil/torpedo!".
+     */
+    WeaponType awardRandomWeapon();
+
     // --- Processamento de Disparos -------------------------------->
 
     /**
@@ -107,6 +121,33 @@ public:
      */
     int fireTorpedo(Board& enemy, int row, int col);
 
+    /**
+     * @brief Resultado consolidado de um disparo processado por fire(),
+     * já cobrindo todas as células afetadas pela arma usada (1 para
+     * BASIC, até 4 para MISSILE, a linha inteira para TORPEDO).
+     */
+    struct FireResult {
+        int hits = 0;        ///< Quantas células atingidas resultaram em acerto (HIT).
+        int misses = 0;       ///< Quantas células atingidas resultaram em água (MISS).
+        int shipsSunk = 0;    ///< Quantos navios foram completamente afundados por este disparo.
+    };
+
+    /**
+     * @brief Processa um disparo da arma atualmente selecionada contra o
+     * tabuleiro e a frota inimiga, cobrindo de uma vez todas as células
+     * afetadas (diferente de fireBasic/fireMissile/fireTorpedo, que só
+     * atualizam o Board — aqui o dano também é propagado para os Ship da
+     * frota, para a tela de jogo saber quando um navio afunda).
+     * @details Consome a munição da arma usada (se especial) e volta a
+     * seleção para BASIC, assim como fireMissile()/fireTorpedo().
+     * @param enemy Tabuleiro do adversário.
+     * @param enemyShips Frota do adversário, para propagar dano e detectar afundamentos.
+     * @param row Linha clicada (âncora do disparo).
+     * @param col Coluna clicada (âncora do disparo).
+     * @return FireResult com acertos, erros e navios afundados neste disparo.
+     */
+    FireResult fire(Board& enemy, std::vector<Ship>& enemyShips, int row, int col);
+
 private:
     float cellSize; ///< Tamanho em pixels de cada célula.
     float offsetX;  ///< Deslocamento horizontal do tabuleiro na janela.
@@ -115,6 +156,6 @@ private:
     int cols;       ///< Total de colunas do tabuleiro.
 
     WeaponType selectedWeapon = WeaponType::BASIC; ///< Arma selecionada atualmente.
-    int missilesLeft = 1;                          ///< Mísseis restantes (inicia com 1).
-    int torpedoesLeft = 1;                         ///< Torpedos restantes (inicia com 1).
+    int missilesLeft = 0;                          ///< Mísseis restantes (começa zerado, ganho ao afundar navios).
+    int torpedoesLeft = 0;                         ///< Torpedos restantes (começa zerado, ganho ao afundar navios).
 };

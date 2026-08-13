@@ -75,8 +75,23 @@ void MenuScreen::drawPanel(sf::FloatRect area, bool hovered, float time) {
 }
 
 void MenuScreen::drawTitle() {
-    drawCenteredText("BATALHA NAVAL", static_cast<float>(window.getSize().x) / 2.f, 62.f, 56,
-                     kGold, 1.7f, 3.f, sf::Color(8, 20, 40));
+    const float centerX = static_cast<float>(window.getSize().x) / 2.f;
+    drawCenteredText("BATALHA NAVAL", centerX, 62.f, 56, kGold, 1.7f, 3.f, sf::Color(8, 20, 40));
+
+    // Linha dourada decorativa abaixo do titulo, com um losango central.
+    const float lineY = 132.f;
+    const float lineHalfWidth = 130.f;
+    ui::drawLine(window, {centerX - lineHalfWidth, lineY}, {centerX - 10.f, lineY}, withAlpha(kGold, 200.f));
+    ui::drawLine(window, {centerX + 10.f, lineY}, {centerX + lineHalfWidth, lineY}, withAlpha(kGold, 200.f));
+
+    sf::CircleShape diamond(4.f, 4);
+    diamond.setOrigin({4.f, 4.f});
+    diamond.setPosition({centerX, lineY});
+    diamond.setFillColor(kGold);
+    window.draw(diamond);
+
+    drawCenteredText("Posicione sua frota e afunde o inimigo primeiro", centerX, 148.f, 14,
+                     withAlpha(kInkSoft, 210.f), 1.4f);
 }
 
 void MenuScreen::drawButton(const Button& button, bool hovered, float time) {
@@ -157,7 +172,7 @@ MenuOption MenuScreen::showMainMenu() {
     const float buttonHeight = 58.f;
     const float left = (w - buttonWidth) / 2.f;
 
-    const std::vector<std::string> labels = {"Iniciar Jogo", "Ranking", "Instrucoes", "Sair"};
+    const std::vector<std::string> labels = {"Iniciar Jogo", "Ranking", "Como Jogar", "Sair"};
     const MenuOption results[4] = {MenuOption::START, MenuOption::RANKING,
                                    MenuOption::INSTRUCTIONS, MenuOption::EXIT};
 
