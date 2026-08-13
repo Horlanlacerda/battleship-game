@@ -81,3 +81,12 @@ void MapLayout::apply(Board& board, MapType map) {
         board.setCell(7, 9, CellState::SHALLOW);
     }
 }
+
+std::string MapLayout::toString(MapType map) {
+    switch (map) {
+        case MapType::ACUDE:  return "ACUDE";
+        case MapType::LAGO:   return "LAGO";
+        case MapType::OCEANO: return "OCEANO";
+    }
+    return "OCEANO"; // fallback
+}

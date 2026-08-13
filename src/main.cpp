@@ -9,20 +9,11 @@
 #include "UiTheme.h"
 #include <iostream>
 
-std::string mapTypeToString(MapType map) {
-    switch (map) {
-        case MapType::ACUDE:  return "ACUDE";
-        case MapType::LAGO:   return "LAGO";
-        case MapType::OCEANO: return "OCEANO";
-    }
-    return "OCEANO";
-}
-
 int main() {
     try {
-        Database db("/data/ranking.db");
+        Database db("data/ranking.db");
 
-        sf::RenderWindow window(sf::VideoMode({ui::kWindowWidth, ui::kWindowHeight}), "Batalha Naval ⚓",
+        sf::RenderWindow window(sf::VideoMode({ui::kWindowWidth, ui::kWindowHeight}), "Batalha Naval",
                                 sf::Style::Titlebar | sf::Style::Close);
 
         // Sem limitar a taza de frames pode acabar com a CPU
@@ -37,7 +28,7 @@ int main() {
 
             if (choice == MenuOption::START) {
                 MapType map = menu.showMapSelection();
-                std::string mapName = mapTypeToString(map);
+                std::string mapName = MapLayout::toString(map);
 
                 // Monta o tabuleiro e a frota corretos para o mapa escolhido
                 // e deixa o jogador posicionar os navios antes da partida.
@@ -67,7 +58,7 @@ int main() {
             }
             else if (choice == MenuOption::RANKING) {
                 MapType map = menu.showMapSelection();
-                ranking.showRanking(mapTypeToString(map));
+                ranking.showRanking(MapLayout::toString(map));
             }
             else if (choice == MenuOption::INSTRUCTIONS) {
                 instructions.show();

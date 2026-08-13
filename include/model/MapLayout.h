@@ -1,5 +1,6 @@
 #pragma once
 #include "Board.h"
+#include <string> // <-- Adicione isso para o std::string
 
 /**
  * @brief Identifica o mapa selecionado pelo jogador
@@ -53,4 +54,10 @@ public:
      * @date 17/07/2026
      */
     static void apply(Board& board, MapType map);
+
+    /**
+     * @brief Converte o enum MapType para uma String (útil para Banco de Dados e UI)
+     */
+    static std::string toString(MapType map);
+
 };
