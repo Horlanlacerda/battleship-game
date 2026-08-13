@@ -4,6 +4,22 @@
 #include <stdexcept>
 #include <string>
 
+namespace {
+
+// Altura reservada no topo para o titulo e o status da frota (ver
+// PlacementScreen::render), antes do inicio do tabuleiro.
+constexpr float kHeaderZone = 130.f;
+
+// Centraliza o tabuleiro verticalmente no espaco abaixo do cabecalho, em vez
+// de fixa-lo logo abaixo dele: assim mapas menores (ex.: Acude 5x5) nao ficam
+// "grudados" no topo com um vao vazio grande embaixo.
+float computeOffsetY(int rows, float cellSize) {
+    const float availableHeight = static_cast<float>(ui::kWindowHeight) - kHeaderZone;
+    return kHeaderZone + (availableHeight - rows * cellSize) / 2.f;
+}
+
+}
+
 /**
  * @brief Implementação da tela de posicionamento manual dos navios.
  * 
@@ -42,10 +58,10 @@ PlacementScreen::PlacementScreen(sf::RenderWindow& window, Board& board, std::ve
       ships(ships),
       cellSize(40.f),
       // Centraliza o tabuleiro horizontalmente conforme o numero de colunas do
-      // mapa escolhido (janela de 800px de largura, mesmo padrao do MenuScreen).
-      offsetX((800.f - board.getCols() * cellSize) / 2.f),
-      // Deixa espaco acima do tabuleiro para o titulo e o status da frota.
-      offsetY(130.f),
+      // mapa escolhido e a largura fixa da janela (ui::kWindowWidth).
+      offsetX((static_cast<float>(ui::kWindowWidth) - board.getCols() * cellSize) / 2.f),
+      // Centraliza verticalmente no espaco abaixo do titulo/status da frota.
+      offsetY(computeOffsetY(board.getRows(), cellSize)),
       boardRenderer(window, cellSize, offsetX, offsetY),
       gameController(cellSize, offsetX, offsetY, board.getRows(), board.getCols()),
       previewRow(-1),

@@ -9,15 +9,22 @@
 
 namespace {
 
+// Espaco entre os dois tabuleiros e margem minima usada so para limitar o
+// tamanho da celula (o posicionamento real continua centralizado na janela).
+constexpr float kBoardGap = 70.f;
+constexpr float kMinSideMargin = 50.f;
+constexpr float kBoardTop = 150.f;
+
 // Altura reservada abaixo do tabuleiro para o painel de status das frotas
 // (ver GameScreen::drawFleetPanel), para caber mesmo no mapa Oceano (10x10).
-constexpr float kFleetPanelTop = 500.f;
-constexpr float kFleetPanelHeight = 70.f;
+constexpr float kFleetPanelTop = 620.f;
+constexpr float kFleetPanelHeight = 80.f;
 
 float computeCellSize(int gridSize) {
-    const float maxCellSize = 50.f;
-    const float widthLimit = 330.f / static_cast<float>(gridSize);
-    const float heightLimit = (kFleetPanelTop - 10.f - 150.f) / static_cast<float>(gridSize);
+    const float maxCellSize = 55.f;
+    const float maxBoardWidth = (static_cast<float>(ui::kWindowWidth) - kBoardGap - 2.f * kMinSideMargin) / 2.f;
+    const float widthLimit = maxBoardWidth / static_cast<float>(gridSize);
+    const float heightLimit = (kFleetPanelTop - 10.f - kBoardTop) / static_cast<float>(gridSize);
     return std::min({maxCellSize, widthLimit, heightLimit});
 }
 
@@ -28,9 +35,9 @@ GameScreen::GameScreen(sf::RenderWindow& window, GameState& gameState)
       gameState(gameState),
       grid(gameState.getPlayerBoard().getCols()),
       cellSize(computeCellSize(grid)),
-      leftOffsetX((800.f - (2.f * grid * cellSize + 60.f)) / 2.f),
-      rightOffsetX(leftOffsetX + grid * cellSize + 60.f),
-      boardOffsetY(150.f),
+      leftOffsetX((static_cast<float>(ui::kWindowWidth) - (2.f * grid * cellSize + kBoardGap)) / 2.f),
+      rightOffsetX(leftOffsetX + grid * cellSize + kBoardGap),
+      boardOffsetY(kBoardTop),
       playerBoardRenderer(window, cellSize, leftOffsetX, boardOffsetY),
       enemyBoardRenderer(window, cellSize, rightOffsetX, boardOffsetY),
       enemyController(cellSize, rightOffsetX, boardOffsetY,
@@ -155,8 +162,10 @@ void GameScreen::render() {
     ui::drawCenteredText(window, font, statusMessage, centerX, 66.f, 14, statusColor, 1.1f);
 
     const float boardWidth = grid * cellSize;
-    ui::drawCenteredText(window, font, "SUA FROTA", leftOffsetX + boardWidth / 2.f, boardOffsetY - 26.f, 16, ui::kGold, 1.4f);
-    ui::drawCenteredText(window, font, "FROTA INIMIGA", rightOffsetX + boardWidth / 2.f, boardOffsetY - 26.f, 16, ui::kGold, 1.4f);
+    // -48 (nao -26): precisa sobrar espaco acima dos rotulos de coluna do
+    // tabuleiro, que o BoardRenderer desenha em boardOffsetY - 20.
+    ui::drawCenteredText(window, font, "SUA FROTA", leftOffsetX + boardWidth / 2.f, boardOffsetY - 48.f, 16, ui::kGold, 1.4f);
+    ui::drawCenteredText(window, font, "FROTA INIMIGA", rightOffsetX + boardWidth / 2.f, boardOffsetY - 48.f, 16, ui::kGold, 1.4f);
 
     playerBoardRenderer.draw(gameState.getPlayerBoard(), false);
     enemyBoardRenderer.draw(gameState.getComputerBoard(), true);

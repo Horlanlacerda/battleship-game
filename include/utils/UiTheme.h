@@ -13,6 +13,14 @@
  */
 namespace ui {
 
+/// Resolucao fixa da janela do jogo. A janela nao e redimensionavel (sem
+/// Resize/Fullscreen no estilo) justamente para evitar que o conteudo fique
+/// cortado: como nenhuma tela reage a sf::Event::Resized, um redimensionamento
+/// deixaria a View (fixa no tamanho de criacao) dessincronizada do tamanho
+/// real da janela.
+constexpr unsigned kWindowWidth = 1100;
+constexpr unsigned kWindowHeight = 750;
+
 extern const sf::Color kSkyTop;
 extern const sf::Color kPanel;
 extern const sf::Color kPanelHot;
