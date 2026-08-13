@@ -23,10 +23,12 @@ std::pair<int,int> GameState::boardSize(MapType map) {
 std::vector<Ship> GameState::buildFleet(MapType map) {
     std::vector<Ship> fleet;
 
+
+    // Fica MUITO DIFÍCIL POSICIONAR UM NAVIO GRANDE tendo que manter a regra dos dois livres
     if (map == MapType::ACUDE) {
         fleet.emplace_back(ShipType::SMALL,  0, 0, true);
-        fleet.emplace_back(ShipType::MEDIUM, 0, 0, true);
-        fleet.emplace_back(ShipType::LARGE,  0, 0, true);
+        fleet.emplace_back(ShipType::SMALL, 0, 0, true);   // Trocou de MEDIUM para SMALL
+        fleet.emplace_back(ShipType::MEDIUM,  0, 0, true); // Trocou de LARGE para MEDIUM
     }
     else if (map == MapType::LAGO) {
         fleet.emplace_back(ShipType::SMALL,  0, 0, true);

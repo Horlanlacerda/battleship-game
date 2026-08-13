@@ -136,7 +136,7 @@ void PlacementScreen::processEvents(){
             return;
         }
 
-        // Processa a movimentação do mmouse.
+        // Processa a movimentação do mouse.
         if(const auto* mouseMoved = event->getIf<sf::Event::MouseMoved>()){
             sf::Vector2i mousePos(mouseMoved->position.x, mouseMoved->position.y);
             gameController.screenToBoardCoord(mousePos, previewRow, previewCol);
@@ -178,7 +178,7 @@ void PlacementScreen::processEvents(){
 
         // Desfazer / reposicionar navio -> Tecla R
         if(const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()){
-            if((keyPressed->code == sf::Keyboard::Key::Backspace || keyPressed->code == sf::Keyboard::Key::R) && currentShip > 0){
+            if(keyPressed->code == sf::Keyboard::Key::R && currentShip > 0){
                 
                 currentShip--; // volta ao navio anterior;
 
@@ -244,7 +244,7 @@ void PlacementScreen::render(){
     const std::string status = (currentShip < static_cast<int>(ships.size()))
         ? "Navio " + std::to_string(currentShip + 1) + "/" + std::to_string(ships.size()) +
           " - " + ships[currentShip].getTypeName() + " (" + (horizontal ? "Horizontal" : "Vertical") + ")" +
-          "   |   Clique: posicionar   Botao direito: girar   Backspace: desfazer"
+          "   |   Clique: posicionar   Botao direito: girar   Botao R: desfazer"
         : "Frota posicionada!";
     ui::drawCenteredText(window, font, status, centerX, 86.f, 13, ui::withAlpha(ui::kInkSoft, 200.f), 1.2f);
 

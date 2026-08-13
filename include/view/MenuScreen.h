@@ -1,10 +1,10 @@
-#pragma once
+    #pragma once
 
-#include <MapLayout.h>
+    #include <MapLayout.h>
 
-#include <SFML/Graphics.hpp>
+    #include <SFML/Graphics.hpp>
 
-#include <string>
+    #include <string>
 
 /**
  * @brief Opções que o jogador pode escolher no menu principal.
