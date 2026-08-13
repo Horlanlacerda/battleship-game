@@ -49,7 +49,8 @@ GameScreen::GameScreen(sf::RenderWindow& window, GameState& gameState)
     if (!font.openFromFile("assets/fonts/Roboto-Regular.ttf"))
         throw std::runtime_error("Fonte nao encontrada: assets/fonts/Roboto-Regular.ttf");
 
-    AutoPlacer::place(gameState.getComputerBoard(), gameState.getComputerShips());
+    if (!AutoPlacer::place(gameState.getComputerBoard(), gameState.getComputerShips()))
+        throw std::runtime_error("Nao foi possivel posicionar a frota do computador.");
 
     statusMessage = "Sua vez: clique no tabuleiro inimigo para atirar.";
 }

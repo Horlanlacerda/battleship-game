@@ -1,5 +1,7 @@
 #include "AutoPlacer.h"
 
+#include <algorithm>
+#include <cstddef>
 #include <random>
 
 /**
@@ -49,52 +51,73 @@ bool AutoPlacer::place(Board& board, std::vector<Ship>& ships){
     std::random_device rd;
     std::mt19937 generator(rd());
 
-    // O tabuleiro deve estar limpo antes do posicionamento automático.
-    board.reset();
+    // Tenta posicionar os navios do maior para o menor: o navio Grande
+    // (5 células) só cabe numa linha/coluna totalmente livre, entao ele
+    // precisa ser posicionado primeiro, enquanto o tabuleiro ainda esta
+    // vazio. Isso so define a ORDEM das tentativas — a lista "ships"
+    // (e portanto o indice de cada navio) nao e alterada.
+    std::vector<std::size_t> order(ships.size());
+    for (std::size_t i = 0; i < order.size(); i++) order[i] = i;
+    std::sort(order.begin(), order.end(), [&](std::size_t a, std::size_t b) {
+        return ships[a].getSize() > ships[b].getSize();
+    });
 
-    // Tenta posicionar cada navio individualmente.
-    for(Ship& ship : ships){
+    // Se algum navio nao couber, a frota inteira e re-sorteada do zero
+    // (em vez de so desistir daquele navio) — do contrario a partida
+    // seguia com um navio a menos no tabuleiro, e o jogador vencia cedo
+    // demais ao afundar so os navios que de fato foram colocados.
+    const int maxFleetAttempts = 200;
 
-        bool placed = false;
+    for (int fleetAttempt = 0; fleetAttempt < maxFleetAttempts; fleetAttempt++) {
+        board.reset();
+        bool allPlaced = true;
 
-        // Limite de segurança para evitar loop infinito caso
-        // não exista mais nenhuma posição válida no tabuleiro.
-        const int maxAttempts = 1000;
+        for (std::size_t idx : order) {
+            Ship& ship = ships[idx];
+            bool placed = false;
 
-        for(int attempt = 0; attempt < maxAttempts && !placed; attempt++){
+            // Limite de segurança para evitar loop infinito caso
+            // não exista mais nenhuma posição válida no tabuleiro.
+            const int maxAttempts = 1000;
 
-            // Sorteia a orientação:
-            // true  = horizontal
-            // false = vertical
-            std::uniform_int_distribution<int> orientacionDistribution(0, 1);
-            bool horizontal = orientacionDistribution(generator) == 1;
+            for(int attempt = 0; attempt < maxAttempts && !placed; attempt++){
 
-             // Sorteia uma posição dentro dos limites do tabuleiro.
-            std::uniform_int_distribution<int> rowDistribution(0, board.getRows() -1);
+                // Sorteia a orientação:
+                // true  = horizontal
+                // false = vertical
+                std::uniform_int_distribution<int> orientacionDistribution(0, 1);
+                bool horizontal = orientacionDistribution(generator) == 1;
 
-            std::uniform_int_distribution<int> colDistribution(0, board.getCols() -1);
+                 // Sorteia uma posição dentro dos limites do tabuleiro.
+                std::uniform_int_distribution<int> rowDistribution(0, board.getRows() -1);
 
-            int row = rowDistribution(generator);
-            int col = colDistribution(generator);
+                std::uniform_int_distribution<int> colDistribution(0, board.getCols() -1);
 
-            // Verifica se o navio pode ser colocado nessa posição.
-            if(board.canPlace(row, col, ship.getSize(), horizontal)){
+                int row = rowDistribution(generator);
+                int col = colDistribution(generator);
 
-                board.placeShip(row, col, ship.getSize(), horizontal);
+                // Verifica se o navio pode ser colocado nessa posição.
+                if(board.canPlace(row, col, ship.getSize(), horizontal)){
 
-                ship.setPosition(row, col, horizontal);
+                    board.placeShip(row, col, ship.getSize(), horizontal);
 
-                placed = true;
+                    ship.setPosition(row, col, horizontal);
+
+                    placed = true;
+                }
+            }
+
+            if (!placed) {
+                allPlaced = false;
+                break;
             }
         }
 
-        // Se não foi possível posicionar o navio após várias tentativas,
-        // o posicionamento automático falhou.
-        if(!placed){
-            return false;
-        }
+        // Toda a frota coube: sucesso.
+        if (allPlaced) return true;
     }
 
-    // Todos os navios foram posicionados com sucesso.
-    return true;
+    // Praticamente impossível de chegar aqui (200 tentativas completas),
+    // mas se acontecer, o chamador precisa saber que a frota ficou incompleta.
+    return false;
 }
