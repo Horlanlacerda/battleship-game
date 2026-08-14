@@ -1,10 +1,10 @@
 # ⚓ Batalha Naval
 
-Jogo de Batalha Naval desenvolvido para a disciplina de Paradigmas de Linguagens de Programação. Implementado em **C++** e **JavaScript** para análise comparativa de conceitos de computação.
+Jogo de Batalha Naval desenvolvido para a disciplina de Paradigmas de Programação e implementado em **C++**
 
 ## Sobre o Projeto
 
-O objetivo central é aplicar e contrastar de forma prática os conceitos de paradigmas de linguagens de programação abordados em ambiente acadêmico, analisando aspectos como tipagem, gerenciamento de memória, estruturas de dados e organização de código entre as duas tecnologias.
+O objetivo central é aplicar e contrastar de forma prática os conceitos de paradigmas de linguagens (nesse caso, em POO), analisando aspectos como tipagem, gerenciamento de memória, estruturas de dados e organização de código.
 
 ## Objetivos do Sistema
 
@@ -13,7 +13,7 @@ O sistema visa cumprir os seguintes requisitos obrigatórios:
 * **Interface e Navegação:** menu inicial interativo com opções de iniciar jogo, ranking, histórico, instruções e sair.
 * **Mecânica de Tabuleiro:** uso de matrizes bidimensionais (tamanho mínimo 5x5) para posicionamento estratégico de uma frota de navios (pequenos, médios e grandes).
 * **Controle de Jogadas:** entrada por coordenadas de linha e coluna com validação rígida contra jogadas repetidas ou inválidas, sob um limite restrito de tentativas (condições de vitória ou derrota).
-* **Persistência de Dados:** registro completo do nome dos jogadores, histórico detalhado de partidas e geração de ranking ordenado por pontuação.
+* **Persistência de Dados:** registro completo do nome dos jogadores, histórico detalhado de partidas e geração de ranking ordenado por score.
 
 ## Telas do Jogo
 
@@ -34,7 +34,7 @@ O sistema visa cumprir os seguintes requisitos obrigatórios:
 
 Com base na configuração do projeto, as tecnologias utilizadas foram:
 
-### **Backend & Core**
+### **Backend **
 
 | Tecnologia | Versão | Propósito |
 | --- | --- | --- |
@@ -87,9 +87,7 @@ Como o jogo busca arquivos de fontes (`assets/fonts/Roboto-Regular.ttf`) e o ban
 2. Clique no botão de **Play (Shift + F10)** no CLion com o executável `BatalhaNaval` selecionado.
 
 
-3. O jogo irá compilar e a janela se abrirá!
-
----
+3. O jogo irá compilar e a janelinha se abrirá
 
 ## Autores
 
