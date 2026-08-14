@@ -24,7 +24,7 @@ std::vector<Ship> GameState::buildFleet(MapType map) {
     std::vector<Ship> fleet;
 
 
-    // Fica MUITO DIFÍCIL POSICIONAR UM NAVIO GRANDE tendo que manter a regra do bloco livro
+    // Fica MUITO DIFÍCIL POSICIONAR UM NAVIO GRANDE tendo que manter a regra do bloco livre
     if (map == MapType::ACUDE) {
         fleet.emplace_back(ShipType::SMALL,  0, 0, true);
         fleet.emplace_back(ShipType::SMALL, 0, 0, true);   // Trocou de MEDIUM para SMALL

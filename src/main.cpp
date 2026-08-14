@@ -10,8 +10,10 @@
 #include <iostream>
 
 int main() {
+
+    // O try-catch envolve todo o jogo caso quebre
     try {
-        Database db("data/ranking.db");
+        Database db("data/ranking.db"); // definindo onde fica meu bd
 
         sf::RenderWindow window(sf::VideoMode({ui::kWindowWidth, ui::kWindowHeight}), "Batalha Naval",
                                 sf::Style::Titlebar | sf::Style::Close);
@@ -19,6 +21,7 @@ int main() {
         // Sem limitar a taza de frames pode acabar com a CPU
         window.setFramerateLimit(60);
 
+        // Telas que não dependem do andamento de uma partida específica
         MenuScreen menu(window);
         RankingScreen ranking(window, db);
         InstructionsScreen instructions(window);
@@ -34,14 +37,14 @@ int main() {
                 // e deixa o jogador posicionar os navios antes da partida.
                 GameState gameState(map);
                 PlacementScreen placement(window, gameState.getPlayerBoard(), gameState.getPlayerShips());
-                placement.run();
+                placement.run(); // Entra no whilezinho até todos os navios foram selecionados
 
                 if (!window.isOpen()) continue; // jogador fechou a janela durante o posicionamento
 
                 // Batalha: jogador vs computador (a IA posiciona sua propria
                 // frota automaticamente ao construir a GameScreen)
                 GameScreen gameScreen(window, gameState);
-                GameScreen::Outcome outcome = gameScreen.run();
+                GameScreen::Outcome outcome = gameScreen.run(); // Entra no whilezinho aqui até alguém vencer
 
                 if (!window.isOpen()) continue; // jogador fechou a janela durante a partida
 

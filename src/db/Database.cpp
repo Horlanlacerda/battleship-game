@@ -35,7 +35,7 @@ void Database::createTableIfNeeded() {
 void Database::saveResult(const RankingEntry& entry) {
     const char* sql =
         "INSERT INTO ranking (player_name, score, elapsed_sec, map_type) "
-        "VALUES (?, ?, ?, ?);";
+        "VALUES (?, ?, ?, ?);";    // Prepared Statements
 
     sqlite3_stmt* stmt;
     sqlite3_prepare_v2((sqlite3*)db, sql, -1, &stmt, nullptr);

@@ -96,7 +96,7 @@ public:
      * @brief Remove um navio previamente posicionado no tabuleiro
      * @details Restaura as células ocupadas pelo navio para o estado CellState::EMPTY.
      * Utilizado principalmente para desfazer operações de posicionamento
-     * durante a fase de setup ou para algoritmos de backtracking.
+     * durante a fase de placement.
      *
      * @param row Linha inicial onde a proa do navio está posicionada.
      * @param col Coluna inicial onde a proa do navio está posicionada.
