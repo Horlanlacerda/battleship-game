@@ -1,0 +1,9 @@
+<map id="include/controller/AutoPlacer.h" name="include/controller/AutoPlacer.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="264,5,399,45"/>
+<area shape="rect" id="Node000002" href="$AutoPlacer_8cpp.html" title=" " alt="" coords="5,93,212,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="266,52,142,96,141,91,264,47"/>
+<area shape="rect" id="Node000003" href="$GameScreen_8cpp.html" title=" " alt="" coords="236,93,427,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="334,59,334,93,329,93,329,59"/>
+<area shape="rect" id="Node000004" href="$PlacementScreen_8cpp.html" title=" " alt="" coords="451,93,671,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="400,47,528,91,526,96,398,52"/>
+</map>

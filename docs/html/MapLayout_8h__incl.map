@@ -1,0 +1,9 @@
+<map id="include/model/MapLayout.h" name="include/model/MapLayout.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,208,31"/>
+<area shape="rect" id="Node000002" href="$Board_8h.html" title=" " alt="" coords="27,79,99,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,32,79,68,75,66,97,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="123,79,181,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="116,30,140,66,135,69,112,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="31,152,94,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="65,104,65,138,60,138,60,104"/>
+</map>

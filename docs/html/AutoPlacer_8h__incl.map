@@ -1,0 +1,15 @@
+<map id="include/controller/AutoPlacer.h" name="include/controller/AutoPlacer.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="105,5,240,45"/>
+<area shape="rect" id="Node000002" href="$Board_8h.html" title=" " alt="" coords="5,93,135,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,48,98,87,94,83,146,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="141,167,204,192"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="175,46,175,153,170,153,170,46"/>
+<area shape="rect" id="Node000004" href="$Ship_8h.html" title=" " alt="" coords="211,93,329,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="198,43,247,82,243,87,195,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,116,146,156,143,161,85,121"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="256,121,201,160,198,156,253,117"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="233,167,293,192"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="272,119,268,153,263,153,266,119"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="318,167,377,192"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="284,117,326,155,323,159,281,121"/>
+</map>

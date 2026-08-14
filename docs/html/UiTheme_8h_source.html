@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Código-Fonte de include/utils/UiTheme.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_821002d4f10779a80d4fb17bc32f21f1.html">utils</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">UiTheme.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="UiTheme_8h.html">Ir para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespaceui.html">   17</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceui.html">ui</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespaceui.html#ae8f2f0adb378e8a8c5cea30c3f90716c">   20</a></span><span class="keyword">constexpr</span> <span class="keywordtype">unsigned</span> <a class="code hl_variable" href="namespaceui.html#ae8f2f0adb378e8a8c5cea30c3f90716c">kWindowWidth</a> = 1100;  </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespaceui.html#ad15fa97bc536d97e2a54fd46d5a7d1ac">   21</a></span><span class="keyword">constexpr</span> <span class="keywordtype">unsigned</span> <a class="code hl_variable" href="namespaceui.html#ad15fa97bc536d97e2a54fd46d5a7d1ac">kWindowHeight</a> = 750;  </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">extern</span> <span class="keyword">const</span> sf::Color <a class="code hl_variable" href="namespaceui.html#a3d7012c356b4d378f61d39066ca2e10a">kSkyTop</a>;   </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">extern</span> <span class="keyword">const</span> sf::Color <a class="code hl_variable" href="namespaceui.html#ad622511514b5ea3603fbb5108320ee9b">kPanel</a>;    </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">extern</span> <span class="keyword">const</span> sf::Color <a class="code hl_variable" href="namespaceui.html#ab38462888248e1dc69bb2857fef9735a">kPanelHot</a>;  </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">extern</span> <span class="keyword">const</span> sf::Color <a class="code hl_variable" href="namespaceui.html#a948ddee900e0a01fac27a948687b23af">kGold</a>;      </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> <span class="keyword">const</span> sf::Color <a class="code hl_variable" href="namespaceui.html#ab164c9c23469296950065a0a05c8a973">kInk</a>;      </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">extern</span> <span class="keyword">const</span> sf::Color <a class="code hl_variable" href="namespaceui.html#a33bf5d0e392360822dd85bc93b0aced7">kInkSoft</a>;  </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">extern</span> <span class="keyword">const</span> sf::Color <a class="code hl_variable" href="namespaceui.html#aa20856d2f6ce19d77e6a5c3b00fdc0ea">kShadow</a>;    </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>sf::Color <a class="code hl_function" href="namespaceui.html#aebf970f7f33ba2d241eb9dcebec88759">withAlpha</a>(sf::Color color, <span class="keywordtype">float</span> alpha);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceui.html#a8290c03b4a15cfb93c698c2a26f0b8c4">drawLine</a>(sf::RenderWindow&amp; window, sf::Vector2f a, sf::Vector2f b, sf::Color color);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceui.html#a31147d1b6b32723ca4c81f9336ee1ef7">drawChartGrid</a>(sf::RenderWindow&amp; window);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceui.html#a51f7d2a4d8c2384e14c75f5cc4cf69ef">drawHudFrame</a>(sf::RenderWindow&amp; window);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceui.html#a444cb3042b73f02211a189268d8e9a5b">drawCenteredText</a>(sf::RenderWindow&amp; window,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                      <span class="keyword">const</span> sf::Font&amp; font,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                      <span class="keyword">const</span> std::string&amp; text,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                      <span class="keywordtype">float</span> centerX,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                      <span class="keywordtype">float</span> y,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                      <span class="keywordtype">unsigned</span> size,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                      sf::Color color,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                      <span class="keywordtype">float</span> letterSpacing = 1.f,</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                      <span class="keywordtype">float</span> outlineThickness = 0.f,</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                      sf::Color outlineColor = sf::Color::Transparent);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceui.html#a0d753984026b1587d35064afee7ffd7e">drawShipHull</a>(sf::RenderWindow&amp; window,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                  sf::Vector2f startCenter,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                  sf::Vector2f endCenter,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                  <span class="keywordtype">bool</span> shipHorizontal,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                  <span class="keywordtype">float</span> radius,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                  sf::Color hullColor,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                  sf::Color deckColor,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                  <span class="keywordtype">int</span> segments,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                  std::uint8_t alpha = 255);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+</div>
+<div class="ttc" id="anamespaceui_html"><div class="ttname"><a href="namespaceui.html">ui</a></div><div class="ttdoc">Paleta de cores e elementos decorativos compartilhados entre as telas do jogo (menu,...</div><div class="ttdef"><b>Definição</b> UiTheme.h:17</div></div>
+<div class="ttc" id="anamespaceui_html_a0d753984026b1587d35064afee7ffd7e"><div class="ttname"><a href="namespaceui.html#a0d753984026b1587d35064afee7ffd7e">ui::drawShipHull</a></div><div class="ttdeci">void drawShipHull(sf::RenderWindow &amp;window, sf::Vector2f startCenter, sf::Vector2f endCenter, bool shipHorizontal, float radius, sf::Color hullColor, sf::Color deckColor, int segments, std::uint8_t alpha=255)</div><div class="ttdoc">Desenha o casco de um navio em formato de capsula entre dois pontos.</div><div class="ttdef"><b>Definição</b> UiTheme.cpp:125</div></div>
+<div class="ttc" id="anamespaceui_html_a31147d1b6b32723ca4c81f9336ee1ef7"><div class="ttname"><a href="namespaceui.html#a31147d1b6b32723ca4c81f9336ee1ef7">ui::drawChartGrid</a></div><div class="ttdeci">void drawChartGrid(sf::RenderWindow &amp;window)</div><div class="ttdoc">Desenha uma grade de linhas finas e semi-transparentes sobre toda a janela.</div><div class="ttdef"><b>Definição</b> UiTheme.cpp:28</div></div>
+<div class="ttc" id="anamespaceui_html_a33bf5d0e392360822dd85bc93b0aced7"><div class="ttname"><a href="namespaceui.html#a33bf5d0e392360822dd85bc93b0aced7">ui::kInkSoft</a></div><div class="ttdeci">const sf::Color kInkSoft</div></div>
+<div class="ttc" id="anamespaceui_html_a3d7012c356b4d378f61d39066ca2e10a"><div class="ttname"><a href="namespaceui.html#a3d7012c356b4d378f61d39066ca2e10a">ui::kSkyTop</a></div><div class="ttdeci">const sf::Color kSkyTop</div></div>
+<div class="ttc" id="anamespaceui_html_a444cb3042b73f02211a189268d8e9a5b"><div class="ttname"><a href="namespaceui.html#a444cb3042b73f02211a189268d8e9a5b">ui::drawCenteredText</a></div><div class="ttdeci">void drawCenteredText(sf::RenderWindow &amp;window, const sf::Font &amp;font, const std::string &amp;text, float centerX, float y, unsigned size, sf::Color color, float letterSpacing=1.f, float outlineThickness=0.f, sf::Color outlineColor=sf::Color::Transparent)</div><div class="ttdoc">Desenha um texto centralizado horizontalmente em torno de um ponto X.</div><div class="ttdef"><b>Definição</b> UiTheme.cpp:70</div></div>
+<div class="ttc" id="anamespaceui_html_a51f7d2a4d8c2384e14c75f5cc4cf69ef"><div class="ttname"><a href="namespaceui.html#a51f7d2a4d8c2384e14c75f5cc4cf69ef">ui::drawHudFrame</a></div><div class="ttdeci">void drawHudFrame(sf::RenderWindow &amp;window)</div><div class="ttdoc">Desenha a moldura dourada decorativa ao redor de toda a janela.</div><div class="ttdef"><b>Definição</b> UiTheme.cpp:39</div></div>
+<div class="ttc" id="anamespaceui_html_a8290c03b4a15cfb93c698c2a26f0b8c4"><div class="ttname"><a href="namespaceui.html#a8290c03b4a15cfb93c698c2a26f0b8c4">ui::drawLine</a></div><div class="ttdeci">void drawLine(sf::RenderWindow &amp;window, sf::Vector2f a, sf::Vector2f b, sf::Color color)</div><div class="ttdoc">Desenha uma linha reta de 1 pixel entre dois pontos.</div><div class="ttdef"><b>Definição</b> UiTheme.cpp:21</div></div>
+<div class="ttc" id="anamespaceui_html_a948ddee900e0a01fac27a948687b23af"><div class="ttname"><a href="namespaceui.html#a948ddee900e0a01fac27a948687b23af">ui::kGold</a></div><div class="ttdeci">const sf::Color kGold</div></div>
+<div class="ttc" id="anamespaceui_html_aa20856d2f6ce19d77e6a5c3b00fdc0ea"><div class="ttname"><a href="namespaceui.html#aa20856d2f6ce19d77e6a5c3b00fdc0ea">ui::kShadow</a></div><div class="ttdeci">const sf::Color kShadow</div></div>
+<div class="ttc" id="anamespaceui_html_ab164c9c23469296950065a0a05c8a973"><div class="ttname"><a href="namespaceui.html#ab164c9c23469296950065a0a05c8a973">ui::kInk</a></div><div class="ttdeci">const sf::Color kInk</div></div>
+<div class="ttc" id="anamespaceui_html_ab38462888248e1dc69bb2857fef9735a"><div class="ttname"><a href="namespaceui.html#ab38462888248e1dc69bb2857fef9735a">ui::kPanelHot</a></div><div class="ttdeci">const sf::Color kPanelHot</div></div>
+<div class="ttc" id="anamespaceui_html_ad15fa97bc536d97e2a54fd46d5a7d1ac"><div class="ttname"><a href="namespaceui.html#ad15fa97bc536d97e2a54fd46d5a7d1ac">ui::kWindowHeight</a></div><div class="ttdeci">constexpr unsigned kWindowHeight</div><div class="ttdoc">Altura fixa da janela, em pixels.</div><div class="ttdef"><b>Definição</b> UiTheme.h:21</div></div>
+<div class="ttc" id="anamespaceui_html_ad622511514b5ea3603fbb5108320ee9b"><div class="ttname"><a href="namespaceui.html#ad622511514b5ea3603fbb5108320ee9b">ui::kPanel</a></div><div class="ttdeci">const sf::Color kPanel</div></div>
+<div class="ttc" id="anamespaceui_html_ae8f2f0adb378e8a8c5cea30c3f90716c"><div class="ttname"><a href="namespaceui.html#ae8f2f0adb378e8a8c5cea30c3f90716c">ui::kWindowWidth</a></div><div class="ttdeci">constexpr unsigned kWindowWidth</div><div class="ttdoc">Resolucao fixa da janela do jogo. A janela nao e redimensionavel para evitar que o conteúdo fique cor...</div><div class="ttdef"><b>Definição</b> UiTheme.h:20</div></div>
+<div class="ttc" id="anamespaceui_html_aebf970f7f33ba2d241eb9dcebec88759"><div class="ttname"><a href="namespaceui.html#aebf970f7f33ba2d241eb9dcebec88759">ui::withAlpha</a></div><div class="ttdeci">sf::Color withAlpha(sf::Color color, float alpha)</div><div class="ttdoc">Retorna uma copia da cor informada com um novo canal alfa (transparencia).</div><div class="ttdef"><b>Definição</b> UiTheme.cpp:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

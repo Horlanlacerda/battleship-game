@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['gamecontroller_0',['GameController',['../classGameController.html#a68b3687443cefdec918fbdc92e718fd7',1,'GameController']]],
+  ['gamescreen_1',['GameScreen',['../classGameScreen.html#a37a1a3afbea9c84415791d8b9f0d0184',1,'GameScreen']]],
+  ['gamestate_2',['GameState',['../classGameState.html#a8a122b921538bdfe4d27646cd1da8deb',1,'GameState']]],
+  ['getcell_3',['getCell',['../classBoard.html#a1110e129562551df3d2d321f1f0abcd5',1,'Board']]],
+  ['getcols_4',['getCols',['../classBoard.html#a54be5b184a8698e0c866ca714f97ab53',1,'Board']]],
+  ['getcomputerboard_5',['getComputerBoard',['../classGameState.html#a1bf97e6e2c2c165b8a7f040361092d00',1,'GameState']]],
+  ['getcomputerships_6',['getComputerShips',['../classGameState.html#ad4c2ff4258eedc8888dea971991e3553',1,'GameState']]],
+  ['getcurrentturn_7',['getCurrentTurn',['../classGameState.html#a46d9e89da293ddcbd9f87a8601b6555e',1,'GameState']]],
+  ['getelapsedseconds_8',['getElapsedSeconds',['../classGameState.html#a2d2e911be380cf90e782373f944967ea',1,'GameState']]],
+  ['getmaptype_9',['getMapType',['../classGameState.html#a8f154c584b00c8689a3f7cad28e2a15b',1,'GameState']]],
+  ['getmissilesleft_10',['getMissilesLeft',['../classGameController.html#a2a9b00a550701603024e8399bc67f640',1,'GameController']]],
+  ['getoccupiedcells_11',['getOccupiedCells',['../classShip.html#a23e04ca33dc4745a89d848ad2ad8b2ce',1,'Ship']]],
+  ['getplayerboard_12',['getPlayerBoard',['../classGameState.html#a8f2e259320bf979a6a0b450c6deac8ba',1,'GameState']]],
+  ['getplayerships_13',['getPlayerShips',['../classGameState.html#a97d0ecae3244c7fdbe3e8b1d96510922',1,'GameState']]],
+  ['getremainingsegments_14',['getRemainingSegments',['../classShip.html#a233dcb5bf19f7d85f7297c3b7e330155',1,'Ship']]],
+  ['getrows_15',['getRows',['../classBoard.html#ab62db5471cc3c497e03d8d2dcd5e0807',1,'Board']]],
+  ['getselectedweapon_16',['getSelectedWeapon',['../classGameController.html#a66514d16fe05dd380138fc808e475c38',1,'GameController']]],
+  ['getsize_17',['getSize',['../classShip.html#ace2c0500ab9dde8ad2440aaf50180de0',1,'Ship']]],
+  ['getstartcol_18',['getStartCol',['../classShip.html#a15f410d48aecd68d30744b2b77097a13',1,'Ship']]],
+  ['getstartrow_19',['getStartRow',['../classShip.html#a69b7186a9462882c89943a2c248c7a6c',1,'Ship']]],
+  ['gettopscores_20',['getTopScores',['../classDatabase.html#a4bb4fbb7b992d65d384a3f8f397ffd38',1,'Database']]],
+  ['gettorpedoesleft_21',['getTorpedoesLeft',['../classGameController.html#abb61f2ae9e56a773ccff42bac6191273',1,'GameController']]],
+  ['gettype_22',['getType',['../classShip.html#ae7bb8637200262f31ee1734355542026',1,'Ship']]],
+  ['gettypename_23',['getTypeName',['../classShip.html#a8a12ebd0ac7d56078be500a93491edcd',1,'Ship']]]
+];

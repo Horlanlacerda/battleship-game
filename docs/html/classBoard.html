@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência da Classe Board</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="classBoard-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe Board</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Gerencia o tabuleiro do jogo de Batalha Naval.  
+ <a href="classBoard.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Board_8h_source.html">Board.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:aaf26049ef790a1707f7214516c317bad" id="r_aaf26049ef790a1707f7214516c317bad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#aaf26049ef790a1707f7214516c317bad">Board</a> (int rows, int cols)</td></tr>
+<tr class="memdesc:aaf26049ef790a1707f7214516c317bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de um novo tabuleiro com as dimensões especificadas.  <br /></td></tr>
+<tr class="separator:aaf26049ef790a1707f7214516c317bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15d86c314e7c769660c4b3410b60b17" id="r_ab15d86c314e7c769660c4b3410b60b17"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#ab15d86c314e7c769660c4b3410b60b17">canPlace</a> (int row, int col, int size, bool horizontal) const</td></tr>
+<tr class="memdesc:ab15d86c314e7c769660c4b3410b60b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um navio pode ser posicionado na posição escolhida.  <br /></td></tr>
+<tr class="separator:ab15d86c314e7c769660c4b3410b60b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6bef5a0af7f6e73855ee7b2377c774c" id="r_aa6bef5a0af7f6e73855ee7b2377c774c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#aa6bef5a0af7f6e73855ee7b2377c774c">placeShip</a> (int row, int col, int size, bool horizontal)</td></tr>
+<tr class="memdesc:aa6bef5a0af7f6e73855ee7b2377c774c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posiciona um navio no tabuleiro.  <br /></td></tr>
+<tr class="separator:aa6bef5a0af7f6e73855ee7b2377c774c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cf3d1c3d93d66eb1305a9ad89e75797" id="r_a2cf3d1c3d93d66eb1305a9ad89e75797"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a2cf3d1c3d93d66eb1305a9ad89e75797">removeShip</a> (int row, int col, int size, bool horizontal)</td></tr>
+<tr class="memdesc:a2cf3d1c3d93d66eb1305a9ad89e75797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um navio previamente posicionado no tabuleiro.  <br /></td></tr>
+<tr class="separator:a2cf3d1c3d93d66eb1305a9ad89e75797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a337fb447ddf53739187f77eef2be546a" id="r_a337fb447ddf53739187f77eef2be546a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a337fb447ddf53739187f77eef2be546a">setCell</a> (int row, int col, <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9">CellState</a> state)</td></tr>
+<tr class="memdesc:a337fb447ddf53739187f77eef2be546a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define diretamente o estado de uma célula do tabuleiro.  <br /></td></tr>
+<tr class="separator:a337fb447ddf53739187f77eef2be546a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a111fc917762f5e08f9dfc29269e451da" id="r_a111fc917762f5e08f9dfc29269e451da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a111fc917762f5e08f9dfc29269e451da">isValidShot</a> (int row, int col) const</td></tr>
+<tr class="memdesc:a111fc917762f5e08f9dfc29269e451da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se uma coordenada de tiro é válida.  <br /></td></tr>
+<tr class="separator:a111fc917762f5e08f9dfc29269e451da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e23519c3c1f01214120c8f791626151" id="r_a2e23519c3c1f01214120c8f791626151"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9">CellState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a2e23519c3c1f01214120c8f791626151">shoot</a> (int row, int col)</td></tr>
+<tr class="memdesc:a2e23519c3c1f01214120c8f791626151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processa um tiro na coordenada especificada.  <br /></td></tr>
+<tr class="separator:a2e23519c3c1f01214120c8f791626151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1110e129562551df3d2d321f1f0abcd5" id="r_a1110e129562551df3d2d321f1f0abcd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9">CellState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a1110e129562551df3d2d321f1f0abcd5">getCell</a> (int row, int col) const</td></tr>
+<tr class="memdesc:a1110e129562551df3d2d321f1f0abcd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o estado atual de uma célula específica.  <br /></td></tr>
+<tr class="separator:a1110e129562551df3d2d321f1f0abcd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62db5471cc3c497e03d8d2dcd5e0807" id="r_ab62db5471cc3c497e03d8d2dcd5e0807"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#ab62db5471cc3c497e03d8d2dcd5e0807">getRows</a> () const</td></tr>
+<tr class="memdesc:ab62db5471cc3c497e03d8d2dcd5e0807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o número de linhas do tabuleiro.  <br /></td></tr>
+<tr class="separator:ab62db5471cc3c497e03d8d2dcd5e0807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54be5b184a8698e0c866ca714f97ab53" id="r_a54be5b184a8698e0c866ca714f97ab53"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a54be5b184a8698e0c866ca714f97ab53">getCols</a> () const</td></tr>
+<tr class="memdesc:a54be5b184a8698e0c866ca714f97ab53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o número de colunas do tabuleiro.  <br /></td></tr>
+<tr class="separator:a54be5b184a8698e0c866ca714f97ab53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f228bd2c4aeafd276e72d4e94c62aff" id="r_a9f228bd2c4aeafd276e72d4e94c62aff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a9f228bd2c4aeafd276e72d4e94c62aff">hasAnyShipRemaining</a> () const</td></tr>
+<tr class="memdesc:a9f228bd2c4aeafd276e72d4e94c62aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se ainda existe algum navio intacto no tabuleiro.  <br /></td></tr>
+<tr class="separator:a9f228bd2c4aeafd276e72d4e94c62aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaef819a8d1a10c35d9f802195802236e" id="r_aaef819a8d1a10c35d9f802195802236e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#aaef819a8d1a10c35d9f802195802236e">reset</a> ()</td></tr>
+<tr class="memdesc:aaef819a8d1a10c35d9f802195802236e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinicia completamente o tabuleiro.  <br /></td></tr>
+<tr class="separator:aaef819a8d1a10c35d9f802195802236e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af191e1337cbfc1987f86d03a183957a0" id="r_af191e1337cbfc1987f86d03a183957a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#af191e1337cbfc1987f86d03a183957a0">clearShips</a> ()</td></tr>
+<tr class="memdesc:af191e1337cbfc1987f86d03a183957a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove todos os navios do tabuleiro, sem afetar o terreno.  <br /></td></tr>
+<tr class="separator:af191e1337cbfc1987f86d03a183957a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Gerencia o tabuleiro do jogo de Batalha Naval. </p>
+<p>A classe <a class="el" href="classBoard.html" title="Gerencia o tabuleiro do jogo de Batalha Naval.">Board</a> é responsável por manter o estado de todas as células do tabuleiro, validar posicionamento de navios, processar tiros e verificar condições de fim de jogo.</p>
+<p>Arquitetura: O <a class="el" href="classBoard.html" title="Gerencia o tabuleiro do jogo de Batalha Naval.">Board</a> é a única entidade que manipula diretamente a matriz de células, garantindo encapsulamento e integridade dos dados. O <a class="el" href="classGameController.html" title="Converte cliques do mouse em coordenadas de tabuleiro (linha, coluna).">GameController</a> não pode acessar a grid diretamente.</p>
+<p>Suporte a terrenos especiais (BLOCKED e SHALLOW)</p>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="aaf26049ef790a1707f7214516c317bad" name="aaf26049ef790a1707f7214516c317bad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf26049ef790a1707f7214516c317bad">&#9670;&#160;</a></span>Board()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Board::Board </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor de um novo tabuleiro com as dimensões especificadas. </p>
+<p>Aloca a matriz bidimensional e inicializa todas as células com o estado <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9aba2b45bdc11e2a4a6e86aab2ac693cbb" title="Célula vazia, ainda não atacada.">CellState::EMPTY</a>.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rows</td><td>Número de linhas do tabuleiro. </td></tr>
+    <tr><td class="paramname">cols</td><td>Número de colunas do tabuleiro.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Aviso</dt><dd>Valores menores ou iguais a zero para rows ou cols podem causar comportamento indefinido ou alocação inválida de memória.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="ab15d86c314e7c769660c4b3410b60b17" name="ab15d86c314e7c769660c4b3410b60b17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15d86c314e7c769660c4b3410b60b17">&#9670;&#160;</a></span>canPlace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Board::canPlace </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>horizontal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se um navio pode ser posicionado na posição escolhida. </p>
+<p>Valida as regras de colisão, limites do tabuleiro e restrições de terreno (BLOCKED e SHALLOW) antes de permitir o posicionamento.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Linha inicial onde a proa do navio será posicionada. </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna inicial onde a proa do navio será posicionada. </td></tr>
+    <tr><td class="paramname">size</td><td>Tamanho do navio em número de células. </td></tr>
+    <tr><td class="paramname">horizontal</td><td>true para orientação horizontal do navio, false para vertical.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o navio pode ser posicionado na posição solicitada ou false se houver colisão com outro navio, sair dos limites do tabuleiro, ou violar restrições de terreno.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<a id="af191e1337cbfc1987f86d03a183957a0" name="af191e1337cbfc1987f86d03a183957a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af191e1337cbfc1987f86d03a183957a0">&#9670;&#160;</a></span>clearShips()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Board::clearShips </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove todos os navios do tabuleiro, sem afetar o terreno. </p>
+<p>Volta toda célula <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9a43faba084d0165852e5556db67a55378" title="Célula ocupada por um segmento de navio intacto.">CellState::SHIP</a> para <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9aba2b45bdc11e2a4a6e86aab2ac693cbb" title="Célula vazia, ainda não atacada.">CellState::EMPTY</a>. Terrenos (BLOCKED/SHALLOW) e tiros já registrados (HIT/MISS) são preservados,ao contrário de <a class="el" href="classBoard.html#aaef819a8d1a10c35d9f802195802236e" title="Reinicia completamente o tabuleiro.">reset()</a>, que apaga tudo.</p>
+<dl class="section see"><dt>Veja também</dt><dd><a class="el" href="classAutoPlacer.html#a57f64e82f8dbb86b77157f958588294d" title="Posiciona automaticamente todos os navios no tabuleiro.">AutoPlacer::place()</a>, que usa isso para tentar de novo uma frota sem perder o mapa (ilhas/recifes) do tabuleiro.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>12/08/2026 </dd></dl>
+
+</div>
+</div>
+<a id="a1110e129562551df3d2d321f1f0abcd5" name="a1110e129562551df3d2d321f1f0abcd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1110e129562551df3d2d321f1f0abcd5">&#9670;&#160;</a></span>getCell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9">CellState</a> Board::getCell </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o estado atual de uma célula específica. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Linha da célula a ser consultada. </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna da célula a ser consultada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O CellState atual da célula na posição (row, col).</dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>se a coordenada estiver fora dos limites.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<a id="a54be5b184a8698e0c866ca714f97ab53" name="a54be5b184a8698e0c866ca714f97ab53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54be5b184a8698e0c866ca714f97ab53">&#9670;&#160;</a></span>getCols()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Board::getCols </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o número de colunas do tabuleiro. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Quantidade de colunas.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<a id="ab62db5471cc3c497e03d8d2dcd5e0807" name="ab62db5471cc3c497e03d8d2dcd5e0807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab62db5471cc3c497e03d8d2dcd5e0807">&#9670;&#160;</a></span>getRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Board::getRows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o número de linhas do tabuleiro. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Quantidade de linhas (dimensão vertical).</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<a id="a9f228bd2c4aeafd276e72d4e94c62aff" name="a9f228bd2c4aeafd276e72d4e94c62aff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f228bd2c4aeafd276e72d4e94c62aff">&#9670;&#160;</a></span>hasAnyShipRemaining()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Board::hasAnyShipRemaining </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se ainda existe algum navio intacto no tabuleiro. </p>
+<p>Percorre toda a matriz em busca de células com estado <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9a43faba084d0165852e5556db67a55378" title="Célula ocupada por um segmento de navio intacto.">CellState::SHIP</a>. É utilizado pelo <a class="el" href="classGameController.html" title="Converte cliques do mouse em coordenadas de tabuleiro (linha, coluna).">GameController</a> para determinar se o jogo terminou (todos os navios do jogador foram destruídos).</p>
+<dl class="section return"><dt>Retorna</dt><dd>true se houver pelo menos uma célula com <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9a43faba084d0165852e5556db67a55378" title="Célula ocupada por um segmento de navio intacto.">CellState::SHIP</a>; false se todos os navios foram destruídos.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<a id="a111fc917762f5e08f9dfc29269e451da" name="a111fc917762f5e08f9dfc29269e451da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a111fc917762f5e08f9dfc29269e451da">&#9670;&#160;</a></span>isValidShot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Board::isValidShot </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se uma coordenada de tiro é válida. </p>
+<p>Um tiro é considerado válido se a coordenada está dentro dos limites do tabuleiro e a célula ainda não foi atacada (não está HIT nem MISS).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Linha da coordenada do tiro. </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna da coordenada do tiro.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o tiro pode ser realizado nesta coordenada e false se a coordenada estiver fora do tabuleiro ou se a célula já foi atingida anteriormente.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<a id="aa6bef5a0af7f6e73855ee7b2377c774c" name="aa6bef5a0af7f6e73855ee7b2377c774c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6bef5a0af7f6e73855ee7b2377c774c">&#9670;&#160;</a></span>placeShip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Board::placeShip </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>horizontal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Posiciona um navio no tabuleiro. </p>
+<p>Marca as células correspondentes com <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9a43faba084d0165852e5556db67a55378" title="Célula ocupada por um segmento de navio intacto.">CellState::SHIP</a>. A operação só é realizada se a validação de <a class="el" href="classBoard.html#ab15d86c314e7c769660c4b3410b60b17" title="Verifica se um navio pode ser posicionado na posição escolhida.">canPlace()</a> retornar true.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Linha inicial onde a proa do navio será posicionada. </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna inicial onde a proa do navio será posicionada. </td></tr>
+    <tr><td class="paramname">size</td><td>Tamanho do navio em número de células. </td></tr>
+    <tr><td class="paramname">horizontal</td><td>true para orientação horizontal, false para vertical</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o navio foi posicionado com sucesso; false se a posição for inválida (falha na validação).</dd></dl>
+<dl class="section see"><dt>Veja também</dt><dd><a class="el" href="classBoard.html#ab15d86c314e7c769660c4b3410b60b17" title="Verifica se um navio pode ser posicionado na posição escolhida.">canPlace()</a> para verificar as regras de validação antes de posicionar.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<a id="a2cf3d1c3d93d66eb1305a9ad89e75797" name="a2cf3d1c3d93d66eb1305a9ad89e75797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cf3d1c3d93d66eb1305a9ad89e75797">&#9670;&#160;</a></span>removeShip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Board::removeShip </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>horizontal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um navio previamente posicionado no tabuleiro. </p>
+<p>Restaura as células ocupadas pelo navio para o estado <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9aba2b45bdc11e2a4a6e86aab2ac693cbb" title="Célula vazia, ainda não atacada.">CellState::EMPTY</a>. Utilizado principalmente para desfazer operações de posicionamento durante a fase de setup ou para algoritmos de backtracking.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Linha inicial onde a proa do navio está posicionada. </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna inicial onde a proa do navio está posicionada. </td></tr>
+    <tr><td class="paramname">size</td><td>Tamanho do navio em número de células. </td></tr>
+    <tr><td class="paramname">horizontal</td><td>true se o navio está na orientação horizontal, false se vertical.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Aviso</dt><dd>Certifique-se de que o navio realmente existe nesta posição, pois o método não verifica se as células contêm <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9a43faba084d0165852e5556db67a55378" title="Célula ocupada por um segmento de navio intacto.">CellState::SHIP</a>. Remover um navio inexistente pode corromper o estado de células adjacentes.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<a id="aaef819a8d1a10c35d9f802195802236e" name="aaef819a8d1a10c35d9f802195802236e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaef819a8d1a10c35d9f802195802236e">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Board::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reinicia completamente o tabuleiro. </p>
+<p>Restaura todas as células para o estado <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9aba2b45bdc11e2a4a6e86aab2ac693cbb" title="Célula vazia, ainda não atacada.">CellState::EMPTY</a>, removendo todos os navios e marcas de tiros. É equivalente a criar um novo tabuleiro preservando as dimensões originais.</p>
+<dl class="section warning"><dt>Aviso</dt><dd>Este método destrói todo o estado do jogo atual, incluindo navios posicionados e histórico de tiros.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<a id="a337fb447ddf53739187f77eef2be546a" name="a337fb447ddf53739187f77eef2be546a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a337fb447ddf53739187f77eef2be546a">&#9670;&#160;</a></span>setCell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Board::setCell </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9">CellState</a>&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define diretamente o estado de uma célula do tabuleiro. </p>
+<p>Usado exclusivamente pelo <a class="el" href="classMapLayout.html" title="Aplica o layout de terreno de cada mapa nos tabuleiros.">MapLayout</a> para aplicar terrenos especiais (BLOCKED, SHALLOW) antes do início da fase de posicionamento. Não deve ser chamado durante a partida para não corromper o estado do jogo.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Linha da célula a ser modificada. </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna da célula a ser modificada. </td></tr>
+    <tr><td class="paramname">state</td><td>Novo estado a ser atribuído à célula.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Aviso</dt><dd>Não use este método durante a fase de tiro. Ele ignora todas as regras de negócio — é uma escrita direta na matriz.</dd></dl>
+<dl class="section see"><dt>Veja também</dt><dd><a class="el" href="classMapLayout.html#a4771de83a00714592e72d7f29d29b2d2" title="Aplica o terreno correto no board conforme o mapa escolhido.">MapLayout::apply()</a> para o uso correto deste método.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>17/07/2026 </dd></dl>
+
+</div>
+</div>
+<a id="a2e23519c3c1f01214120c8f791626151" name="a2e23519c3c1f01214120c8f791626151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e23519c3c1f01214120c8f791626151">&#9670;&#160;</a></span>shoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9">CellState</a> Board::shoot </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Processa um tiro na coordenada especificada. </p>
+<p>Atualiza o estado da célula atingida:</p><ul>
+<li><a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9a43faba084d0165852e5556db67a55378" title="Célula ocupada por um segmento de navio intacto.">CellState::SHIP</a> passa para <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9a4e5e3542d523b7fb9c61887d5bb7d642" title="Célula onde um tiro acertou um navio (dano confirmado)">CellState::HIT</a> (acerto)</li>
+<li><a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9aba2b45bdc11e2a4a6e86aab2ac693cbb" title="Célula vazia, ainda não atacada.">CellState::EMPTY</a>, BLOCKED ou SHALLOW passam para <a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9a5a0759bdf01c86f4e79757c43e947fa6" title="Célula onde um tiro caiu na água (erro)">CellState::MISS</a> (erro)</li>
+</ul>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Linha da coordenada do tiro. </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna da coordenada do tiro.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O NOVO estado da célula após o tiro (HIT ou MISS). Se o tiro for inválido, retorna o estado atual sem modificar.</dd></dl>
+<dl class="section warning"><dt>Aviso</dt><dd>Este método não valida se o tiro é válido. Use <a class="el" href="classBoard.html#a111fc917762f5e08f9dfc29269e451da" title="Verifica se uma coordenada de tiro é válida.">isValidShot()</a> antes de chamar <a class="el" href="classBoard.html#a2e23519c3c1f01214120c8f791626151" title="Processa um tiro na coordenada especificada.">shoot()</a> para garantir que o tiro não seja repetido.</dd></dl>
+<dl class="section see"><dt>Veja também</dt><dd><a class="el" href="classBoard.html#a111fc917762f5e08f9dfc29269e451da" title="Verifica se uma coordenada de tiro é válida.">isValidShot()</a> para verificar se o tiro é permitido.</dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>10/07/2026 </dd></dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>include/model/<a class="el" href="Board_8h_source.html">Board.h</a></li>
+<li>src/model/<a class="el" href="Board_8cpp.html">Board.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

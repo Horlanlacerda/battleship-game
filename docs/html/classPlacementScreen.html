@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência da Classe PlacementScreen</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="classPlacementScreen-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe PlacementScreen</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Tela responsável pelo posicionamento manual dos navios.  
+ <a href="classPlacementScreen.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="PlacementScreen_8h_source.html">PlacementScreen.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:aabb7abe4dc2401777b736ff3ed967ada" id="r_aabb7abe4dc2401777b736ff3ed967ada"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlacementScreen.html#aabb7abe4dc2401777b736ff3ed967ada">PlacementScreen</a> (sf::RenderWindow &amp;window, <a class="el" href="classBoard.html">Board</a> &amp;board, std::vector&lt; <a class="el" href="classShip.html">Ship</a> &gt; &amp;ships)</td></tr>
+<tr class="memdesc:aabb7abe4dc2401777b736ff3ed967ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da tela de posicionamento.  <br /></td></tr>
+<tr class="separator:aabb7abe4dc2401777b736ff3ed967ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd434c2d679ccb2377c6beaa7712cb84" id="r_abd434c2d679ccb2377c6beaa7712cb84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlacementScreen.html#abd434c2d679ccb2377c6beaa7712cb84">run</a> ()</td></tr>
+<tr class="memdesc:abd434c2d679ccb2377c6beaa7712cb84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa o loop principal da tela.  <br /></td></tr>
+<tr class="separator:abd434c2d679ccb2377c6beaa7712cb84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Tela responsável pelo posicionamento manual dos navios. </p>
+<p>A classe <a class="el" href="classPlacementScreen.html" title="Tela responsável pelo posicionamento manual dos navios.">PlacementScreen</a> representa a interface gráfica utilizada urante a fase de preparação da partida. Ela permite que o jogador visualize o tabuleiro, escolha a posição dos navios, altere sua orientação e confirme o posicionamento</p>
+<p>Responsabilidades:</p><ul>
+<li>Exibir o tabuleiro.</li>
+<li>Exibir os navios posicionados.</li>
+<li>Exibir o preview do navio atual.</li>
+<li>Processar os eventos da janela.</li>
+<li>Solicitar ao <a class="el" href="classBoard.html" title="Gerencia o tabuleiro do jogo de Batalha Naval.">Board</a> a validação de posicionamento.</li>
+</ul>
+<dl class="section author"><dt>Autor</dt><dd>Horlan Lacerda </dd></dl>
+<dl class="section since"><dt>Desde</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>20/07/2026 </dd></dl>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="aabb7abe4dc2401777b736ff3ed967ada" name="aabb7abe4dc2401777b736ff3ed967ada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabb7abe4dc2401777b736ff3ed967ada">&#9670;&#160;</a></span>PlacementScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PlacementScreen::PlacementScreen </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classBoard.html">Board</a> &amp;&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classShip.html">Ship</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ships</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da tela de posicionamento. </p>
+<p>Implementação da tela de posicionamento manual dos navios.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>Janela principal da aplicação. </td></tr>
+    <tr><td class="paramname">board</td><td>Tabuleiro utilizado durante o posicionamento. </td></tr>
+    <tr><td class="paramname">ships</td><td>Vetor contendo todos os navios que deverão ser posicionados.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Contém a implemetação dos métodos responsáveis por:</p><ul>
+<li>Processar eventos da janela;</li>
+<li>Atualizar o estado do posicionamento;</li>
+<li>Renderizar o tabuleiro;</li>
+<li>Exibir o preview do navio que está sendo posicionado.</li>
+</ul>
+<dl class="section author"><dt>Autor</dt><dd>Horlan Lacerda </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>22/07/2026</dd></dl>
+<p>Construtor da tela de posicionamento manual.</p>
+<p>Inicializa a tela de posicionamento associando-a à janela principal, ao tabuleiro e à frota de navios. Também inicializa os componentes responsáveis pela renderização do tabuleiro e pela conversão das coordenadas do mouse para coordenadas da matriz.</p>
+<p>O posicionamento inicial do cursor é definido como inválido e o primeiro navio da frota é selecionado para posicionamento na orientação horizontal.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>Referência para a janela principal da aplicação. </td></tr>
+    <tr><td class="paramname">board</td><td>Referência para o tabuleiro utilizado durante o posicionamento. </td></tr>
+    <tr><td class="paramname">ships</td><td>Referência para o vetor contendo os navios da partida. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="abd434c2d679ccb2377c6beaa7712cb84" name="abd434c2d679ccb2377c6beaa7712cb84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd434c2d679ccb2377c6beaa7712cb84">&#9670;&#160;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlacementScreen::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executa o loop principal da tela. </p>
+<p>Executa o loop principal da tela de posicionamento.</p>
+<p>Mantém a tela ativa enquanto a janela permanecer aberta. Durante cada iteração são processados os eventos, atualizada a lógica da interface e realizado o desenho de todos os elementos gráficos.</p>
+<p>Mantém a tela ativa enquanto a janela estiver aberta e ainda existirem navios pendentes de posicionamento.</p>
+<p>A cada iteração são executadas três etapas:</p><ul>
+<li>Processamento dos eventos de entrada do usuário.</li>
+<li>Atualização do estado do preview do navio.</li>
+<li>Renderização do estado atual da tela.</li>
+</ul>
+<p>O loop é encerrado quando a janela é fechada ou quando todos os navios da frota foram posicionados no tabuleiro. </p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>include/view/<a class="el" href="PlacementScreen_8h_source.html">PlacementScreen.h</a></li>
+<li>src/view/<a class="el" href="PlacementScreen_8cpp.html">PlacementScreen.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

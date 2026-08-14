@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência da Estrutura RankingEntry</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Atributos Públicos</a> &#124;
+<a href="structRankingEntry-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Estrutura RankingEntry</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Representa uma entrada individual do ranking de pontuação.  
+ <a href="structRankingEntry.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Database_8h_source.html">Database.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Atributos Públicos</h2></td></tr>
+<tr class="memitem:a5fa247149ba59c7d8e6e29df144037df" id="r_a5fa247149ba59c7d8e6e29df144037df"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRankingEntry.html#a5fa247149ba59c7d8e6e29df144037df">playerName</a></td></tr>
+<tr class="memdesc:a5fa247149ba59c7d8e6e29df144037df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome do jogador que registrou a pontuação.  <br /></td></tr>
+<tr class="separator:a5fa247149ba59c7d8e6e29df144037df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0220334ffa1b119b6aa2d31adc65505" id="r_af0220334ffa1b119b6aa2d31adc65505"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRankingEntry.html#af0220334ffa1b119b6aa2d31adc65505">score</a></td></tr>
+<tr class="memdesc:af0220334ffa1b119b6aa2d31adc65505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pontuação final da partida.  <br /></td></tr>
+<tr class="separator:af0220334ffa1b119b6aa2d31adc65505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a264af00f9f249ba628ad10e0c0bc9110" id="r_a264af00f9f249ba628ad10e0c0bc9110"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRankingEntry.html#a264af00f9f249ba628ad10e0c0bc9110">elapsedSeconds</a></td></tr>
+<tr class="memdesc:a264af00f9f249ba628ad10e0c0bc9110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tempo total da partida, em segundos (critério de desempate).  <br /></td></tr>
+<tr class="separator:a264af00f9f249ba628ad10e0c0bc9110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c35c73440f632e3c3a71ddc2a9d89a2" id="r_a6c35c73440f632e3c3a71ddc2a9d89a2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRankingEntry.html#a6c35c73440f632e3c3a71ddc2a9d89a2">mapType</a></td></tr>
+<tr class="memdesc:a6c35c73440f632e3c3a71ddc2a9d89a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo de mapa jogado ("ACUDE", "LAGO" ou "OCEANO").  <br /></td></tr>
+<tr class="separator:a6c35c73440f632e3c3a71ddc2a9d89a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Representa uma entrada individual do ranking de pontuação. </p>
+<p>Agrupa os dados de uma partida finalizada: nome do jogador, pontuação obtida, tempo decorrido (usado como critério de desempate) e o tipo de mapa jogado (para segmentar rankings por mapa). </p>
+</div><h2 class="groupheader">Atributos</h2>
+<a id="a264af00f9f249ba628ad10e0c0bc9110" name="a264af00f9f249ba628ad10e0c0bc9110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a264af00f9f249ba628ad10e0c0bc9110">&#9670;&#160;</a></span>elapsedSeconds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RankingEntry::elapsedSeconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tempo total da partida, em segundos (critério de desempate). </p>
+
+</div>
+</div>
+<a id="a6c35c73440f632e3c3a71ddc2a9d89a2" name="a6c35c73440f632e3c3a71ddc2a9d89a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c35c73440f632e3c3a71ddc2a9d89a2">&#9670;&#160;</a></span>mapType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string RankingEntry::mapType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tipo de mapa jogado ("ACUDE", "LAGO" ou "OCEANO"). </p>
+
+</div>
+</div>
+<a id="a5fa247149ba59c7d8e6e29df144037df" name="a5fa247149ba59c7d8e6e29df144037df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fa247149ba59c7d8e6e29df144037df">&#9670;&#160;</a></span>playerName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string RankingEntry::playerName</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nome do jogador que registrou a pontuação. </p>
+
+</div>
+</div>
+<a id="af0220334ffa1b119b6aa2d31adc65505" name="af0220334ffa1b119b6aa2d31adc65505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0220334ffa1b119b6aa2d31adc65505">&#9670;&#160;</a></span>score</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RankingEntry::score</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pontuação final da partida. </p>
+
+</div>
+</div>
+<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li>include/db/<a class="el" href="Database_8h_source.html">Database.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

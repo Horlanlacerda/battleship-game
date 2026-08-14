@@ -1,0 +1,9 @@
+<map id="include/view/BoardRenderer.h" name="include/view/BoardRenderer.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="52,5,268,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,152,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,33,104,72,100,68,145,29"/>
+<area shape="rect" id="Node000003" href="$Board_8h.html" title=" " alt="" coords="177,79,306,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,29,220,68,216,72,171,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="210,152,273,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="244,104,244,138,239,138,239,104"/>
+</map>

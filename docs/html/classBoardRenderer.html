@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência da Classe BoardRenderer</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="classBoardRenderer-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe BoardRenderer</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Responsável por desenhar o tabuleiro na tela usando SFML.  
+ <a href="classBoardRenderer.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="BoardRenderer_8h_source.html">BoardRenderer.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a84ba50fb8e9e3068edde5e0166a001e8" id="r_a84ba50fb8e9e3068edde5e0166a001e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardRenderer.html#a84ba50fb8e9e3068edde5e0166a001e8">BoardRenderer</a> (sf::RenderWindow &amp;window, float cellSize, float offsetX, float offsetY)</td></tr>
+<tr class="memdesc:a84ba50fb8e9e3068edde5e0166a001e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrói um renderer associado a uma janela SFML.  <br /></td></tr>
+<tr class="separator:a84ba50fb8e9e3068edde5e0166a001e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d56ab585d2d3a3a21857719faba5056" id="r_a9d56ab585d2d3a3a21857719faba5056"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardRenderer.html#a9d56ab585d2d3a3a21857719faba5056">draw</a> (const <a class="el" href="classBoard.html">Board</a> &amp;board, bool hideShips=false)</td></tr>
+<tr class="memdesc:a9d56ab585d2d3a3a21857719faba5056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desenha o estado atual do tabuleiro na janela.  <br /></td></tr>
+<tr class="separator:a9d56ab585d2d3a3a21857719faba5056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Responsável por desenhar o tabuleiro na tela usando SFML. </p>
+<p>A classe <a class="el" href="classBoardRenderer.html" title="Responsável por desenhar o tabuleiro na tela usando SFML.">BoardRenderer</a> não processa eventos nem modifica dados — ela apenas lê o estado atual de um <a class="el" href="classBoard.html" title="Gerencia o tabuleiro do jogo de Batalha Naval.">Board</a> e o renderiza numa janela SFML. Nota de arquitetura: mantém a separação MVC, já que a lógica do jogo (<a class="el" href="classBoard.html" title="Gerencia o tabuleiro do jogo de Batalha Naval.">Board</a>, <a class="el" href="classShip.html" title="Gerencia o estado e as peças de um único navio.">Ship</a>) não conhece nada sobre SFML ou renderização. </p><dl class="section author"><dt>Autor</dt><dd>Gabi </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>17/07/2026 </dd></dl>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a84ba50fb8e9e3068edde5e0166a001e8" name="a84ba50fb8e9e3068edde5e0166a001e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84ba50fb8e9e3068edde5e0166a001e8">&#9670;&#160;</a></span>BoardRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BoardRenderer::BoardRenderer </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>cellSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>offsetX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>offsetY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constrói um renderer associado a uma janela SFML. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>Referência para a janela onde o tabuleiro será desenhado. </td></tr>
+    <tr><td class="paramname">cellSize</td><td>Tamanho em pixels de cada célula do tabuleiro. </td></tr>
+    <tr><td class="paramname">offsetX</td><td>Deslocamento horizontal (em pixels) de onde o tabuleiro começa a ser desenhado. </td></tr>
+    <tr><td class="paramname">offsetY</td><td>Deslocamento vertical (em pixels) de onde o tabuleiro começa a ser desenhado. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="a9d56ab585d2d3a3a21857719faba5056" name="a9d56ab585d2d3a3a21857719faba5056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d56ab585d2d3a3a21857719faba5056">&#9670;&#160;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BoardRenderer::draw </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classBoard.html">Board</a> &amp;&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>hideShips</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desenha o estado atual do tabuleiro na janela. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>O tabuleiro a ser renderizado. </td></tr>
+    <tr><td class="paramname">hideShips</td><td>Se true, esconde navios (usado no tabuleiro do adversário, para que o jogador não veja onde os navios inimigos estão). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>include/view/<a class="el" href="BoardRenderer_8h_source.html">BoardRenderer.h</a></li>
+<li>src/view/<a class="el" href="BoardRenderer_8cpp.html">BoardRenderer.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

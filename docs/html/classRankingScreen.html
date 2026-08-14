@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência da Classe RankingScreen</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="classRankingScreen-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe RankingScreen</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Telas de ranking: lista de melhores pontuações e tela de fim de partida.  
+ <a href="classRankingScreen.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="RankingScreen_8h_source.html">RankingScreen.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:abab12e808cd1352451e2fc5b0ca6ab94" id="r_abab12e808cd1352451e2fc5b0ca6ab94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRankingScreen.html#abab12e808cd1352451e2fc5b0ca6ab94">RankingScreen</a> (sf::RenderWindow &amp;window, <a class="el" href="classDatabase.html">Database</a> &amp;db)</td></tr>
+<tr class="memdesc:abab12e808cd1352451e2fc5b0ca6ab94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrói a tela de ranking.  <br /></td></tr>
+<tr class="separator:abab12e808cd1352451e2fc5b0ca6ab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c1061d3b85eca280986154fbd6720cd" id="r_a0c1061d3b85eca280986154fbd6720cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRankingScreen.html#a0c1061d3b85eca280986154fbd6720cd">showRanking</a> (const std::string &amp;mapType)</td></tr>
+<tr class="memdesc:a0c1061d3b85eca280986154fbd6720cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra a lista das melhores pontuações de um mapa e bloqueia até o jogador voltar.  <br /></td></tr>
+<tr class="separator:a0c1061d3b85eca280986154fbd6720cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad38c59f3d6c93fb585e645d00fafdbf1" id="r_ad38c59f3d6c93fb585e645d00fafdbf1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRankingScreen.html#ad38c59f3d6c93fb585e645d00fafdbf1">showGameOver</a> (int score, int elapsedSec, bool playerWon, const std::string &amp;mapType)</td></tr>
+<tr class="memdesc:ad38c59f3d6c93fb585e645d00fafdbf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostra a tela de fim de partida e bloqueia até o jogador digitar seu nome.  <br /></td></tr>
+<tr class="separator:ad38c59f3d6c93fb585e645d00fafdbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Telas de ranking: lista de melhores pontuações e tela de fim de partida. </p>
+<p>Segue o mesmo padrão visual das demais telas (<a class="el" href="classMenuScreen.html" title="Tela de menu principal e de seleção de mapa.">MenuScreen</a>, <a class="el" href="classInstructionsScreen.html" title="Tela de instrucoes: explica objetivo, controles e regras do jogo antes da partida comecar.">InstructionsScreen</a>...), reutilizando o cenário e os elementos compartilhados em UiTheme. Usa a <a class="el" href="classDatabase.html" title="Gerencia a persistência do ranking de pontuações via SQLite.">Database</a> para ler e persistir as pontuações do ranking.</p>
+<dl class="section author"><dt>Autor</dt><dd>Suelle </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>12/08/2026 </dd></dl>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="abab12e808cd1352451e2fc5b0ca6ab94" name="abab12e808cd1352451e2fc5b0ca6ab94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abab12e808cd1352451e2fc5b0ca6ab94">&#9670;&#160;</a></span>RankingScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RankingScreen::RankingScreen </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classDatabase.html">Database</a> &amp;&#160;</td>
+          <td class="paramname"><em>db</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constrói a tela de ranking. </p>
+<p>Carrega a fonte usada nos textos da tela. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>Janela principal da aplicação. </td></tr>
+    <tr><td class="paramname">db</td><td>Banco de dados de onde o ranking é lido e onde novas pontuações são salvas. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="ad38c59f3d6c93fb585e645d00fafdbf1" name="ad38c59f3d6c93fb585e645d00fafdbf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad38c59f3d6c93fb585e645d00fafdbf1">&#9670;&#160;</a></span>showGameOver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string RankingScreen::showGameOver </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elapsedSec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>playerWon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>mapType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mostra a tela de fim de partida e bloqueia até o jogador digitar seu nome. </p>
+<p>Exibe o resultado (vitória ou derrota), o mapa jogado, a pontuação e o tempo decorrido, e um campo de texto onde o jogador digita seu nome (até 16 caracteres) para salvar no ranking. Roda em loop até ENTER ser pressionado ou a janela ser fechada. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">score</td><td>Pontuação final da partida (já calculada por <a class="el" href="classScoreCalculator.html" title="Calcula a pontuação final do jogador a partir das estatísticas da partida.">ScoreCalculator</a>). </td></tr>
+    <tr><td class="paramname">elapsedSec</td><td>Tempo total da partida, em segundos. </td></tr>
+    <tr><td class="paramname">playerWon</td><td>true se o jogador venceu a partida, false se perdeu. </td></tr>
+    <tr><td class="paramname">mapType</td><td>Tipo de mapa jogado, exibido na tela. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O nome digitado pelo jogador, ou "Anonimo" se nada for digitado ou a janela for fechada antes de confirmar. </dd></dl>
+
+</div>
+</div>
+<a id="a0c1061d3b85eca280986154fbd6720cd" name="a0c1061d3b85eca280986154fbd6720cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c1061d3b85eca280986154fbd6720cd">&#9670;&#160;</a></span>showRanking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RankingScreen::showRanking </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>mapType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mostra a lista das melhores pontuações de um mapa e bloqueia até o jogador voltar. </p>
+<p>Busca as 10 melhores pontuações do mapa via <a class="el" href="classDatabase.html#a4bb4fbb7b992d65d384a3f8f397ffd38" title="Retorna as melhores pontuações de um mapa específico.">Database::getTopScores()</a> e desenha um painel com a posição, nome, pontuação e tempo de cada uma (o 1º colocado em destaque dourado), ou uma mensagem indicando que ainda não há resultados. Roda em loop até a janela ser fechada ou ESC ser pressionado. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mapType</td><td>Tipo de mapa cujo ranking será exibido ("ACUDE", "LAGO" ou "OCEANO"). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>include/view/<a class="el" href="RankingScreen_8h_source.html">RankingScreen.h</a></li>
+<li>src/view/<a class="el" href="RankingScreen_8cpp.html">RankingScreen.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<map id="src/model/AIPlayer.cpp" name="src/model/AIPlayer.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="156,5,327,31"/>
+<area shape="rect" id="Node000002" href="$AIPlayer_8h.html" title=" " alt="" coords="49,79,181,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,33,149,74,146,69,220,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="205,79,277,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="244,31,244,65,239,65,239,31"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="302,79,389,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="260,28,318,68,315,73,257,33"/>
+<area shape="rect" id="Node000003" href="$Board_8h.html" title=" " alt="" coords="5,152,77,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,106,65,144,61,140,101,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="46,225,109,251"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="114,105,86,213,81,211,109,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="153,152,213,177"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="128,102,164,140,160,144,124,106"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="50,176,68,212,63,214,45,179"/>
+</map>
