@@ -10,10 +10,10 @@ O objetivo central é aplicar e contrastar de forma prática os conceitos de par
 
 O sistema visa cumprir os seguintes requisitos obrigatórios:
 
-* **Interface e Navegação:** menu inicial interativo com opções de iniciar jogo, ranking, histórico, instruções e sair.
+* **Interface e Navegação:** menu inicial interativo com opções de iniciar jogo, ranking, histórico, como jogar (instruções) e sair.
 * **Mecânica de Tabuleiro:** uso de matrizes bidimensionais (tamanho mínimo 5x5) para posicionamento estratégico de uma frota de navios (pequenos, médios e grandes).
-* **Controle de Jogadas:** entrada por coordenadas de linha e coluna com validação rígida contra jogadas repetidas ou inválidas, sob um limite restrito de tentativas (condições de vitória ou derrota).
-* **Persistência de Dados:** registro completo do nome dos jogadores, histórico detalhado de partidas e geração de ranking ordenado por score.
+* **Controle de Jogadas:** entrada por coordenadas de linha e coluna com validação rígida contra jogadas repetidas ou inválidas, sob um limite de tentativas (condições de vitória ou derrota).
+* **Persistência de Dados:** registro completo do nome dos jogadores, histórico detalhado de partidas e geração de ranking ordenado por score e com desempate por tempo.
 
 ## Telas do Jogo
 
@@ -34,7 +34,7 @@ O sistema visa cumprir os seguintes requisitos obrigatórios:
 
 Com base na configuração do projeto, as tecnologias utilizadas foram:
 
-### **Backend **
+### **Backend**
 
 | Tecnologia | Versão | Propósito |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Com base na configuração do projeto, as tecnologias utilizadas foram:
 
 | Tecnologia | Versão | Propósito |
 | --- | --- | --- |
-| **SQLite3** | 3 | Persistência de dados local (Serverless) para salvar o ranking e histórico dos jogadores. |
+| **SQLite3** | 3 | Persistência de dados local para salvar o ranking e histórico dos jogadores num arquivo`ranking.db`. |
 
 ### **Frontend & Interface**
 
