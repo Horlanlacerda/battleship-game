@@ -9,7 +9,7 @@
  *
  * | MapType | Dimensão | Frota                        |
  * |---------|----------|------------------------------|
- * | Açude   | 5 × 5    | 1P + 1M + 1G  (3 navios)     |
+ * | Açude   | 5 × 5    | 1P + 1M + 1M  (3 navios)     |
  * | LAGO    | 8 × 8    | 2P + 2M + 1G  (5 navios)     |
  * | OCEANO  | 10 × 10  | 3P + 2M + 2G  (7 navios)     |
  *

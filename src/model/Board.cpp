@@ -141,7 +141,7 @@ int Board::getCols() const { return cols; }
 void Board::setCell(int row, int col, CellState state) {
     if (inBounds(row, col))
         grid[row][col] = state;
-    // Coordenada fora dos limites é silenciosamente ignorada —
+    // Coordenada fora dos limites é silenciosamente ignorada
     // evita crash por configuração errada no MapLayout.
 }
 
