@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência do Arquivo include/model/GameState.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_5c067e43b62dc1a915e487a737196819.html">model</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#enum-members">Enumerações</a>  </div>
+  <div class="headertitle"><div class="title">Referência do Arquivo GameState.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="Board_8h_source.html">Board.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Ship_8h_source.html">Ship.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="MapLayout_8h_source.html">MapLayout.h</a>&quot;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para GameState.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="GameState_8h__incl.png" border="0" usemap="#ainclude_2model_2GameState_8h" alt=""/></div>
+<map name="ainclude_2model_2GameState_8h" id="ainclude_2model_2GameState_8h">
+<area shape="rect" title=" " alt="" coords="23,5,225,31"/>
+<area shape="rect" href="Board_8h.html" title=" " alt="" coords="20,152,92,177"/>
+<area shape="poly" title=" " alt="" coords="106,33,81,53,61,80,54,109,54,138,49,138,49,109,56,78,77,49,103,29"/>
+<area shape="rect" title=" " alt="" coords="25,225,87,251"/>
+<area shape="poly" title=" " alt="" coords="107,33,78,53,50,80,25,114,10,153,8,165,10,176,21,196,34,213,30,217,16,199,5,178,3,165,5,151,20,111,46,77,75,49,104,29"/>
+<area shape="rect" href="Ship_8h.html" title=" " alt="" coords="202,79,265,104"/>
+<area shape="poly" title=" " alt="" coords="143,28,205,69,202,73,140,33"/>
+<area shape="rect" href="MapLayout_8h.html" title=" " alt="" coords="71,79,177,104"/>
+<area shape="poly" title=" " alt="" coords="127,31,127,65,121,65,121,31"/>
+<area shape="rect" title=" " alt="" coords="289,79,356,104"/>
+<area shape="poly" title=" " alt="" coords="157,28,278,71,276,76,155,33"/>
+<area shape="poly" title=" " alt="" coords="59,178,59,212,53,212,53,178"/>
+<area shape="poly" title=" " alt="" coords="248,103,262,118,274,138,280,159,274,179,262,189,246,198,201,214,101,233,100,228,199,208,243,193,259,185,270,176,275,159,270,140,258,122,244,106"/>
+<area shape="rect" title=" " alt="" coords="199,152,259,177"/>
+<area shape="poly" title=" " alt="" coords="235,104,233,139,228,138,230,104"/>
+<area shape="rect" title=" " alt="" coords="116,152,175,177"/>
+<area shape="poly" title=" " alt="" coords="221,106,172,145,169,141,217,102"/>
+<area shape="poly" title=" " alt="" coords="115,106,78,144,75,140,111,102"/>
+<area shape="poly" title=" " alt="" coords="130,104,140,138,135,140,125,105"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com esse arquivo:</div>
+<div class="dyncontent">
+<div class="center"><img src="GameState_8h__dep__incl.png" border="0" usemap="#ainclude_2model_2GameState_8hdep" alt=""/></div>
+<map name="ainclude_2model_2GameState_8hdep" id="ainclude_2model_2GameState_8hdep">
+<area shape="rect" title=" " alt="" coords="95,5,298,31"/>
+<area shape="rect" href="GameScreen_8h.html" title=" " alt="" coords="95,79,298,104"/>
+<area shape="poly" title=" " alt="" coords="199,44,199,79,194,79,194,44"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="5,152,111,177"/>
+<area shape="poly" title=" " alt="" coords="147,38,114,56,85,80,75,98,68,117,61,152,56,151,62,116,70,95,81,77,111,51,144,34"/>
+<area shape="rect" href="GameState_8cpp.html" title=" " alt="" coords="323,79,513,104"/>
+<area shape="poly" title=" " alt="" coords="246,32,383,76,381,81,244,37"/>
+<area shape="poly" title=" " alt="" coords="164,113,82,154,79,149,161,108"/>
+<area shape="rect" href="GameScreen_8cpp.html" title=" " alt="" coords="135,152,325,177"/>
+<area shape="poly" title=" " alt="" coords="210,115,227,151,222,153,206,118"/>
+</map>
+</div>
+</div>
+<p><a href="GameState_8h_source.html">Ir para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameState.html">GameState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gerencia o estado global da partida de Batalha Naval.  <a href="classGameState.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerações</h2></td></tr>
+<tr class="memitem:a997410b9265acf83e61714083c42cf17" id="r_a997410b9265acf83e61714083c42cf17"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GameState_8h.html#a997410b9265acf83e61714083c42cf17">Turno</a> { <a class="el" href="GameState_8h.html#a997410b9265acf83e61714083c42cf17a07c80e2a355d91402a00d82b1fa13855">PLAYER</a>
+, <a class="el" href="GameState_8h.html#a997410b9265acf83e61714083c42cf17ad19cbc472227d1e3d1d276c2cbc0e513">COMPUTER</a>
+ }</td></tr>
+<tr class="memdesc:a997410b9265acf83e61714083c42cf17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa de quem é a vez de jogar.  <a href="GameState_8h.html#a997410b9265acf83e61714083c42cf17">Mais...</a><br /></td></tr>
+<tr class="separator:a997410b9265acf83e61714083c42cf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41741953d704b743544ce6383c27c7c6" id="r_a41741953d704b743544ce6383c27c7c6"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GameState_8h.html#a41741953d704b743544ce6383c27c7c6">GameResult</a> { <a class="el" href="GameState_8h.html#a41741953d704b743544ce6383c27c7c6a5d5c0a2ab507c413df33479a0200ce66">OCORRENDO</a>
+, <a class="el" href="GameState_8h.html#a41741953d704b743544ce6383c27c7c6a8ccbfb362a36cb7ade720ef7691e9930">PLAYER_GANHOU</a>
+, <a class="el" href="GameState_8h.html#a41741953d704b743544ce6383c27c7c6a9406964eb25cdd463667768890b336b6">COMPUTER_GANHOU</a>
+ }</td></tr>
+<tr class="memdesc:a41741953d704b743544ce6383c27c7c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa o estado atual da partida.  <a href="GameState_8h.html#a41741953d704b743544ce6383c27c7c6">Mais...</a><br /></td></tr>
+<tr class="separator:a41741953d704b743544ce6383c27c7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Enumerações</h2>
+<a id="a41741953d704b743544ce6383c27c7c6" name="a41741953d704b743544ce6383c27c7c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41741953d704b743544ce6383c27c7c6">&#9670;&#160;</a></span>GameResult</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="GameState_8h.html#a41741953d704b743544ce6383c27c7c6">GameResult</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Representa o estado atual da partida. </p>
+<p>Indica se o jogo está em andamento ou se já houve um vencedor. </p><dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>16/07/2026 </dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">Enumeradores</th></tr><tr><td class="fieldname"><a id="a41741953d704b743544ce6383c27c7c6a5d5c0a2ab507c413df33479a0200ce66" name="a41741953d704b743544ce6383c27c7c6a5d5c0a2ab507c413df33479a0200ce66"></a>OCORRENDO&#160;</td><td class="fielddoc"><p>Partida em andamento, nenhum vencedor ainda. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a41741953d704b743544ce6383c27c7c6a8ccbfb362a36cb7ade720ef7691e9930" name="a41741953d704b743544ce6383c27c7c6a8ccbfb362a36cb7ade720ef7691e9930"></a>PLAYER_GANHOU&#160;</td><td class="fielddoc"><p>Jogador humano venceu (todos os navios do computador foram destruídos). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a41741953d704b743544ce6383c27c7c6a9406964eb25cdd463667768890b336b6" name="a41741953d704b743544ce6383c27c7c6a9406964eb25cdd463667768890b336b6"></a>COMPUTER_GANHOU&#160;</td><td class="fielddoc"><p>Computador venceu (todos os navios do jogador foram destruídos). </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a997410b9265acf83e61714083c42cf17" name="a997410b9265acf83e61714083c42cf17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997410b9265acf83e61714083c42cf17">&#9670;&#160;</a></span>Turno</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="GameState_8h.html#a997410b9265acf83e61714083c42cf17">Turno</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Representa de quem é a vez de jogar. </p>
+<dl class="section author"><dt>Autor</dt><dd>Georis </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>16/07/2026 </dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">Enumeradores</th></tr><tr><td class="fieldname"><a id="a997410b9265acf83e61714083c42cf17a07c80e2a355d91402a00d82b1fa13855" name="a997410b9265acf83e61714083c42cf17a07c80e2a355d91402a00d82b1fa13855"></a>PLAYER&#160;</td><td class="fielddoc"><p>Vez do 👮 atirar. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a997410b9265acf83e61714083c42cf17ad19cbc472227d1e3d1d276c2cbc0e513" name="a997410b9265acf83e61714083c42cf17ad19cbc472227d1e3d1d276c2cbc0e513"></a>COMPUTER&#160;</td><td class="fielddoc"><p>Vez do 💻 atirar. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

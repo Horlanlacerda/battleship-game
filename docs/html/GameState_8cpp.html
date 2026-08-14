@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência do Arquivo src/model/GameState.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5dd65160827af56e6353642206b80129.html">model</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Referência do Arquivo GameState.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="GameState_8h_source.html">GameState.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para GameState.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="GameState_8cpp__incl.png" border="0" usemap="#asrc_2model_2GameState_8cpp" alt=""/></div>
+<map name="asrc_2model_2GameState_8cpp" id="asrc_2model_2GameState_8cpp">
+<area shape="rect" title=" " alt="" coords="29,5,219,31"/>
+<area shape="rect" href="GameState_8h.html" title=" " alt="" coords="71,79,177,104"/>
+<area shape="poly" title=" " alt="" coords="127,31,127,65,121,65,121,31"/>
+<area shape="rect" href="Board_8h.html" title=" " alt="" coords="20,225,92,251"/>
+<area shape="poly" title=" " alt="" coords="106,106,81,126,61,153,54,182,54,211,49,212,49,182,56,151,77,122,103,102"/>
+<area shape="rect" title=" " alt="" coords="25,299,87,324"/>
+<area shape="poly" title=" " alt="" coords="107,106,78,127,50,154,25,187,10,226,8,238,10,250,21,269,34,287,30,290,16,272,5,252,3,238,5,225,20,185,46,150,75,123,104,102"/>
+<area shape="rect" href="Ship_8h.html" title=" " alt="" coords="202,152,265,177"/>
+<area shape="poly" title=" " alt="" coords="143,102,205,142,202,147,140,106"/>
+<area shape="rect" href="MapLayout_8h.html" title=" " alt="" coords="71,152,177,177"/>
+<area shape="poly" title=" " alt="" coords="127,104,127,138,121,138,121,104"/>
+<area shape="rect" title=" " alt="" coords="289,152,356,177"/>
+<area shape="poly" title=" " alt="" coords="157,102,278,145,276,150,155,107"/>
+<area shape="poly" title=" " alt="" coords="59,251,59,285,53,285,53,251"/>
+<area shape="poly" title=" " alt="" coords="248,176,262,192,274,211,280,232,274,252,262,263,246,272,201,287,101,307,100,301,199,282,243,267,259,258,270,249,275,232,270,213,258,195,244,180"/>
+<area shape="rect" title=" " alt="" coords="199,225,259,251"/>
+<area shape="poly" title=" " alt="" coords="235,178,233,212,228,212,230,178"/>
+<area shape="rect" title=" " alt="" coords="116,225,175,251"/>
+<area shape="poly" title=" " alt="" coords="221,179,172,219,169,214,217,175"/>
+<area shape="poly" title=" " alt="" coords="115,180,78,217,75,213,111,176"/>
+<area shape="poly" title=" " alt="" coords="130,177,140,211,135,213,125,178"/>
+</map>
+</div>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência do Arquivo include/controller/GameController.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_39b9d54b040febeebc00140e5c10ba61.html">controller</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#enum-members">Enumerações</a>  </div>
+  <div class="headertitle"><div class="title">Referência do Arquivo GameController.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;SFML/Graphics.hpp&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="Board_8h_source.html">model/Board.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Ship_8h_source.html">model/Ship.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para GameController.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="GameController_8h__incl.png" border="0" usemap="#ainclude_2controller_2GameController_8h" alt=""/></div>
+<map name="ainclude_2controller_2GameController_8h" id="ainclude_2controller_2GameController_8h">
+<area shape="rect" title=" " alt="" coords="210,5,350,45"/>
+<area shape="rect" title=" " alt="" coords="5,93,152,119"/>
+<area shape="poly" title=" " alt="" coords="233,48,122,91,120,86,231,43"/>
+<area shape="rect" title=" " alt="" coords="163,167,223,192"/>
+<area shape="poly" title=" " alt="" coords="257,48,236,69,217,95,205,124,199,153,194,152,200,123,212,92,232,66,254,44"/>
+<area shape="rect" title=" " alt="" coords="339,167,402,192"/>
+<area shape="poly" title=" " alt="" coords="305,44,328,65,348,92,361,122,369,152,364,153,356,124,343,95,324,69,302,47"/>
+<area shape="rect" href="Board_8h.html" title=" " alt="" coords="408,93,525,119"/>
+<area shape="poly" title=" " alt="" coords="326,43,428,85,426,90,324,48"/>
+<area shape="rect" href="Ship_8h.html" title=" " alt="" coords="227,93,333,119"/>
+<area shape="poly" title=" " alt="" coords="283,46,283,79,277,79,277,46"/>
+<area shape="poly" title=" " alt="" coords="453,121,399,160,396,156,450,117"/>
+<area shape="poly" title=" " alt="" coords="268,121,220,160,216,156,264,117"/>
+<area shape="poly" title=" " alt="" coords="296,117,347,156,343,160,293,121"/>
+<area shape="rect" title=" " alt="" coords="251,167,309,192"/>
+<area shape="poly" title=" " alt="" coords="283,119,283,153,277,153,277,119"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com esse arquivo:</div>
+<div class="dyncontent">
+<div class="center"><img src="GameController_8h__dep__incl.png" border="0" usemap="#ainclude_2controller_2GameController_8hdep" alt=""/></div>
+<map name="ainclude_2controller_2GameController_8hdep" id="ainclude_2controller_2GameController_8hdep">
+<area shape="rect" title=" " alt="" coords="331,5,471,45"/>
+<area shape="rect" href="GameScreen_8h.html" title=" " alt="" coords="57,93,259,119"/>
+<area shape="poly" title=" " alt="" coords="330,52,194,96,193,91,329,47"/>
+<area shape="rect" href="PlacementScreen_8h.html" title=" " alt="" coords="284,93,517,119"/>
+<area shape="poly" title=" " alt="" coords="403,59,403,93,398,93,398,59"/>
+<area shape="rect" href="GameController_8cpp.html" title=" " alt="" coords="542,93,782,119"/>
+<area shape="poly" title=" " alt="" coords="477,47,625,91,623,96,476,52"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="220,167,325,192"/>
+<area shape="poly" title=" " alt="" coords="189,123,255,164,253,169,186,128"/>
+<area shape="rect" href="GameScreen_8cpp.html" title=" " alt="" coords="5,167,196,192"/>
+<area shape="poly" title=" " alt="" coords="142,131,112,168,108,165,138,128"/>
+<area shape="poly" title=" " alt="" coords="369,128,295,169,292,164,367,123"/>
+<area shape="rect" href="PlacementScreen_8cpp.html" title=" " alt="" coords="349,167,569,192"/>
+<area shape="poly" title=" " alt="" coords="421,128,452,165,448,168,417,131"/>
+</map>
+</div>
+</div>
+<p><a href="GameController_8h_source.html">Ir para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html">GameController</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte cliques do mouse em coordenadas de tabuleiro (linha, coluna).  <a href="classGameController.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGameController_1_1FireResult.html">GameController::FireResult</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resultado consolidado de um disparo processado por <a class="el" href="classGameController.html#afa867891c21fa5556ab0cc6843eda93f" title="Processa um disparo da arma atualmente selecionada contra o tabuleiro e a frota inimiga,...">fire()</a>, já cobrindo todas as células afetadas pela arma usada (1 para BASIC, até 4 para MISSILE, a linha inteira para TORPEDO).  <a href="structGameController_1_1FireResult.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerações</h2></td></tr>
+<tr class="memitem:a095ae9be41c95cab0ceb95c6dae270b8" id="r_a095ae9be41c95cab0ceb95c6dae270b8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8">WeaponType</a> { <a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8ae4ac03f6c9f00665644e868dd1fb9f1e">BASIC</a>
+, <a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8aa72477a769c285c5e2e9148006a66f27">MISSILE</a>
+, <a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8a6362af2b9ac99b4868d46ae6998fa1a8">TORPEDO</a>
+ }</td></tr>
+<tr class="memdesc:a095ae9be41c95cab0ceb95c6dae270b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipos de armas disponíveis para o jogador (RF02).  <a href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8">Mais...</a><br /></td></tr>
+<tr class="separator:a095ae9be41c95cab0ceb95c6dae270b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Enumerações</h2>
+<a id="a095ae9be41c95cab0ceb95c6dae270b8" name="a095ae9be41c95cab0ceb95c6dae270b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a095ae9be41c95cab0ceb95c6dae270b8">&#9670;&#160;</a></span>WeaponType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8">WeaponType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tipos de armas disponíveis para o jogador (RF02). </p>
+<p>Agrupa as armas do jogo: o disparo básico padrão, o míssil que atinge uma área de 2x2 células e o torpedo que limpa uma linha inteira. </p><dl class="section author"><dt>Autor</dt><dd>Gabi </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>12/08/2026 </dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">Enumeradores</th></tr><tr><td class="fieldname"><a id="a095ae9be41c95cab0ceb95c6dae270b8ae4ac03f6c9f00665644e868dd1fb9f1e" name="a095ae9be41c95cab0ceb95c6dae270b8ae4ac03f6c9f00665644e868dd1fb9f1e"></a>BASIC&#160;</td><td class="fielddoc"><p>Tiro único em uma única célula. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a095ae9be41c95cab0ceb95c6dae270b8aa72477a769c285c5e2e9148006a66f27" name="a095ae9be41c95cab0ceb95c6dae270b8aa72477a769c285c5e2e9148006a66f27"></a>MISSILE&#160;</td><td class="fielddoc"><p>Míssil de área (2x2 células). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a095ae9be41c95cab0ceb95c6dae270b8a6362af2b9ac99b4868d46ae6998fa1a8" name="a095ae9be41c95cab0ceb95c6dae270b8a6362af2b9ac99b4868d46ae6998fa1a8"></a>TORPEDO&#160;</td><td class="fielddoc"><p>Torpedo de linha (atinge todas as colunas da linha). </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

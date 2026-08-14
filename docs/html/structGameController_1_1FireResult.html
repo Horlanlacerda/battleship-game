@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência da Estrutura GameController::FireResult</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="classGameController.html">GameController</a></li><li class="navelem"><a class="el" href="structGameController_1_1FireResult.html">FireResult</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Atributos Públicos</a> &#124;
+<a href="structGameController_1_1FireResult-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Estrutura GameController::FireResult</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Resultado consolidado de um disparo processado por <a class="el" href="classGameController.html#afa867891c21fa5556ab0cc6843eda93f" title="Processa um disparo da arma atualmente selecionada contra o tabuleiro e a frota inimiga,...">fire()</a>, já cobrindo todas as células afetadas pela arma usada (1 para BASIC, até 4 para MISSILE, a linha inteira para TORPEDO).  
+ <a href="structGameController_1_1FireResult.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="GameController_8h_source.html">GameController.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Atributos Públicos</h2></td></tr>
+<tr class="memitem:a11c829cba60fbb894c17e9fb209efba8" id="r_a11c829cba60fbb894c17e9fb209efba8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGameController_1_1FireResult.html#a11c829cba60fbb894c17e9fb209efba8">hits</a> = 0</td></tr>
+<tr class="memdesc:a11c829cba60fbb894c17e9fb209efba8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantas células atingidas resultaram em acerto (HIT).  <br /></td></tr>
+<tr class="separator:a11c829cba60fbb894c17e9fb209efba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa50c8e8687256a2e9da349348b89c5d8" id="r_aa50c8e8687256a2e9da349348b89c5d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGameController_1_1FireResult.html#aa50c8e8687256a2e9da349348b89c5d8">misses</a> = 0</td></tr>
+<tr class="memdesc:aa50c8e8687256a2e9da349348b89c5d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantas células atingidas resultaram em água (MISS).  <br /></td></tr>
+<tr class="separator:aa50c8e8687256a2e9da349348b89c5d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ebafaf76cb4510caa891b90ed0e758f" id="r_a8ebafaf76cb4510caa891b90ed0e758f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGameController_1_1FireResult.html#a8ebafaf76cb4510caa891b90ed0e758f">shipsSunk</a> = 0</td></tr>
+<tr class="memdesc:a8ebafaf76cb4510caa891b90ed0e758f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantos navios foram completamente afundados por este disparo.  <br /></td></tr>
+<tr class="separator:a8ebafaf76cb4510caa891b90ed0e758f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Resultado consolidado de um disparo processado por <a class="el" href="classGameController.html#afa867891c21fa5556ab0cc6843eda93f" title="Processa um disparo da arma atualmente selecionada contra o tabuleiro e a frota inimiga,...">fire()</a>, já cobrindo todas as células afetadas pela arma usada (1 para BASIC, até 4 para MISSILE, a linha inteira para TORPEDO). </p>
+</div><h2 class="groupheader">Atributos</h2>
+<a id="a11c829cba60fbb894c17e9fb209efba8" name="a11c829cba60fbb894c17e9fb209efba8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11c829cba60fbb894c17e9fb209efba8">&#9670;&#160;</a></span>hits</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameController::FireResult::hits = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Quantas células atingidas resultaram em acerto (HIT). </p>
+
+</div>
+</div>
+<a id="aa50c8e8687256a2e9da349348b89c5d8" name="aa50c8e8687256a2e9da349348b89c5d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa50c8e8687256a2e9da349348b89c5d8">&#9670;&#160;</a></span>misses</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameController::FireResult::misses = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Quantas células atingidas resultaram em água (MISS). </p>
+
+</div>
+</div>
+<a id="a8ebafaf76cb4510caa891b90ed0e758f" name="a8ebafaf76cb4510caa891b90ed0e758f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ebafaf76cb4510caa891b90ed0e758f">&#9670;&#160;</a></span>shipsSunk</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameController::FireResult::shipsSunk = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Quantos navios foram completamente afundados por este disparo. </p>
+
+</div>
+</div>
+<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li>include/controller/<a class="el" href="GameController_8h_source.html">GameController.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

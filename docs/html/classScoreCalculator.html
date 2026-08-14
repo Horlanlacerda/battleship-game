@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência da Classe ScoreCalculator</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Membros públicos estáticos</a> &#124;
+<a href="classScoreCalculator-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe ScoreCalculator</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Calcula a pontuação final do jogador a partir das estatísticas da partida.  
+ <a href="classScoreCalculator.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ScoreCalculator_8h_source.html">ScoreCalculator.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Membros públicos estáticos</h2></td></tr>
+<tr class="memitem:a1d94972e2718e72ee6a12ac08eeda260" id="r_a1d94972e2718e72ee6a12ac08eeda260"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScoreCalculator.html#a1d94972e2718e72ee6a12ac08eeda260">calculate</a> (const <a class="el" href="structGameData.html">GameData</a> &amp;data)</td></tr>
+<tr class="memdesc:a1d94972e2718e72ee6a12ac08eeda260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a pontuação da partida com base nos acertos, erros e desempenho do jogador.  <br /></td></tr>
+<tr class="separator:a1d94972e2718e72ee6a12ac08eeda260"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Calcula a pontuação final do jogador a partir das estatísticas da partida. </p>
+<p>Classe utilitária (só métodos estáticos, sem estado) usada por <a class="el" href="main_8cpp.html">main.cpp</a> logo após o fim de uma partida, para transformar o <a class="el" href="structGameData.html" title="Estatísticas de uma partida encerrada, usadas para calcular a pontuação final.">GameData</a> em um score que é exibido na tela de fim de jogo (<a class="el" href="classRankingScreen.html#ad38c59f3d6c93fb585e645d00fafdbf1" title="Mostra a tela de fim de partida e bloqueia até o jogador digitar seu nome.">RankingScreen::showGameOver()</a>) e salvo no ranking (<a class="el" href="classDatabase.html#a207232ba87ffd80ea5138de397c6b6fb" title="Salva uma nova entrada de ranking no banco.">Database::saveResult()</a>).</p>
+<dl class="section author"><dt>Autor</dt><dd>Suelle </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>09/07/2026 </dd></dl>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a1d94972e2718e72ee6a12ac08eeda260" name="a1d94972e2718e72ee6a12ac08eeda260"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d94972e2718e72ee6a12ac08eeda260">&#9670;&#160;</a></span>calculate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ScoreCalculator::calculate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structGameData.html">GameData</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcula a pontuação da partida com base nos acertos, erros e desempenho do jogador. </p>
+<p>A pontuação é composta por ganhos e perdas:</p><ul>
+<li>Ganhos: +100 por acerto (hits), +200 por navio inimigo afundado (shipsDestroyed) e +150 por navio aliado sobrevivente (alliedShipsSurvived).</li>
+<li>Perdas: -20 por tiro errado (misses) e -0.5 por segundo de duração da partida (elapsedSeconds), incentivando partidas mais rápidas.</li>
+</ul>
+<p>O resultado nunca é negativo: caso a soma dos descontos supere os ganhos, a pontuação final é limitada a 0.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Estatísticas coletadas ao longo da partida (ver <a class="el" href="structGameData.html" title="Estatísticas de uma partida encerrada, usadas para calcular a pontuação final.">GameData</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Pontuação final do jogador, sempre maior ou igual a zero. </dd></dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>include/model/<a class="el" href="ScoreCalculator_8h_source.html">ScoreCalculator.h</a></li>
+<li>src/model/<a class="el" href="ScoreCalculator_8cpp.html">ScoreCalculator.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

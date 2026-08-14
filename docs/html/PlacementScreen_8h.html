@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência do Arquivo include/view/PlacementScreen.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d03cbfd2f64df20252359f4b8046046f.html">view</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a>  </div>
+  <div class="headertitle"><div class="title">Referência do Arquivo PlacementScreen.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;SFML/Graphics.hpp&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="Board_8h_source.html">Board.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Ship_8h_source.html">Ship.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="BoardRenderer_8h_source.html">BoardRenderer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="GameController_8h_source.html">GameController.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para PlacementScreen.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="PlacementScreen_8h__incl.png" border="0" usemap="#ainclude_2view_2PlacementScreen_8h" alt=""/></div>
+<map name="ainclude_2view_2PlacementScreen_8h" id="ainclude_2view_2PlacementScreen_8h">
+<area shape="rect" title=" " alt="" coords="121,5,354,31"/>
+<area shape="rect" title=" " alt="" coords="31,152,177,177"/>
+<area shape="poly" title=" " alt="" coords="134,33,92,51,75,64,60,80,55,95,59,111,68,126,81,141,77,144,64,130,54,113,49,95,55,77,71,60,90,46,132,28"/>
+<area shape="rect" title=" " alt="" coords="485,79,552,104"/>
+<area shape="poly" title=" " alt="" coords="283,28,473,76,472,81,282,33"/>
+<area shape="rect" title=" " alt="" coords="226,225,289,251"/>
+<area shape="poly" title=" " alt="" coords="146,33,94,51,70,64,49,81,27,104,12,127,9,151,21,176,33,186,51,195,102,211,213,229,212,235,100,216,49,200,30,190,17,179,4,152,7,125,22,101,45,77,67,59,92,46,144,28"/>
+<area shape="rect" href="Board_8h.html" title=" " alt="" coords="201,152,273,177"/>
+<area shape="poly" title=" " alt="" coords="240,31,240,138,235,138,235,31"/>
+<area shape="rect" href="Ship_8h.html" title=" " alt="" coords="399,152,462,177"/>
+<area shape="poly" title=" " alt="" coords="343,28,387,46,408,60,425,77,433,91,437,107,438,138,433,138,432,108,428,93,421,80,404,64,385,51,341,33"/>
+<area shape="rect" href="BoardRenderer_8h.html" title=" " alt="" coords="69,79,200,104"/>
+<area shape="poly" title=" " alt="" coords="222,33,164,73,161,68,219,28"/>
+<area shape="rect" href="GameController_8h.html" title=" " alt="" coords="275,79,411,104"/>
+<area shape="poly" title=" " alt="" coords="256,28,316,69,313,73,253,33"/>
+<area shape="poly" title=" " alt="" coords="243,177,253,211,248,213,238,178"/>
+<area shape="poly" title=" " alt="" coords="404,180,299,222,297,218,402,175"/>
+<area shape="rect" title=" " alt="" coords="331,225,391,251"/>
+<area shape="poly" title=" " alt="" coords="421,180,384,217,380,214,417,176"/>
+<area shape="rect" title=" " alt="" coords="416,225,475,251"/>
+<area shape="poly" title=" " alt="" coords="436,177,443,211,438,212,431,178"/>
+<area shape="poly" title=" " alt="" coords="132,105,117,141,112,139,127,103"/>
+<area shape="poly" title=" " alt="" coords="153,102,211,142,208,146,150,106"/>
+<area shape="poly" title=" " alt="" coords="305,107,157,151,155,145,304,101"/>
+<area shape="poly" title=" " alt="" coords="338,106,274,215,269,212,333,103"/>
+<area shape="poly" title=" " alt="" coords="327,106,267,147,264,142,324,102"/>
+<area shape="poly" title=" " alt="" coords="359,102,407,141,404,145,355,106"/>
+<area shape="poly" title=" " alt="" coords="347,104,361,211,356,212,342,105"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com esse arquivo:</div>
+<div class="dyncontent">
+<div class="center"><img src="PlacementScreen_8h__dep__incl.png" border="0" usemap="#ainclude_2view_2PlacementScreen_8hdep" alt=""/></div>
+<map name="ainclude_2view_2PlacementScreen_8hdep" id="ainclude_2view_2PlacementScreen_8hdep">
+<area shape="rect" title=" " alt="" coords="35,5,268,31"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="5,79,111,104"/>
+<area shape="poly" title=" " alt="" coords="127,41,75,81,72,76,124,37"/>
+<area shape="rect" href="PlacementScreen_8cpp.html" title=" " alt="" coords="135,79,355,104"/>
+<area shape="poly" title=" " alt="" coords="179,37,231,76,228,81,175,41"/>
+</map>
+</div>
+</div>
+<p><a href="PlacementScreen_8h_source.html">Ir para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlacementScreen.html">PlacementScreen</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tela responsável pelo posicionamento manual dos navios.  <a href="classPlacementScreen.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

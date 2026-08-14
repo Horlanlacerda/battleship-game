@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência do Arquivo src/view/GameScreen.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b39b5091e8d1d2be4b7fc59d57749634.html">view</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Referência do Arquivo GameScreen.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="GameScreen_8h_source.html">view/GameScreen.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="UiTheme_8h_source.html">utils/UiTheme.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AutoPlacer_8h_source.html">AutoPlacer.h</a>&quot;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para GameScreen.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="GameScreen_8cpp__incl.png" border="0" usemap="#asrc_2view_2GameScreen_8cpp" alt=""/></div>
+<map name="asrc_2view_2GameScreen_8cpp" id="asrc_2view_2GameScreen_8cpp">
+<area shape="rect" title=" " alt="" coords="848,5,1039,31"/>
+<area shape="rect" href="GameScreen_8h.html" title=" " alt="" coords="490,79,642,104"/>
+<area shape="poly" title=" " alt="" coords="884,33,641,79,640,73,883,28"/>
+<area shape="rect" href="UiTheme_8h.html" title=" " alt="" coords="940,152,1065,177"/>
+<area shape="poly" title=" " alt="" coords="929,33,912,47,896,65,888,84,888,93,891,103,915,127,945,145,942,149,911,132,887,105,883,94,883,83,892,62,908,43,925,29"/>
+<area shape="rect" href="AutoPlacer_8h.html" title=" " alt="" coords="762,152,864,177"/>
+<area shape="poly" title=" " alt="" coords="931,33,880,80,831,142,827,139,876,77,928,29"/>
+<area shape="rect" title=" " alt="" coords="901,79,986,104"/>
+<area shape="poly" title=" " alt="" coords="946,31,946,65,941,65,941,31"/>
+<area shape="rect" title=" " alt="" coords="1011,79,1082,104"/>
+<area shape="poly" title=" " alt="" coords="962,28,1020,68,1017,73,959,33"/>
+<area shape="rect" title=" " alt="" coords="1106,79,1181,104"/>
+<area shape="poly" title=" " alt="" coords="977,28,1099,71,1097,76,975,33"/>
+<area shape="rect" title=" " alt="" coords="1206,79,1292,104"/>
+<area shape="poly" title=" " alt="" coords="993,28,1193,74,1192,79,992,33"/>
+<area shape="rect" title=" " alt="" coords="428,225,574,251"/>
+<area shape="poly" title=" " alt="" coords="563,105,541,153,514,214,509,211,536,151,558,103"/>
+<area shape="rect" title=" " alt="" coords="842,299,901,324"/>
+<area shape="poly" title=" " alt="" coords="643,94,710,100,780,111,841,127,863,137,879,150,889,166,895,183,898,220,893,256,884,286,879,285,888,255,893,220,890,185,884,168,875,154,861,142,839,132,779,116,710,105,642,99"/>
+<area shape="rect" title=" " alt="" coords="682,372,744,397"/>
+<area shape="poly" title=" " alt="" coords="643,91,753,94,881,104,998,121,1044,134,1078,150,1098,165,1109,182,1122,225,1126,239,1122,252,1098,275,1060,296,1014,315,960,332,850,360,759,378,758,373,849,355,959,327,1012,310,1058,291,1095,271,1117,249,1120,239,1117,226,1104,184,1094,169,1076,154,1043,139,997,126,880,109,753,100,642,96"/>
+<area shape="rect" href="Board_8h.html" title=" " alt="" coords="269,299,341,324"/>
+<area shape="poly" title=" " alt="" coords="490,95,377,97,247,105,184,113,128,123,82,137,49,154,26,176,12,199,9,224,22,249,37,261,59,271,121,288,192,298,256,304,255,310,191,304,120,293,58,276,34,265,18,252,4,225,7,198,22,173,46,150,80,132,127,118,183,107,246,100,377,91,490,89"/>
+<area shape="rect" href="Ship_8h.html" title=" " alt="" coords="751,225,814,251"/>
+<area shape="poly" title=" " alt="" coords="602,102,650,122,700,150,737,181,766,213,762,216,733,185,697,154,647,126,600,107"/>
+<area shape="rect" href="BoardRenderer_8h.html" title=" " alt="" coords="345,152,476,177"/>
+<area shape="poly" title=" " alt="" coords="542,106,449,149,447,144,540,102"/>
+<area shape="rect" href="GameController_8h.html" title=" " alt="" coords="550,152,686,177"/>
+<area shape="poly" title=" " alt="" coords="577,103,604,139,600,142,573,106"/>
+<area shape="rect" href="AIPlayer_8h.html" title=" " alt="" coords="135,225,222,251"/>
+<area shape="poly" title=" " alt="" coords="505,107,422,126,334,154,265,187,208,220,206,216,263,182,332,150,421,121,504,101"/>
+<area shape="rect" href="GameState_8h.html" title=" " alt="" coords="60,152,166,177"/>
+<area shape="poly" title=" " alt="" coords="494,107,180,156,180,150,493,101"/>
+<area shape="poly" title=" " alt="" coords="342,316,669,373,668,378,341,322"/>
+<area shape="poly" title=" " alt="" coords="798,249,848,288,845,292,795,253"/>
+<area shape="poly" title=" " alt="" coords="779,252,727,361,722,358,774,250"/>
+<area shape="rect" title=" " alt="" coords="615,299,675,324"/>
+<area shape="poly" title=" " alt="" coords="762,253,681,295,678,290,759,248"/>
+<area shape="poly" title=" " alt="" coords="427,175,477,214,474,219,423,179"/>
+<area shape="poly" title=" " alt="" coords="357,180,318,198,301,210,287,227,282,241,283,256,293,286,288,287,277,257,277,240,283,224,297,207,315,193,355,175"/>
+<area shape="poly" title=" " alt="" coords="601,180,533,220,531,216,598,175"/>
+<area shape="poly" title=" " alt="" coords="627,177,653,224,673,260,690,298,709,358,704,359,685,300,668,263,648,227,622,179"/>
+<area shape="poly" title=" " alt="" coords="620,178,612,215,602,235,588,253,571,264,547,273,485,289,355,308,354,303,484,283,545,268,568,259,585,249,598,233,607,213,615,177"/>
+<area shape="poly" title=" " alt="" coords="646,175,744,217,742,222,644,180"/>
+<area shape="poly" title=" " alt="" coords="623,177,633,225,643,284,638,285,628,226,618,178"/>
+<area shape="poly" title=" " alt="" coords="187,249,215,286,235,306,258,322,292,334,337,345,451,362,571,373,668,379,667,384,571,378,451,367,336,350,290,339,256,326,232,310,211,290,183,253"/>
+<area shape="poly" title=" " alt="" coords="200,248,274,289,271,294,197,253"/>
+<area shape="poly" title=" " alt="" coords="222,243,602,301,601,306,221,249"/>
+<area shape="poly" title=" " alt="" coords="84,180,56,193,32,210,18,229,17,239,22,249,39,268,64,285,133,313,221,336,319,353,421,365,518,373,668,380,668,385,517,378,420,370,318,358,220,341,132,319,62,289,36,272,17,252,12,240,13,227,28,206,54,188,81,175"/>
+<area shape="poly" title=" " alt="" coords="89,180,64,194,41,211,29,230,29,240,34,249,48,260,69,270,128,287,195,297,256,304,255,309,194,303,127,292,67,275,45,265,30,252,24,241,24,229,37,208,61,189,86,175"/>
+<area shape="poly" title=" " alt="" coords="167,169,737,229,737,235,166,174"/>
+<area shape="rect" href="MapLayout_8h.html" title=" " alt="" coords="297,225,404,251"/>
+<area shape="poly" title=" " alt="" coords="152,175,300,219,298,224,150,180"/>
+<area shape="rect" title=" " alt="" coords="44,225,110,251"/>
+<area shape="poly" title=" " alt="" coords="109,179,91,214,87,212,105,176"/>
+<area shape="poly" title=" " alt="" coords="404,246,416,248,649,280,829,302,829,308,648,286,415,253,403,251"/>
+<area shape="poly" title=" " alt="" coords="345,252,322,289,317,286,341,250"/>
+<area shape="poly" title=" " alt="" coords="940,178,589,227,588,222,939,172"/>
+<area shape="poly" title=" " alt="" coords="994,180,893,290,889,287,990,176"/>
+<area shape="rect" title=" " alt="" coords="1041,225,1108,251"/>
+<area shape="poly" title=" " alt="" coords="1016,176,1055,214,1051,218,1012,180"/>
+<area shape="poly" title=" " alt="" coords="832,175,866,202,903,239,916,260,925,282,925,304,915,325,900,342,882,356,841,374,798,383,758,387,758,382,797,378,839,369,879,351,896,338,911,323,920,303,919,283,912,263,898,243,863,206,829,180"/>
+<area shape="poly" title=" " alt="" coords="822,177,836,213,837,234,828,253,803,265,757,276,626,293,476,304,355,311,354,305,476,299,625,288,756,271,801,260,824,249,832,233,831,214,817,178"/>
+<area shape="poly" title=" " alt="" coords="810,179,795,214,790,212,806,177"/>
+</map>
+</div>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

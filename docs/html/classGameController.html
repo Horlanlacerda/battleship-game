@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência da Classe GameController</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="classGameController-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe GameController</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Converte cliques do mouse em coordenadas de tabuleiro (linha, coluna).  
+ <a href="classGameController.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="GameController_8h_source.html">GameController.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGameController_1_1FireResult.html">FireResult</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resultado consolidado de um disparo processado por <a class="el" href="classGameController.html#afa867891c21fa5556ab0cc6843eda93f" title="Processa um disparo da arma atualmente selecionada contra o tabuleiro e a frota inimiga,...">fire()</a>, já cobrindo todas as células afetadas pela arma usada (1 para BASIC, até 4 para MISSILE, a linha inteira para TORPEDO).  <a href="structGameController_1_1FireResult.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a68b3687443cefdec918fbdc92e718fd7" id="r_a68b3687443cefdec918fbdc92e718fd7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#a68b3687443cefdec918fbdc92e718fd7">GameController</a> (float cellSize, float offsetX, float offsetY, int rows, int cols)</td></tr>
+<tr class="memdesc:a68b3687443cefdec918fbdc92e718fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrói o controller com os mesmos parâmetros visuais do tabuleiro.  <br /></td></tr>
+<tr class="separator:a68b3687443cefdec918fbdc92e718fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac19f0ea10d26392b938c8fc86e3e958e" id="r_ac19f0ea10d26392b938c8fc86e3e958e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#ac19f0ea10d26392b938c8fc86e3e958e">screenToBoardCoord</a> (sf::Vector2i mousePos, int &amp;outRow, int &amp;outCol) const</td></tr>
+<tr class="memdesc:ac19f0ea10d26392b938c8fc86e3e958e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte uma posição de clique (em pixels) para coordenada de matriz.  <br /></td></tr>
+<tr class="separator:ac19f0ea10d26392b938c8fc86e3e958e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a522d49654a5fcaffaadda83c6ff36b69" id="r_a522d49654a5fcaffaadda83c6ff36b69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#a522d49654a5fcaffaadda83c6ff36b69">selectWeapon</a> (<a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8">WeaponType</a> weapon)</td></tr>
+<tr class="memdesc:a522d49654a5fcaffaadda83c6ff36b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a arma selecionada para o próximo disparo.  <br /></td></tr>
+<tr class="separator:a522d49654a5fcaffaadda83c6ff36b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66514d16fe05dd380138fc808e475c38" id="r_a66514d16fe05dd380138fc808e475c38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8">WeaponType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#a66514d16fe05dd380138fc808e475c38">getSelectedWeapon</a> () const</td></tr>
+<tr class="memdesc:a66514d16fe05dd380138fc808e475c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a arma atualmente selecionada pelo jogador.  <br /></td></tr>
+<tr class="separator:a66514d16fe05dd380138fc808e475c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a9b00a550701603024e8399bc67f640" id="r_a2a9b00a550701603024e8399bc67f640"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#a2a9b00a550701603024e8399bc67f640">getMissilesLeft</a> () const</td></tr>
+<tr class="memdesc:a2a9b00a550701603024e8399bc67f640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a quantidade de mísseis restantes no estoque.  <br /></td></tr>
+<tr class="separator:a2a9b00a550701603024e8399bc67f640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb61f2ae9e56a773ccff42bac6191273" id="r_abb61f2ae9e56a773ccff42bac6191273"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#abb61f2ae9e56a773ccff42bac6191273">getTorpedoesLeft</a> () const</td></tr>
+<tr class="memdesc:abb61f2ae9e56a773ccff42bac6191273"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a quantidade de torpedos restantes no estoque.  <br /></td></tr>
+<tr class="separator:abb61f2ae9e56a773ccff42bac6191273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae02df1997fe2ef61a0cc16aa330fc307" id="r_ae02df1997fe2ef61a0cc16aa330fc307"><td class="memItemLeft" align="right" valign="top"><a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8">WeaponType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#ae02df1997fe2ef61a0cc16aa330fc307">awardRandomWeapon</a> ()</td></tr>
+<tr class="memdesc:ae02df1997fe2ef61a0cc16aa330fc307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concede ao jogador uma arma especial escolhida aleatoriamente entre míssil e torpedo, incrementando o estoque correspondente.  <br /></td></tr>
+<tr class="separator:ae02df1997fe2ef61a0cc16aa330fc307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeb8c761f807c2a512c1c4a2c1c80427" id="r_aeeb8c761f807c2a512c1c4a2c1c80427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9">CellState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#aeeb8c761f807c2a512c1c4a2c1c80427">fireBasic</a> (<a class="el" href="classBoard.html">Board</a> &amp;enemy, int row, int col)</td></tr>
+<tr class="memdesc:aeeb8c761f807c2a512c1c4a2c1c80427"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa um disparo básico em uma única célula do tabuleiro inimigo.  <br /></td></tr>
+<tr class="separator:aeeb8c761f807c2a512c1c4a2c1c80427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0168d3ee78189cea5ba80c07273a0041" id="r_a0168d3ee78189cea5ba80c07273a0041"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#a0168d3ee78189cea5ba80c07273a0041">fireMissile</a> (<a class="el" href="classBoard.html">Board</a> &amp;enemy, int row, int col)</td></tr>
+<tr class="memdesc:a0168d3ee78189cea5ba80c07273a0041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispara um míssil atingindo um quadrante 2x2 a partir da célula clicada.  <br /></td></tr>
+<tr class="separator:a0168d3ee78189cea5ba80c07273a0041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13cdbf0b321d0a5362ffac381ffae479" id="r_a13cdbf0b321d0a5362ffac381ffae479"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#a13cdbf0b321d0a5362ffac381ffae479">fireTorpedo</a> (<a class="el" href="classBoard.html">Board</a> &amp;enemy, int row, int col)</td></tr>
+<tr class="memdesc:a13cdbf0b321d0a5362ffac381ffae479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispara um torpedo atingindo todas as colunas da linha especificada.  <br /></td></tr>
+<tr class="separator:a13cdbf0b321d0a5362ffac381ffae479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa867891c21fa5556ab0cc6843eda93f" id="r_afa867891c21fa5556ab0cc6843eda93f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structGameController_1_1FireResult.html">FireResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameController.html#afa867891c21fa5556ab0cc6843eda93f">fire</a> (<a class="el" href="classBoard.html">Board</a> &amp;enemy, std::vector&lt; <a class="el" href="classShip.html">Ship</a> &gt; &amp;enemyShips, int row, int col)</td></tr>
+<tr class="memdesc:afa867891c21fa5556ab0cc6843eda93f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processa um disparo da arma atualmente selecionada contra o tabuleiro e a frota inimiga, cobrindo de uma vez todas as células afetadas (diferente de fireBasic/fireMissile/fireTorpedo, que só atualizam o <a class="el" href="classBoard.html" title="Gerencia o tabuleiro do jogo de Batalha Naval.">Board</a> — aqui o dano também é propagado para os <a class="el" href="classShip.html" title="Gerencia o estado e as peças de um único navio.">Ship</a> da frota, para a tela de jogo saber quando um navio afunda).  <br /></td></tr>
+<tr class="separator:afa867891c21fa5556ab0cc6843eda93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Converte cliques do mouse em coordenadas de tabuleiro (linha, coluna). </p>
+<p>O <a class="el" href="classGameController.html" title="Converte cliques do mouse em coordenadas de tabuleiro (linha, coluna).">GameController</a> não processa regras de jogo nem desenha nada — ele só traduz posições de tela (pixels) para posições de matriz, usando os mesmos parâmetros de tamanho/deslocamento que o <a class="el" href="classBoardRenderer.html" title="Responsável por desenhar o tabuleiro na tela usando SFML.">BoardRenderer</a> usa para desenhar, garantindo que clique e desenho fiquem sincronizados. </p><dl class="section author"><dt>Autor</dt><dd>Gabi </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>1.1 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>17/07/2026 </dd></dl>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a68b3687443cefdec918fbdc92e718fd7" name="a68b3687443cefdec918fbdc92e718fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b3687443cefdec918fbdc92e718fd7">&#9670;&#160;</a></span>GameController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameController::GameController </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>cellSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>offsetX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>offsetY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constrói o controller com os mesmos parâmetros visuais do tabuleiro. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cellSize</td><td>Tamanho em pixels de cada célula (deve bater com o <a class="el" href="classBoardRenderer.html" title="Responsável por desenhar o tabuleiro na tela usando SFML.">BoardRenderer</a>). </td></tr>
+    <tr><td class="paramname">offsetX</td><td>Deslocamento horizontal onde o tabuleiro começa na tela. </td></tr>
+    <tr><td class="paramname">offsetY</td><td>Deslocamento vertical onde o tabuleiro começa na tela. </td></tr>
+    <tr><td class="paramname">rows</td><td>Número de linhas do tabuleiro (para validar limites). </td></tr>
+    <tr><td class="paramname">cols</td><td>Número de colunas do tabuleiro (para validar limites). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="ae02df1997fe2ef61a0cc16aa330fc307" name="ae02df1997fe2ef61a0cc16aa330fc307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02df1997fe2ef61a0cc16aa330fc307">&#9670;&#160;</a></span>awardRandomWeapon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8">WeaponType</a> GameController::awardRandomWeapon </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Concede ao jogador uma arma especial escolhida aleatoriamente entre míssil e torpedo, incrementando o estoque correspondente. </p>
+<p>Chamado pela tela de jogo sempre que o jogador afunda um navio inimigo — é assim que o jogador "ganha" acesso às armas especiais, que começam zeradas. </p><dl class="section return"><dt>Retorna</dt><dd>O WeaponType sorteado (MISSILE ou TORPEDO), para a tela de jogo poder montar a mensagem "Voce ganhou 1 missil/torpedo!". </dd></dl>
+
+</div>
+</div>
+<a id="afa867891c21fa5556ab0cc6843eda93f" name="afa867891c21fa5556ab0cc6843eda93f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa867891c21fa5556ab0cc6843eda93f">&#9670;&#160;</a></span>fire()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGameController_1_1FireResult.html">GameController::FireResult</a> GameController::fire </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBoard.html">Board</a> &amp;&#160;</td>
+          <td class="paramname"><em>enemy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classShip.html">Ship</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>enemyShips</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Processa um disparo da arma atualmente selecionada contra o tabuleiro e a frota inimiga, cobrindo de uma vez todas as células afetadas (diferente de fireBasic/fireMissile/fireTorpedo, que só atualizam o <a class="el" href="classBoard.html" title="Gerencia o tabuleiro do jogo de Batalha Naval.">Board</a> — aqui o dano também é propagado para os <a class="el" href="classShip.html" title="Gerencia o estado e as peças de um único navio.">Ship</a> da frota, para a tela de jogo saber quando um navio afunda). </p>
+<p>Consome a munição da arma usada (se especial) e volta a seleção para BASIC, assim como <a class="el" href="classGameController.html#a0168d3ee78189cea5ba80c07273a0041" title="Dispara um míssil atingindo um quadrante 2x2 a partir da célula clicada.">fireMissile()</a>/fireTorpedo(). </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enemy</td><td>Tabuleiro do adversário. </td></tr>
+    <tr><td class="paramname">enemyShips</td><td>Frota do adversário, para propagar dano e detectar afundamentos. </td></tr>
+    <tr><td class="paramname">row</td><td>Linha clicada (âncora do disparo). </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna clicada (âncora do disparo). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="structGameController_1_1FireResult.html" title="Resultado consolidado de um disparo processado por fire(), já cobrindo todas as células afetadas pela...">FireResult</a> com acertos, erros e navios afundados neste disparo. </dd></dl>
+
+</div>
+</div>
+<a id="aeeb8c761f807c2a512c1c4a2c1c80427" name="aeeb8c761f807c2a512c1c4a2c1c80427"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeb8c761f807c2a512c1c4a2c1c80427">&#9670;&#160;</a></span>fireBasic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Board_8h.html#ad5292c4e76abc657b113de5594268aa9">CellState</a> GameController::fireBasic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBoard.html">Board</a> &amp;&#160;</td>
+          <td class="paramname"><em>enemy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executa um disparo básico em uma única célula do tabuleiro inimigo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enemy</td><td>Referência ao tabuleiro do adversário. </td></tr>
+    <tr><td class="paramname">row</td><td>Linha do alvo. </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna do alvo. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>CellState com o resultado do disparo (HIT, WATER, etc.). </dd></dl>
+
+</div>
+</div>
+<a id="a0168d3ee78189cea5ba80c07273a0041" name="a0168d3ee78189cea5ba80c07273a0041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0168d3ee78189cea5ba80c07273a0041">&#9670;&#160;</a></span>fireMissile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameController::fireMissile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBoard.html">Board</a> &amp;&#160;</td>
+          <td class="paramname"><em>enemy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dispara um míssil atingindo um quadrante 2x2 a partir da célula clicada. </p>
+<p>Consome 1 míssil do estoque e reseta a arma selecionada para BASIC. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enemy</td><td>Referência ao tabuleiro do adversário. </td></tr>
+    <tr><td class="paramname">row</td><td>Linha inicial (canto superior esquerdo da área 2x2). </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna inicial (canto superior esquerdo da área 2x2). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Quantidade de acertos em navios (HIT) gerados pelo ataque. </dd></dl>
+
+</div>
+</div>
+<a id="a13cdbf0b321d0a5362ffac381ffae479" name="a13cdbf0b321d0a5362ffac381ffae479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13cdbf0b321d0a5362ffac381ffae479">&#9670;&#160;</a></span>fireTorpedo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameController::fireTorpedo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBoard.html">Board</a> &amp;&#160;</td>
+          <td class="paramname"><em>enemy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dispara um torpedo atingindo todas as colunas da linha especificada. </p>
+<p>Consome 1 torpedo do estoque e reseta a arma selecionada para BASIC. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enemy</td><td>Referência ao tabuleiro do adversário. </td></tr>
+    <tr><td class="paramname">row</td><td>Linha a ser atacada por completo. </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna clicada (mantida para alinhamento de interface). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Quantidade de acertos em navios (HIT) gerados ao longo da linha. </dd></dl>
+
+</div>
+</div>
+<a id="a2a9b00a550701603024e8399bc67f640" name="a2a9b00a550701603024e8399bc67f640"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a9b00a550701603024e8399bc67f640">&#9670;&#160;</a></span>getMissilesLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameController::getMissilesLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a quantidade de mísseis restantes no estoque. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Número de mísseis disponíveis. </dd></dl>
+
+</div>
+</div>
+<a id="a66514d16fe05dd380138fc808e475c38" name="a66514d16fe05dd380138fc808e475c38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66514d16fe05dd380138fc808e475c38">&#9670;&#160;</a></span>getSelectedWeapon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8">WeaponType</a> GameController::getSelectedWeapon </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a arma atualmente selecionada pelo jogador. </p>
+<dl class="section return"><dt>Retorna</dt><dd>WeaponType selecionado no momento. </dd></dl>
+
+</div>
+</div>
+<a id="abb61f2ae9e56a773ccff42bac6191273" name="abb61f2ae9e56a773ccff42bac6191273"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb61f2ae9e56a773ccff42bac6191273">&#9670;&#160;</a></span>getTorpedoesLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameController::getTorpedoesLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a quantidade de torpedos restantes no estoque. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Número de torpedos disponíveis. </dd></dl>
+
+</div>
+</div>
+<a id="ac19f0ea10d26392b938c8fc86e3e958e" name="ac19f0ea10d26392b938c8fc86e3e958e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac19f0ea10d26392b938c8fc86e3e958e">&#9670;&#160;</a></span>screenToBoardCoord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameController::screenToBoardCoord </td>
+          <td>(</td>
+          <td class="paramtype">sf::Vector2i&#160;</td>
+          <td class="paramname"><em>mousePos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>outRow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>outCol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte uma posição de clique (em pixels) para coordenada de matriz. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mousePos</td><td>Posição do clique em pixels, geralmente vinda de sf::Mouse::getPosition(window). </td></tr>
+    <tr><td class="paramname">outRow</td><td>Referência onde a linha calculada será armazenada, se o clique for válido. </td></tr>
+    <tr><td class="paramname">outCol</td><td>Referência onde a coluna calculada será armazenada, se o clique for válido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o clique caiu dentro dos limites do tabuleiro; false caso contrário. </dd></dl>
+
+</div>
+</div>
+<a id="a522d49654a5fcaffaadda83c6ff36b69" name="a522d49654a5fcaffaadda83c6ff36b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a522d49654a5fcaffaadda83c6ff36b69">&#9670;&#160;</a></span>selectWeapon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameController::selectWeapon </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="GameController_8h.html#a095ae9be41c95cab0ceb95c6dae270b8">WeaponType</a>&#160;</td>
+          <td class="paramname"><em>weapon</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define a arma selecionada para o próximo disparo. </p>
+<p>Só altera a seleção para armas especiais se houver munição disponível no estoque. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">weapon</td><td>Tipo de arma a ser selecionada (BASIC, MISSILE ou TORPEDO). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>include/controller/<a class="el" href="GameController_8h_source.html">GameController.h</a></li>
+<li>src/controller/<a class="el" href="GameController_8cpp.html">GameController.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

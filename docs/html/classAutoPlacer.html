@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Batalha Naval: Referência da Classe AutoPlacer</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Batalha Naval
+   </div>
+   <div id="projectbrief">Jogo de Batalha Naval desenvolvido em C++ para a disciplina de Paradigmas de Linguagens de Programação.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Membros públicos estáticos</a> &#124;
+<a href="classAutoPlacer-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe AutoPlacer</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Responsável pelo posicionamento automático dos navios.  
+ <a href="classAutoPlacer.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="AutoPlacer_8h_source.html">AutoPlacer.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Membros públicos estáticos</h2></td></tr>
+<tr class="memitem:a57f64e82f8dbb86b77157f958588294d" id="r_a57f64e82f8dbb86b77157f958588294d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAutoPlacer.html#a57f64e82f8dbb86b77157f958588294d">place</a> (<a class="el" href="classBoard.html">Board</a> &amp;board, std::vector&lt; <a class="el" href="classShip.html">Ship</a> &gt; &amp;ships)</td></tr>
+<tr class="memdesc:a57f64e82f8dbb86b77157f958588294d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posiciona automaticamente todos os navios no tabuleiro.  <br /></td></tr>
+<tr class="separator:a57f64e82f8dbb86b77157f958588294d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Responsável pelo posicionamento automático dos navios. </p>
+<p>A classe <a class="el" href="classAutoPlacer.html" title="Responsável pelo posicionamento automático dos navios.">AutoPlacer</a> realiza o posicionamento aleatório dos navios no tabuleiro, sem necessidade de interação manual do jogador.</p>
+<p>Para cada navio, são sorteadas uma posição inicial e uma orientação. A posição é validada utilizando <a class="el" href="classBoard.html#ab15d86c314e7c769660c4b3410b60b17" title="Verifica se um navio pode ser posicionado na posição escolhida.">Board::canPlace()</a>. Caso seja válida, o navio é inserido no tabuleiro através de <a class="el" href="classBoard.html#aa6bef5a0af7f6e73855ee7b2377c774c" title="Posiciona um navio no tabuleiro.">Board::placeShip()</a>.</p>
+<p>O processo é repetido até que todos os navios sejam posicionados ou o limite máximo de tentativas seja atingido.</p>
+<dl class="section author"><dt>Autor</dt><dd>Horlan Lacerda </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>22/07/2026 </dd></dl>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a57f64e82f8dbb86b77157f958588294d" name="a57f64e82f8dbb86b77157f958588294d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f64e82f8dbb86b77157f958588294d">&#9670;&#160;</a></span>place()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AutoPlacer::place </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBoard.html">Board</a> &amp;&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classShip.html">Ship</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ships</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Posiciona automaticamente todos os navios no tabuleiro. </p>
+<p>Implementação do posicionamento automático dos navios.</p>
+<p>Limpa o tabuleiro antes de iniciar o posicionamento e, para cada navio, tenta encontrar aleatoriamente uma posição válida. A posição e a orientação são sorteadas até que o posicionamento seja válido ou o limite máximo de tentativas seja atingido.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>Tabuleiro onde os navios serão posicionados. </td></tr>
+    <tr><td class="paramname">ships</td><td>Vetor contendo os navios que deverão ser posicionados.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se todos os navios forem posicionados com sucesso; </dd>
+<dd>
+false se algum navio não puder ser posicionado dentro do limite máximo de tentativas;</dd></dl>
+<p>A classe <a class="el" href="classAutoPlacer.html" title="Responsável pelo posicionamento automático dos navios.">AutoPlacer</a> é responsável por realizar o posicionamento automático dos navios no tabuleiro. Para cada navio, uma posição e uma orientação são escolhidas aleatoriamente e validadas por meio das regras definidas pela classe <a class="el" href="classBoard.html" title="Gerencia o tabuleiro do jogo de Batalha Naval.">Board</a>.</p>
+<p>O posicionamento é realizado somente quando a posição sorteada é válida, respeitando os limites do tabuleiro, as restrições de terreno e a distância mínima entre os navios.</p>
+<p>Caso não seja possível posicionar um navio após um número máximo de tentativas, o processo é interrompido e o método retorna false.</p>
+<dl class="section author"><dt>Autor</dt><dd>Horlan Lacerda </dd></dl>
+<dl class="section since"><dt>Desde</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>22/07/2026</dd></dl>
+<p>Realiza o posicionamento automático dos navios.</p>
+<p>O método limpa o tabuleiro e tenta posicionar cada navio em uma posição aleatória, escolhendo também aleatoriamente entre as orientações horizontal e vertical.</p>
+<p>Antes de realizar o posicionamento, a posição sorteada é validada pelo método <a class="el" href="classBoard.html#ab15d86c314e7c769660c4b3410b60b17" title="Verifica se um navio pode ser posicionado na posição escolhida.">Board::canPlace()</a>. Quando a posição é válida, o navio é registrado no tabuleiro por meio de <a class="el" href="classBoard.html#aa6bef5a0af7f6e73855ee7b2377c774c" title="Posiciona um navio no tabuleiro.">Board::placeShip()</a>.</p>
+<p>Cada navio possui um limite máximo de tentativas para evitar que o programa entre em um loop infinito caso não exista uma posição válida disponível.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>Tabuleiro onde os navios serão posicionados. </td></tr>
+    <tr><td class="paramname">ships</td><td>Vetor contendo os navios que deverão ser posicionados.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se todos os navios forem posicionados com sucesso. </dd>
+<dd>
+false se algum navio não puder ser posicionado após o número mácimo de tentativas. </dd></dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>include/controller/<a class="el" href="AutoPlacer_8h_source.html">AutoPlacer.h</a></li>
+<li>src/controller/<a class="el" href="AutoPlacer_8cpp.html">AutoPlacer.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

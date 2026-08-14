@@ -1,0 +1,21 @@
+<map id="src/view/InstructionsScreen.cpp" name="src/view/InstructionsScreen.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="305,5,532,31"/>
+<area shape="rect" id="Node000002" href="$InstructionsScreen_8h.html" title=" " alt="" coords="5,79,195,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="368,33,165,78,164,73,367,28"/>
+<area shape="rect" id="Node000004" href="$UiTheme_8h.html" title=" " alt="" coords="219,79,344,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="398,33,317,75,315,70,395,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="345,152,404,177"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="418,32,385,140,380,138,413,30"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="419,79,493,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="427,30,446,65,441,68,422,32"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="518,79,605,104"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="443,28,527,70,525,75,440,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="629,79,691,104"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="458,28,616,74,615,79,457,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="52,152,199,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,103,119,138,114,140,102,105"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="257,106,164,149,162,144,255,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="248,152,315,177"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="284,104,284,138,279,138,279,104"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="298,102,350,141,347,146,295,106"/>
+</map>

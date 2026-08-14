@@ -1,0 +1,12 @@
+<map id="include/view/RankingScreen.h" name="include/view/RankingScreen.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="81,5,298,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,152,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,33,110,73,107,69,170,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="160,152,219,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,31,192,138,187,138,187,31"/>
+<area shape="rect" id="Node000004" href="$Database_8h.html" title=" " alt="" coords="227,79,323,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,29,252,68,249,72,201,33"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="263,106,215,145,212,141,259,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="243,152,306,177"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="277,104,277,138,272,138,272,104"/>
+</map>

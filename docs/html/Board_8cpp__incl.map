@@ -1,0 +1,9 @@
+<map id="src/model/Board.cpp" name="src/model/Board.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="16,5,171,31"/>
+<area shape="rect" id="Node000002" href="$Board_8h.html" title=" " alt="" coords="5,79,77,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,33,60,69,56,66,83,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="102,79,189,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="104,29,131,66,127,69,100,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="10,152,73,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="44,104,44,138,39,138,39,104"/>
+</map>

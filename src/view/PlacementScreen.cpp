@@ -1,0 +1,349 @@
+#include "view/PlacementScreen.h"
+#include "utils/UiTheme.h"
+#include "AutoPlacer.h"
+#include <iostream>
+#include <stdexcept>
+#include <string>
+
+namespace {
+
+// Altura reservada no topo para o titulo e o status da frota (ver
+// PlacementScreen::render), antes do inicio do tabuleiro.
+constexpr float kHeaderZone = 130.f;
+
+// Centraliza o tabuleiro verticalmente no espaco abaixo do cabecalho, em vez
+// de fixa-lo logo abaixo dele: assim mapas menores (ex.: Acude 5x5) nao ficam
+// "grudados" no topo com um vao vazio grande embaixo.
+float computeOffsetY(int rows, float cellSize) {
+    const float availableHeight = static_cast<float>(ui::kWindowHeight) - kHeaderZone;
+    return kHeaderZone + (availableHeight - rows * cellSize) / 2.f;
+}
+
+// Botao "Embaralhar", centralizado horizontalmente abaixo do titulo/status —
+// fora do alcance do tabuleiro em qualquer mapa (o tabuleiro so comeca a
+// partir de offsetY >= 240, bem abaixo do botao).
+constexpr float kShuffleButtonWidth = 200.f;
+constexpr float kShuffleButtonHeight = 44.f;
+constexpr float kShuffleButtonTop = 116.f;
+
+sf::FloatRect shuffleButtonBounds() {
+    const float x = (static_cast<float>(ui::kWindowWidth) - kShuffleButtonWidth) / 2.f;
+    return sf::FloatRect({x, kShuffleButtonTop}, {kShuffleButtonWidth, kShuffleButtonHeight});
+}
+
+}
+
+/**
+ * @brief Implementação da tela de posicionamento manual dos navios.
+ * 
+ * @details Contém a implemetação dos métodos responsáveis por:
+ * - Processar eventos da janela;
+ * - Atualizar o estado do posicionamento;
+ * - Renderizar o tabuleiro;
+ * - Exibir o preview do navio que está sendo posicionado.
+ * 
+ * @author Horlan Lacerda
+ * @version 1.0
+ * @date 22/07/2026
+ */
+
+/**
+ * @brief Construtor da tela de posicionamento manual.
+ * 
+ * @details Inicializa a tela de posicionamento associando-a à janela principal,
+ * ao tabuleiro e à frota de navios. Também inicializa os componentes
+ * responsáveis pela renderização do tabuleiro e pela conversão das
+ * coordenadas do mouse para coordenadas da matriz.
+ * 
+ * O posicionamento inicial do cursor é definido como inválido e o primeiro
+ * navio da frota é selecionado para posicionamento na orientação horizontal.
+ * 
+ * @param window Referência para a janela principal da aplicação.
+ * @param board Referência para o tabuleiro utilizado durante o posicionamento.
+ * @param ships Referência para o vetor contendo os navios da partida.
+ */
+PlacementScreen::PlacementScreen(sf::RenderWindow& window, Board& board, std::vector<Ship>& ships) // O "&" significa passar o objeto original sem criar uma cópia.
+                                                                                                   // Além disso, em C++, atributos que são referências (&) ou objetos 
+                                                                                                   // complexos devem ser inicializados aqui antes do corpo {} do 
+                                                                                                   // construtor executar.
+    : window(window),
+      board(board),
+      ships(ships),
+      cellSize(40.f),
+      // Centraliza o tabuleiro horizontalmente conforme o numero de colunas do
+      // mapa escolhido e a largura fixa da janela (ui::kWindowWidth).
+      offsetX((static_cast<float>(ui::kWindowWidth) - board.getCols() * cellSize) / 2.f),
+      // Centraliza verticalmente no espaco abaixo do titulo/status da frota.
+      offsetY(computeOffsetY(board.getRows(), cellSize)),
+      boardRenderer(window, cellSize, offsetX, offsetY),
+      gameController(cellSize, offsetX, offsetY, board.getRows(), board.getCols()),
+      previewRow(-1),
+      previewCol(-1),
+      previewValid(false),
+      horizontal(true),
+      currentShip(0)
+    {
+        if (!font.openFromFile("assets/fonts/Roboto-Regular.ttf"))
+            throw std::runtime_error("Fonte nao encontrada: assets/fonts/Roboto-Regular.ttf");
+    }
+
+/**
+ * @brief Executa o loop principal da tela de posicionamento.
+ * 
+ * @details Mantém a tela ativa enquanto a janela estiver aberta e ainda
+ * existirem navios pendentes de posicionamento.
+ * 
+ * A cada iteração são executadas três etapas:
+ * - Processamento dos eventos de entrada do usuário.
+ * - Atualização do estado do preview do navio. 
+ * - Renderização do estado atual da tela.
+ * 
+ * O loop é encerrado quando a janela é fechada ou quando todos os navios
+ * da frota foram posicionados no tabuleiro.
+ */
+void PlacementScreen::run(){
+    while(window.isOpen() && currentShip < static_cast<int>(ships.size())){
+        processEvents();
+        update();
+        render();
+    }
+}
+
+/**
+ * @brief Processa os eventos de entrada do usuário.
+ * 
+ * @details Trata os eventos relacionados à janela e à interação do jogador
+ * durante o posicionamento dos navios.
+ * 
+ * Os eventos processados são:
+ * - Fechamento da janela.
+ * - Movimentação do mouse sobre o tabuleiro.
+ * - Clique com o botão direito para alternar a orientação do navio.
+ * - Clique com o botão esquerdo para tentar posicionar o navio.
+ * 
+ * A posição do mouse é convertida de coordenadas da tela para coordenadas
+ * do tabuleiro por meio do GameController.
+ * 
+ * O posicionamento somente é realizado quando a posição escolhida é válida
+ * segundo as regras definidas pelo Board.
+ */
+void PlacementScreen::processEvents(){
+    while(const std::optional event = window.pollEvent()){
+
+        // Verifica se o evento atual é do tipo "fechar janela"
+        if(event->is<sf::Event::Closed>()){
+            window.close();
+            return;
+        }
+
+        // Processa a movimentação do mouse.
+        if(const auto* mouseMoved = event->getIf<sf::Event::MouseMoved>()){
+            sf::Vector2i mousePos(mouseMoved->position.x, mouseMoved->position.y);
+            gameController.screenToBoardCoord(mousePos, previewRow, previewCol);
+        }
+
+        // Processa os cliques dos botões do mouse.
+        if(const auto* mousePressed = event->getIf<sf::Event::MouseButtonPressed>()){
+
+            // Botão direito: alterna entre orientação horizontal e vertical.
+            if(mousePressed->button == sf::Mouse::Button::Right){
+                horizontal = !horizontal;
+            }
+
+            // Botão esquerdo: clique no botão "Embaralhar" ou tenta posicionar o navio.
+            if(mousePressed->button == sf::Mouse::Button::Left){
+                sf::Vector2f clickPos{(float)mousePressed->position.x, (float)mousePressed->position.y};
+
+                if (shuffleButtonBounds().contains(clickPos)) {
+                    shuffleFleet();
+                } else {
+                    int row, col;
+                    sf::Vector2i mousePos(mousePressed->position.x, mousePressed->position.y);
+
+                    // Verifica se o clique corresponde a uma célula válida.
+                    if (gameController.screenToBoardCoord(mousePos, row, col)) {
+
+                        // Solicita ao Board a validação e o posicionamento.
+                        if (board.placeShip(row, col, ships[currentShip].getSize(), horizontal)) {
+
+                            ships[currentShip].setPosition(row, col, horizontal);
+
+                            // Avança para o próximo navio da frota.
+                            currentShip++;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Desfazer / reposicionar navio -> Tecla R
+        if(const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()){
+            if(keyPressed->code == sf::Keyboard::Key::R && currentShip > 0){
+                
+                currentShip--; // volta ao navio anterior;
+
+                // Remove do tabuleiro a representação do navio anterior
+                board.removeShip(
+                    ships[currentShip].getStartRow(),
+                    ships[currentShip].getStartCol(),
+                    ships[currentShip].getSize(),
+                    ships[currentShip].isHorizontal()
+                );
+            }
+        }
+    }
+}
+
+/**
+ * @brief Atualiza o estado lógico do preview do navio atual.
+ * 
+ * @details Verifica se o navio atualmente selecionado pode ser colocado
+ * na posição indicada pelo cursor do mouse, considerando seu tamanho,
+ * orientação, limites do tabuleiro e possíveis conflitos com outros navios
+ * ou terrenos.
+ * 
+ * A validação é realizada pelo método Board::canPlace().
+ * 
+ * Quando o cursor não está sobre uma posição válida do tabuleiro,
+ * o preview é considerado inválido.
+ */
+void PlacementScreen::update(){
+
+    // Verifica se todos os navios já foram posicionados. 
+    if (currentShip >= static_cast<int>(ships.size())) {
+        return;
+    }
+
+    // Verifica se o cursor está sobre uma célula válida.
+    if (previewRow != -1 && previewCol != -1) {
+        int shipSize = ships[currentShip].getSize();
+        previewValid = board.canPlace(previewRow, previewCol, shipSize, horizontal);
+    } else {
+        previewValid = false;
+    }
+}
+
+/**
+ * @brief Renderiza os elementos gráficos da tela.
+ * 
+ * @details Limpa a janela, desenha o tabuleiro com o estado atual dos
+ * navios já posicionados e, enquanto houver navios pendentes, desenha
+ * o preview do navio atualmente selecionado.
+ * 
+ * O preview é desenhado sobre o tabuleiro para fornecer ao jogador
+ * uma representação visual da posição em que o navio será colocado.
+ */
+void PlacementScreen::render(){
+    window.clear(ui::kSkyTop);
+    ui::drawChartGrid(window);
+
+    const float centerX = static_cast<float>(window.getSize().x) / 2.f;
+    ui::drawCenteredText(window, font, "POSICIONE SUA FROTA", centerX, 46.f, 30, ui::kGold, 1.6f);
+
+    const std::string status = (currentShip < static_cast<int>(ships.size()))
+        ? "Navio " + std::to_string(currentShip + 1) + "/" + std::to_string(ships.size()) +
+          " - " + ships[currentShip].getTypeName() + " (" + (horizontal ? "Horizontal" : "Vertical") + ")" +
+          "   |   Clique: posicionar   Botao direito: girar   Botao R: desfazer"
+        : "Frota posicionada!";
+    ui::drawCenteredText(window, font, status, centerX, 86.f, 13, ui::withAlpha(ui::kInkSoft, 200.f), 1.2f);
+
+    // Desenha o tabuleiro escondendo os blocos genéricos de navio: os cascos
+    // desenhados abaixo substituem essa representação por algo mais bonito.
+    boardRenderer.draw(board, true);
+
+    // Desenha os navios já confirmados no tabuleiro.
+    for (int i = 0; i < currentShip; i++) {
+        drawShipHull(ships[i].getStartRow(), ships[i].getStartCol(), ships[i].getSize(),
+                    ships[i].isHorizontal(), sf::Color(70, 150, 210), sf::Color(160, 210, 235), 255);
+    }
+
+    // Desenha o preview visual do navio sob o cursor antes de colocar
+    if (currentShip < static_cast<int>(ships.size())) {
+        drawPreview();
+    }
+
+    const sf::Vector2i mouse = sf::Mouse::getPosition(window);
+    const sf::Vector2f cursor{(float)mouse.x, (float)mouse.y};
+    drawShuffleButton(shuffleButtonBounds().contains(cursor));
+
+    ui::drawHudFrame(window);
+    window.display();
+}
+
+/**
+ * @brief Sorteia posições aleatórias para toda a frota via AutoPlacer,
+ * descartando qualquer progresso manual ja feito.
+ */
+void PlacementScreen::shuffleFleet() {
+    if (AutoPlacer::place(board, ships)) {
+        currentShip = static_cast<int>(ships.size());
+    }
+}
+
+/**
+ * @brief Desenha o botão "Embaralhar", no mesmo estilo de painel usado
+ * pelos botões do MenuScreen (kPanel/kPanelHot + borda dourada no hover).
+ */
+void PlacementScreen::drawShuffleButton(bool hovered) {
+    const sf::FloatRect area = shuffleButtonBounds();
+
+    sf::RectangleShape plate(area.size);
+    plate.setPosition(area.position);
+    plate.setFillColor(ui::withAlpha(hovered ? ui::kPanelHot : ui::kPanel, 226.f));
+    plate.setOutlineThickness(2.f);
+    plate.setOutlineColor(hovered ? ui::kGold : ui::withAlpha(ui::kInkSoft, 110.f));
+    window.draw(plate);
+
+    ui::drawCenteredText(window, font, "EMBARALHAR", area.position.x + area.size.x / 2.f,
+                         area.position.y + 13.f, 15, hovered ? sf::Color::White : ui::kInk, 1.3f);
+}
+
+/**
+ * @brief Desenha o preview visual do navio atual.
+ *
+ * @details O preview acompanha a posição do cursor do mouse e representa
+ * visualmente todas as células que seriam ocupadas pelo navio.
+ *
+ * A cor do preview indica a validade da posição:
+ * - Verde: o navio pode ser colocado na posição.
+ * - Vermelho: o navio não pode ser colocado na posição.
+ *
+ * A orientação do preview depende do estado atual da variável horizontal.
+ * Quando horizontal é true, as células ocupadas avançam pelas colunas.
+ * Quando horizontal é false, as células ocupadas avançam pelas linhas.
+ *
+ * @note O preview possui finalidade exclusivamente visual e não modifica
+ * o estado do Board ou dos objetos Ship.
+ */
+void PlacementScreen::drawPreview(){
+    if(previewRow < 0 || previewCol < 0) return;
+
+    const int shipSize = ships[currentShip].getSize();
+
+    const sf::Color hullColor = previewValid ? sf::Color(80, 220, 150) : sf::Color(220, 90, 90);
+    const sf::Color deckColor = previewValid ? sf::Color(180, 245, 210) : sf::Color(245, 175, 175);
+
+    // Opacidade reduzida (140/255) para deixar claro que a posição ainda não
+    // foi confirmada, na mesma cor de casco/convés usada nos navios já colocados.
+    drawShipHull(previewRow, previewCol, shipSize, horizontal, hullColor, deckColor, 140);
+}
+
+/**
+ * @brief Desenha o casco de um navio no formato de cápsula, delegando o
+ * desenho em si para ui::drawShipHull (compartilhado com o MenuScreen).
+ * Aqui só convertemos a posição em célula (linha/coluna) para o centro em
+ * pixels de cada extremidade do navio.
+ */
+void PlacementScreen::drawShipHull(int startRow, int startCol, int size, bool shipHorizontal,
+                                    sf::Color hullColor, sf::Color deckColor, std::uint8_t alpha) const {
+    const float margin = 5.f;
+    const float radius = cellSize / 2.f - margin;
+
+    const sf::Vector2f startCenter{offsetX + startCol * cellSize + cellSize / 2.f,
+                                    offsetY + startRow * cellSize + cellSize / 2.f};
+    const sf::Vector2f endCenter = shipHorizontal
+        ? sf::Vector2f{offsetX + (startCol + size - 1) * cellSize + cellSize / 2.f, startCenter.y}
+        : sf::Vector2f{startCenter.x, offsetY + (startRow + size - 1) * cellSize + cellSize / 2.f};
+
+    ui::drawShipHull(window, startCenter, endCenter, shipHorizontal, radius, hullColor, deckColor, size, alpha);
+}
